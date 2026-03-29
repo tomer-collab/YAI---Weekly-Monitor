@@ -22,6 +22,8 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 14px; line-height: 1.5; }
+
+  /* Layout */
   .header { background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; }
   .header-left h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
   .header-left h1 span { background: linear-gradient(90deg, #4f7cff, #7c5cff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -29,7 +31,10 @@
   .header-right { text-align: right; }
   .header-right .date { font-size: 13px; color: var(--muted); }
   .header-right .period { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
   .container { padding: 28px 32px; max-width: 1400px; margin: 0 auto; }
+
+  /* KPI cards */
   .kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-bottom: 28px; }
   .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 16px; }
   .kpi .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 8px; }
@@ -40,9 +45,13 @@
   .kpi.yellow .value { color: var(--yellow); }
   .kpi.orange .value { color: var(--orange); }
   .kpi.blue .value { color: var(--accent); }
+
+  /* Section */
   .section { margin-bottom: 28px; }
   .section-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
   .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* Tables */
   .table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
   table { width: 100%; border-collapse: collapse; }
   th { background: var(--surface2); padding: 10px 14px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--border); }
@@ -50,29 +59,48 @@
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: var(--surface2); }
   .num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Badges */
   .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
-  .badge-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .badge-red    { background: rgba(239,68,68,0.15);  color: var(--red); }
   .badge-yellow { background: rgba(245,158,11,0.15); color: var(--yellow); }
-  .badge-green { background: rgba(34,197,94,0.15); color: var(--green); }
+  .badge-green  { background: rgba(34,197,94,0.15);  color: var(--green); }
   .badge-orange { background: rgba(249,115,22,0.15); color: var(--orange); }
-  .badge-blue { background: rgba(79,124,255,0.15); color: var(--accent); }
+  .badge-blue   { background: rgba(79,124,255,0.15); color: var(--accent); }
+
+  /* Occ bar */
   .occ-bar { display: flex; align-items: center; gap: 8px; }
   .bar-bg { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 3px; }
   .bar-fill.high { background: var(--green); }
-  .bar-fill.med { background: var(--yellow); }
-  .bar-fill.low { background: var(--red); }
+  .bar-fill.med  { background: var(--yellow); }
+  .bar-fill.low  { background: var(--red); }
   .bar-pct { font-size: 12px; font-weight: 600; min-width: 34px; text-align: right; }
+
+  /* Alert rows */
   .alert-row td:first-child { border-left: 3px solid var(--red); }
-  .warn-row td:first-child { border-left: 3px solid var(--yellow); }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .warn-row  td:first-child { border-left: 3px solid var(--yellow); }
+
+  /* Multi-col grid */
+  .two-col   { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .three-col { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; }
+
+  /* Footer */
   .footer { text-align: center; color: var(--muted); font-size: 12px; padding: 24px; border-top: 1px solid var(--border); margin-top: 8px; }
+
+  /* NOI positive/negative */
   .pos { color: var(--green); }
   .neg { color: var(--red); }
+
+  @media print {
+    body { background: white; color: #111; }
+    .kpi, .table-wrap { border: 1px solid #ddd; }
+    .header { background: #f8f9fa; }
+  }
 </style>
 </head>
 <body>
+
 <div class="header">
   <div class="header-left">
     <h1><span>YAI / VM Group</span> — Weekly Operations Monitor</h1>
@@ -83,146 +111,990 @@
     <div class="period">YTD Period: Jan 1 – Mar 29, 2026</div>
   </div>
 </div>
+
 <div class="container">
+
+  <!-- ── Portfolio KPIs ─────────────────────────────────────────────────── -->
   <div class="section-title">Portfolio Snapshot</div>
   <div class="kpi-grid">
-    <div class="kpi blue"><div class="label">Total Units</div><div class="value">149</div><div class="sub">Across 11 entities</div></div>
-    <div class="kpi yellow"><div class="label">Occupancy</div><div class="value">74%</div><div class="sub">110 / 149 occupied</div></div>
-    <div class="kpi green"><div class="label">Monthly Rent Roll</div><div class="value">$79K</div><div class="sub">$79,425 collected</div></div>
-    <div class="kpi red"><div class="label">Vacant Loss / Mo</div><div class="value">$38K</div><div class="sub">$38,713 lost to vacancy</div></div>
-    <div class="kpi orange"><div class="label">Total Delinquency</div><div class="value">$36K</div><div class="sub">$36,469 past due</div></div>
-    <div class="kpi green"><div class="label">YTD NOI</div><div class="value">$194K</div><div class="sub">$194,472 net income</div></div>
+    <div class="kpi blue">
+      <div class="label">Total Units</div>
+      <div class="value">149</div>
+      <div class="sub">Across 11 entities</div>
+    </div>
+    <div class="kpi yellow">
+      <div class="label">Occupancy</div>
+      <div class="value">73%</div>
+      <div class="sub">109 / 149 occupied</div>
+    </div>
+    <div class="kpi green">
+      <div class="label">Monthly Rent Roll</div>
+      <div class="value">$79,425</div>
+      <div class="sub">$79,425 collected</div>
+    </div>
+    <div class="kpi red">
+      <div class="label">Vacant Loss / Mo</div>
+      <div class="value">$38,713</div>
+      <div class="sub">$38,713 lost to vacancy</div>
+    </div>
+    <div class="kpi orange">
+      <div class="label">Total Delinquency</div>
+      <div class="value">$36,005</div>
+      <div class="sub">$36,005 past due</div>
+    </div>
+    <div class="kpi green">
+      <div class="label">YTD NOI</div>
+      <div class="value">$68,981</div>
+      <div class="sub">$68,981 net income</div>
+    </div>
   </div>
+
+  <!-- ── Entity Summary Table ───────────────────────────────────────────── -->
   <div class="section">
     <div class="section-title">Entity-by-Entity Summary</div>
-    <div class="table-wrap"><table>
-      <thead><tr>
-        <th>Entity</th><th class="num">Units</th><th>Occupancy</th>
-        <th class="num">Monthly Rent</th><th class="num">Vacant Loss/Mo</th>
-        <th class="num">Delinquency</th><th class="num">YTD Income</th>
-        <th class="num">YTD Expense</th><th class="num">YTD NOI</th>
-        <th class="num">Expired</th><th class="num">Expiring ≤60d</th>
-      </tr></thead>
-      <tbody>
-        <tr><td><strong>Memphis RE LLC</strong></td><td class="num">19</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill high" style="width:84%"></div></div><span class="bar-pct">84%</span></div></td><td class="num">$16,888</td><td class="num" style="color:var(--red)">$3,325</td><td class="num" style="color:var(--orange)">$3,030</td><td class="num">$57,974</td><td class="num">$21,981</td><td class="num pos">$35,993</td><td class="num"><span class="badge badge-yellow">1</span></td><td class="num"><span class="badge badge-yellow">1</span></td></tr>
-        <tr><td><strong>Memphis RE LLC2</strong></td><td class="num">10</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill high" style="width:90%"></div></div><span class="bar-pct">90%</span></div></td><td class="num">$4,794</td><td class="num" style="color:var(--red)">$1,350</td><td class="num" style="color:var(--orange)">$4,630</td><td class="num">$25,966</td><td class="num">$9,675</td><td class="num pos">$16,291</td><td class="num"><span class="badge badge-red">3</span></td><td class="num">—</td></tr>
-        <tr><td><strong>Memphis RE LLC 3</strong></td><td class="num">18</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill high" style="width:83%"></div></div><span class="bar-pct">83%</span></div></td><td class="num">$11,177</td><td class="num" style="color:var(--red)">$3,849</td><td class="num" style="color:var(--orange)">$3,026</td><td class="num">$57,875</td><td class="num">$25,845</td><td class="num pos">$32,030</td><td class="num"><span class="badge badge-yellow">2</span></td><td class="num"><span class="badge badge-yellow">1</span></td></tr>
-        <tr><td><strong>Memphis RE LLC 4</strong></td><td class="num">16</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill high" style="width:81%"></div></div><span class="bar-pct">81%</span></div></td><td class="num">$9,747</td><td class="num" style="color:var(--red)">$1,749</td><td class="num" style="color:var(--orange)">$1,106</td><td class="num">$44,325</td><td class="num">$20,387</td><td class="num pos">$23,939</td><td class="num"><span class="badge badge-yellow">1</span></td><td class="num">—</td></tr>
-        <tr><td><strong>Memphis RE LLC 5</strong></td><td class="num">13</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill med" style="width:77%"></div></div><span class="bar-pct">77%</span></div></td><td class="num">$4,050</td><td class="num" style="color:var(--red)">$3,649</td><td class="num" style="color:var(--yellow)">$189</td><td class="num">$40,847</td><td class="num">$10,482</td><td class="num pos">$30,364</td><td class="num">—</td><td class="num">—</td></tr>
-        <tr><td><strong>Memphis RE LLC 6</strong></td><td class="num">17</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill low" style="width:53%"></div></div><span class="bar-pct" style="color:var(--red)">53%</span></div></td><td class="num">$4,699</td><td class="num" style="color:var(--red)">$8,044</td><td class="num" style="color:var(--red)">$15,861</td><td class="num">$20,955</td><td class="num">$17,378</td><td class="num pos">$3,576</td><td class="num"><span class="badge badge-yellow">1</span></td><td class="num"><span class="badge badge-yellow">1</span></td></tr>
-        <tr><td><strong>Memphis RE LLC 7</strong></td><td class="num">30</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill med" style="width:80%"></div></div><span class="bar-pct">80%</span></div></td><td class="num">$15,521</td><td class="num" style="color:var(--red)">$7,398</td><td class="num" style="color:var(--orange)">$5,938</td><td class="num">$80,403</td><td class="num">$35,723</td><td class="num pos">$44,681</td><td class="num"><span class="badge badge-red">3</span></td><td class="num"><span class="badge badge-yellow">1</span></td></tr>
-        <tr><td><strong>Memphis RE LLC 8</strong></td><td class="num">12</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill low" style="width:58%"></div></div><span class="bar-pct" style="color:var(--red)">58%</span></div></td><td class="num">$6,949</td><td class="num" style="color:var(--red)">$4,999</td><td class="num" style="color:var(--orange)">$2,226</td><td class="num">$21,092</td><td class="num">$17,075</td><td class="num pos">$4,017</td><td class="num">—</td><td class="num"><span class="badge badge-yellow">1</span></td></tr>
-        <tr><td><strong>Memphis RE LLC 9</strong></td><td class="num">4</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill low" style="width:50%"></div></div><span class="bar-pct" style="color:var(--red)">50%</span></div></td><td class="num">$2,500</td><td class="num" style="color:var(--red)">$2,800</td><td class="num">—</td><td class="num">$5,473</td><td class="num">$6,818</td><td class="num neg">($1,345)</td><td class="num">—</td><td class="num">—</td></tr>
-        <tr><td><strong>Memphis RE LLC 10</strong></td><td class="num">5</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill high" style="width:80%"></div></div><span class="bar-pct">80%</span></div></td><td class="num">$3,100</td><td class="num" style="color:var(--red)">$1,550</td><td class="num">—</td><td class="num">$7,790</td><td class="num">$2,864</td><td class="num pos">$4,926</td><td class="num"><span class="badge badge-yellow">2</span></td><td class="num">—</td></tr>
-        <tr><td><strong>YAI</strong></td><td class="num">5</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill low" style="width:0%"></div></div><span class="bar-pct" style="color:var(--red)">0%</span></div></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num" style="color:var(--muted)">N/A</td><td class="num">—</td><td class="num">—</td></tr>
-        <tr style="background:var(--surface2);font-weight:700"><td>TOTAL</td><td class="num">149</td><td><div class="occ-bar"><div class="bar-bg"><div class="bar-fill med" style="width:74%"></div></div><span class="bar-pct" style="color:var(--yellow)">74%</span></div></td><td class="num">$79,425</td><td class="num" style="color:var(--red)">$38,713</td><td class="num" style="color:var(--orange)">$36,006</td><td class="num">$362,700</td><td class="num">$168,228</td><td class="num pos">$194,472</td><td class="num"><span class="badge badge-red">13</span></td><td class="num"><span class="badge badge-yellow">5</span></td></tr>
-      </tbody>
-    </table></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th class="num">Units</th>
+            <th>Occupancy</th>
+            <th class="num">Monthly Rent</th>
+            <th class="num">Vacant Loss/Mo</th>
+            <th class="num">Delinquency</th>
+            <th class="num">YTD Income</th>
+            <th class="num">YTD Expense</th>
+            <th class="num">YTD NOI</th>
+            <th class="num">Expired Leases</th>
+            <th class="num">Expiring ≤60d</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 8</strong></td>
+            <td class="num">12</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill low" style="width:58.3%"></div>
+                </div>
+                <span class="bar-pct neg">58.3%</span>
+              </div>
+            </td>
+            <td class="num">$6,949</td>
+            <td class="num" style="color:var(--red)">$4,999</td>
+            <td class="num" style="color:var(--orange)">$2,226</td>
+            <td class="num">$7,653</td>
+            <td class="num">$8,023</td>
+            <td class="num neg">($370)</td>
+            <td class="num">
+              —
+            </td>
+            <td class="num">
+              
+                <span class="badge badge-yellow">1</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 6</strong></td>
+            <td class="num">17</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill low" style="width:52.9%"></div>
+                </div>
+                <span class="bar-pct neg">52.9%</span>
+              </div>
+            </td>
+            <td class="num">$4,699</td>
+            <td class="num" style="color:var(--red)">$8,044</td>
+            <td class="num" style="color:var(--orange)">$15,861</td>
+            <td class="num">$6,350</td>
+            <td class="num">$6,760</td>
+            <td class="num neg">($410)</td>
+            <td class="num">
+              
+                <span class="badge badge-yellow">1</span>
+              
+            </td>
+            <td class="num">
+              
+                <span class="badge badge-yellow">1</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 5</strong></td>
+            <td class="num">13</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill med" style="width:76.9%"></div>
+                </div>
+                <span class="bar-pct ">76.9%</span>
+              </div>
+            </td>
+            <td class="num">$4,050</td>
+            <td class="num" style="color:var(--red)">$3,649</td>
+            <td class="num" style="color:var(--orange)">$189</td>
+            <td class="num">$14,839</td>
+            <td class="num">$3,614</td>
+            <td class="num pos">$11,225</td>
+            <td class="num">
+              —
+            </td>
+            <td class="num">
+              —
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC2</strong></td>
+            <td class="num">10</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill high" style="width:90.0%"></div>
+                </div>
+                <span class="bar-pct ">90.0%</span>
+              </div>
+            </td>
+            <td class="num">$4,794</td>
+            <td class="num" style="color:var(--red)">$1,350</td>
+            <td class="num" style="color:var(--orange)">$4,630</td>
+            <td class="num">$8,357</td>
+            <td class="num">$3,113</td>
+            <td class="num pos">$5,244</td>
+            <td class="num">
+              
+                <span class="badge badge-red">3</span>
+              
+            </td>
+            <td class="num">
+              —
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 4</strong></td>
+            <td class="num">16</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill med" style="width:81.2%"></div>
+                </div>
+                <span class="bar-pct ">81.2%</span>
+              </div>
+            </td>
+            <td class="num">$9,747</td>
+            <td class="num" style="color:var(--red)">$1,749</td>
+            <td class="num" style="color:var(--orange)">$1,106</td>
+            <td class="num">$13,966</td>
+            <td class="num">$4,970</td>
+            <td class="num pos">$8,997</td>
+            <td class="num">
+              
+                <span class="badge badge-yellow">1</span>
+              
+            </td>
+            <td class="num">
+              —
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 3</strong></td>
+            <td class="num">18</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill med" style="width:83.3%"></div>
+                </div>
+                <span class="bar-pct ">83.3%</span>
+              </div>
+            </td>
+            <td class="num">$11,177</td>
+            <td class="num" style="color:var(--red)">$3,849</td>
+            <td class="num" style="color:var(--orange)">$3,026</td>
+            <td class="num">$22,611</td>
+            <td class="num">$6,593</td>
+            <td class="num pos">$16,018</td>
+            <td class="num">
+              
+                <span class="badge badge-yellow">2</span>
+              
+            </td>
+            <td class="num">
+              
+                <span class="badge badge-yellow">1</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC.</strong></td>
+            <td class="num">19</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill med" style="width:84.2%"></div>
+                </div>
+                <span class="bar-pct ">84.2%</span>
+              </div>
+            </td>
+            <td class="num">$16,888</td>
+            <td class="num" style="color:var(--red)">$3,325</td>
+            <td class="num" style="color:var(--orange)">$3,030</td>
+            <td class="num">$21,697</td>
+            <td class="num">$7,649</td>
+            <td class="num pos">$14,048</td>
+            <td class="num">
+              
+                <span class="badge badge-yellow">1</span>
+              
+            </td>
+            <td class="num">
+              
+                <span class="badge badge-yellow">1</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 7</strong></td>
+            <td class="num">30</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill med" style="width:80.0%"></div>
+                </div>
+                <span class="bar-pct ">80.0%</span>
+              </div>
+            </td>
+            <td class="num">$15,521</td>
+            <td class="num" style="color:var(--red)">$7,398</td>
+            <td class="num" style="color:var(--orange)">$5,938</td>
+            <td class="num">$26,606</td>
+            <td class="num">$12,256</td>
+            <td class="num pos">$14,350</td>
+            <td class="num">
+              
+                <span class="badge badge-red">3</span>
+              
+            </td>
+            <td class="num">
+              
+                <span class="badge badge-yellow">1</span>
+              
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 9</strong></td>
+            <td class="num">4</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill low" style="width:50.0%"></div>
+                </div>
+                <span class="bar-pct neg">50.0%</span>
+              </div>
+            </td>
+            <td class="num">$2,500</td>
+            <td class="num" style="color:var(--red)">$2,800</td>
+            <td class="num" >—</td>
+            <td class="num">$896</td>
+            <td class="num">$2,367</td>
+            <td class="num neg">($1,470)</td>
+            <td class="num">
+              —
+            </td>
+            <td class="num">
+              —
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 10</strong></td>
+            <td class="num">5</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill med" style="width:80.0%"></div>
+                </div>
+                <span class="bar-pct ">80.0%</span>
+              </div>
+            </td>
+            <td class="num">$3,100</td>
+            <td class="num" style="color:var(--red)">$1,550</td>
+            <td class="num" >—</td>
+            <td class="num">$1,800</td>
+            <td class="num">$450</td>
+            <td class="num pos">$1,350</td>
+            <td class="num">
+              
+                <span class="badge badge-yellow">2</span>
+              
+            </td>
+            <td class="num">
+              —
+            </td>
+          </tr>
+          
+          <tr>
+            <td><strong>YAI</strong></td>
+            <td class="num">5</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill low" style="width:0.0%"></div>
+                </div>
+                <span class="bar-pct neg">0.0%</span>
+              </div>
+            </td>
+            <td class="num">—</td>
+            <td class="num" style="color:var(--red)">—</td>
+            <td class="num" >—</td>
+            <td class="num">—</td>
+            <td class="num">—</td>
+            <td class="num pos">—</td>
+            <td class="num">
+              —
+            </td>
+            <td class="num">
+              —
+            </td>
+          </tr>
+          
+          <!-- Portfolio total row -->
+          <tr style="background: var(--surface2); font-weight: 700;">
+            <td>PORTFOLIO TOTAL</td>
+            <td class="num">149</td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg">
+                  <div class="bar-fill med" style="width:73%"></div>
+                </div>
+                <span class="bar-pct '' %}" style="color:var(--yellow)">73%</span>
+              </div>
+            </td>
+            <td class="num">$79,425</td>
+            <td class="num" style="color:var(--red)">$38,713</td>
+            <td class="num" style="color:var(--orange)">$36,005</td>
+            <td class="num">$124,775</td>
+            <td class="num">$55,794</td>
+            <td class="num pos">$68,981</td>
+            <td class="num"><span class="badge badge-red">13</span></td>
+            <td class="num"><span class="badge badge-yellow">5</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+
+  <!-- ── Alerts: Delinquency / Expired / Expiring ──────────────────────── -->
   <div class="three-col">
+
+    <!-- Delinquency -->
     <div class="section">
       <div class="section-title">🔴 Delinquency — Requires Action</div>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Entity</th><th>Address</th><th class="num">Balance</th></tr></thead>
-        <tbody>
-          <tr class="alert-row"><td>LLC 6</td><td>590 Blackhawk</td><td class="num" style="color:var(--red)"><strong>$6,977</strong></td></tr>
-          <tr class="alert-row"><td>LLC 6</td><td>3288 Madewell</td><td class="num" style="color:var(--red)"><strong>$4,636</strong></td></tr>
-          <tr class="alert-row"><td>LLC 7</td><td>2568 SunnyHill</td><td class="num" style="color:var(--red)"><strong>$4,233</strong></td></tr>
-          <tr class="alert-row"><td>LLC 2</td><td>5014 Elton Cove</td><td class="num" style="color:var(--red)"><strong>$2,978</strong></td></tr>
-          <tr class="alert-row"><td>LLC 6</td><td>2045 Townsend Ave</td><td class="num" style="color:var(--orange)">$3,228</td></tr>
-          <tr class="warn-row"><td>LLC 3</td><td>1802/1804 Edward</td><td class="num" style="color:var(--orange)">$2,085</td></tr>
-          <tr class="warn-row"><td>LLC 8</td><td>1410 Sardis</td><td class="num" style="color:var(--orange)">$2,226</td></tr>
-          <tr class="warn-row"><td>LLC 1</td><td>4430 Chuck Ave</td><td class="num" style="color:var(--orange)">$1,210</td></tr>
-          <tr class="warn-row"><td>LLC 2</td><td>1132/1134 Atlantic</td><td class="num" style="color:var(--yellow)">$1,324</td></tr>
-          <tr class="warn-row"><td>LLC 1</td><td>Mitchell, M.</td><td>1484 Lockhaven</td><td class="num" style="color:var(--yellow)">$803</td></tr>
-          <tr><td colspan="3" style="color:var(--muted);font-size:12px">+ 12 more delinquencies</td><td class="num" style="color:var(--muted)">~$8,310</td></tr>
-        </tbody>
-      </table></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Entity</th>
+              <th>Address</th>
+              <th class="num">Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 6</td>
+              <td>590 Blackhawk</td>
+              <td class="num" style="color:var(--red)"><strong>$6,977</strong></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 6</td>
+              <td>3288 Madewell</td>
+              <td class="num" style="color:var(--red)"><strong>$4,636</strong></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 7</td>
+              <td>2568 SunnyHill</td>
+              <td class="num" style="color:var(--red)"><strong>$4,232</strong></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 6</td>
+              <td>2045 Townsend Ave</td>
+              <td class="num" style="color:var(--red)"><strong>$3,228</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC2</td>
+              <td>5014 Elton Cove</td>
+              <td class="num" style="color:var(--orange)"><strong>$2,978</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 8</td>
+              <td>1410 Sardis</td>
+              <td class="num" style="color:var(--orange)"><strong>$2,226</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 3</td>
+              <td>1802/1804 Edward</td>
+              <td class="num" style="color:var(--orange)"><strong>$2,085</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC2</td>
+              <td>1132/1134 Atlantic</td>
+              <td class="num" style="color:var(--orange)"><strong>$1,324</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC.</td>
+              <td>4430 Chuck Ave</td>
+              <td class="num" style="color:var(--orange)"><strong>$1,210</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 6</td>
+              <td>1384 Grand Opera</td>
+              <td class="num" style="color:var(--orange)"><strong>$1,020</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 7</td>
+              <td>819 Par</td>
+              <td class="num" style="color:var(--orange)"><strong>$920</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC.</td>
+              <td>1484 Lockhaven</td>
+              <td class="num" style="color:var(--orange)"><strong>$802</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 4</td>
+              <td>32 W van Huesen Dr</td>
+              <td class="num" style="color:var(--orange)"><strong>$509</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 3</td>
+              <td>155 Silverage</td>
+              <td class="num" style="color:var(--orange)"><strong>$501</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 7</td>
+              <td>3588 Macon</td>
+              <td class="num" style="color:var(--orange)"><strong>$450</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 3</td>
+              <td>1319 Glenn</td>
+              <td class="num" style="color:var(--orange)"><strong>$440</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC.</td>
+              <td>5704 Winter Tree Dr</td>
+              <td class="num" style="color:var(--orange)"><strong>$375</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC.</td>
+              <td>571 - 573 Boston St</td>
+              <td class="num" style="color:var(--orange)"><strong>$362</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 4</td>
+              <td>1782 Marjorie</td>
+              <td class="num" style="color:var(--orange)"><strong>$347</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 7</td>
+              <td>4432 Smith Ridge</td>
+              <td class="num" style="color:var(--orange)"><strong>$335</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC2</td>
+              <td>Highland/ Wilshire</td>
+              <td class="num" style="color:var(--orange)"><strong>$328</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 4</td>
+              <td>3203 Crump</td>
+              <td class="num" style="color:var(--orange)"><strong>$250</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC.</td>
+              <td>3858 Shallowood</td>
+              <td class="num" style="color:var(--orange)"><strong>$181</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 5</td>
+              <td>2771 Henley Dr</td>
+              <td class="num" style="color:var(--orange)"><strong>$110</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC.</td>
+              <td>3501 Venable Rd</td>
+              <td class="num" style="color:var(--orange)"><strong>$99</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 5</td>
+              <td>1040 Alaska</td>
+              <td class="num" style="color:var(--orange)"><strong>$74</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 5</td>
+              <td>1656 Shelby Drive</td>
+              <td class="num" style="color:var(--orange)"><strong>$5</strong></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
     </div>
+
+    <!-- Expired Leases -->
     <div class="section">
       <div class="section-title">⚠️ Expired Leases</div>
-      <div class="table-wrap"><table>
-        <thead><tr><th>ENTITY</th><th>ADDRESS</th><th>DAYS OVER</th></tr></thead>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Entity</th>
+              <th>Address</th>
+              <th class="num">Days Over</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC.</td>
+              <td>571 - 573 Boston St</td>
+              <td class="num"><span class="badge badge-red">1013d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 7</td>
+              <td>4432 Smith Ridge</td>
+              <td class="num"><span class="badge badge-red">1003d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC2</td>
+              <td>666/664 East Waldorf Avenue</td>
+              <td class="num"><span class="badge badge-red">575d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 7</td>
+              <td>3278 Dawn</td>
+              <td class="num"><span class="badge badge-red">540d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC2</td>
+              <td>666/664 East Waldorf Avenue</td>
+              <td class="num"><span class="badge badge-red">394d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 4</td>
+              <td>3203 Crump</td>
+              <td class="num"><span class="badge badge-red">333d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 3</td>
+              <td>1802/1804 Edward</td>
+              <td class="num"><span class="badge badge-red">272d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC2</td>
+              <td>3825/ 3827 Ajanders Dr</td>
+              <td class="num"><span class="badge badge-red">210d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 3</td>
+              <td>1802/1804 Edward</td>
+              <td class="num"><span class="badge badge-red">180d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 6</td>
+              <td>3947 Chippewa Rd</td>
+              <td class="num"><span class="badge badge-red">119d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 10</td>
+              <td>4752 Lofts Rd</td>
+              <td class="num"><span class="badge badge-red">88d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 10</td>
+              <td>1463 Ragan</td>
+              <td class="num"><span class="badge badge-red">88d</span></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td>Memphis RE LLC 7</td>
+              <td>819 Par</td>
+              <td class="num"><span class="badge badge-red">57d</span></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Expiring Soon -->
+    <div class="section">
+      <div class="section-title">📅 Expiring ≤60 Days</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Entity</th>
+              <th>Address</th>
+              <th class="num">Days Left</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 6</td>
+              <td>590 Blackhawk</td>
+              <td class="num"><span class="badge badge-yellow">2d</span></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 3</td>
+              <td>1741 GREGORY AVE</td>
+              <td class="num"><span class="badge badge-yellow">2d</span></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 7</td>
+              <td>2579 Barron</td>
+              <td class="num"><span class="badge badge-yellow">2d</span></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC.</td>
+              <td>1575 - 1577 Cella St</td>
+              <td class="num"><span class="badge badge-yellow">32d</span></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td>Memphis RE LLC 8</td>
+              <td>5003 Deneen Dr, Memphis</td>
+              <td class="num"><span class="badge badge-yellow">39d</span></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /three-col -->
+
+  
+  <!-- ── Low Occupancy Alert ────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">🚨 Low Occupancy Alert (below 70%)</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th>Occupancy</th>
+            <th class="num">Vacant Units</th>
+            <th class="num">Vacant Loss/Mo</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr class="alert-row"><td>LLC 1</td><td>573 Boston St</td><td class="num"><span class="badge badge-red">1,013d</span></td></tr>
-          <tr class="alert-row"><td>LLC 2</td><td>1132/1134 Atlantic</td><td class="num"><span class="badge badge-red">Expired</span></td></tr>
-          <tr class="alert-row"><td>LLC 2</td><td>5014 Elton Cove</td><td class="num"><span class="badge badge-red">Expired</span></td></tr>
-          <tr class="alert-row"><td>LLC 2</td><td>Highland/Wilshire</td><td class="num"><span class="badge badge-red">Expired</span></td></tr>
-          <tr class="alert-row"><td>LLC 3</td><td>Various</td><td class="num"><span class="badge badge-red">2 units</span></td></tr>
-          <tr class="alert-row"><td>LLC 4</td><td>Various units</td><td>Various</td><td class="num"><span class="badge badge-red">1 unit</span></td></tr>
-          <tr class="alert-row"><td>LLC 6</td><td>Various units</td><td>Various</td><td class="num"><span class="badge badge-red">1 unit</span></td></tr>
-          <tr class="alert-row"><td>LLC 7</td><td>Various units</td><td>Various</td><td class="num"><span class="badge badge-red">3 units</span></td></tr>
-          <tr class="alert-row"><td>LLC 10</td><td>Various units</td><td>Various</td><td class="num"><span class="badge badge-red">2 units</span></td></tr>
+          
+          <tr class="alert-row">
+            <td><strong>Memphis RE LLC 8</strong></td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg"><div class="bar-fill low" style="width:58.3%"></div></div>
+                <span class="bar-pct neg">58.3%</span>
+              </div>
+            </td>
+            <td class="num neg">5</td>
+            <td class="num neg">$4999</td>
+          </tr>
+          
+          <tr class="alert-row">
+            <td><strong>Memphis RE LLC 6</strong></td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg"><div class="bar-fill low" style="width:52.9%"></div></div>
+                <span class="bar-pct neg">52.9%</span>
+              </div>
+            </td>
+            <td class="num neg">8</td>
+            <td class="num neg">$8044</td>
+          </tr>
+          
+          <tr class="alert-row">
+            <td><strong>Memphis RE LLC 9</strong></td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg"><div class="bar-fill low" style="width:50.0%"></div></div>
+                <span class="bar-pct neg">50.0%</span>
+              </div>
+            </td>
+            <td class="num neg">2</td>
+            <td class="num neg">$2800</td>
+          </tr>
+          
+          <tr class="alert-row">
+            <td><strong>YAI</strong></td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg"><div class="bar-fill low" style="width:0.0%"></div></div>
+                <span class="bar-pct neg">0.0%</span>
+              </div>
+            </td>
+            <td class="num neg">5</td>
+            <td class="num neg">$0</td>
+          </tr>
+          
         </tbody>
-      </table></div>
-    </div>
-    <div>
-      <div class="section">
-        <div class="section-title">📋 Expiring ≤ 60 Days</div>
-        <div class="table-wrap"><table>
-          <thead><tr><th>Entity</th><th>Expires</th><th class="num">Days Left</th></tr></thead>
-          <tbody>
-            <tr class="warn-row"><td>LLC 1</td><td>04/30/2026</td><td class="num"><span class="badge badge-orange">32d</span></td></tr>
-            <tr class="warn-row"><td>LLC 1</td><td>05/31/2026</td><td class="num"><span class="badge badge-yellow">63d</span></td></tr>
-            <tr class="warn-row"><td>LLC 3</td><td>~May 2026</td><td class="num"><span class="badge badge-yellow">~60d</span></td></tr>
-            <tr class="warn-row"><td>LLC 6</td><td>~May 2026</td><td class="num"><span class="badge badge-yellow">~60d</span></td></tr>
-            <tr class="warn-row"><td>LLC 7</td><td>~May 2026</td><td class="num"><span class="badge badge-yellow">~60d</span></td></tr>
-            <tr class="warn-row"><td>LLC 8</td><td>~May 2026</td><td class="num"><span class="badge badge-yellow">~60d</span></td></tr>
-          </tbody>
-        </table></div>
-      </div>
-      <div class="section">
-        <div class="section-title">🏚️ Critical — Low Occupancy</div>
-        <div class="table-wrap"><table>
-          <thead><tr><th>Entity</th><th>Occ%</th><th class="num">Vacant</th><th class="num">Lost/Mo</th></tr></thead>
-          <tbody>
-            <tr class="alert-row"><td>LLC 6</td><td><span class="badge badge-red">53%</span></td><td class="num">8 units</td><td class="num" style="color:var(--red)">$8,044</td></tr>
-            <tr class="alert-row"><td>LLC 8</td><td><span class="badge badge-red">58%</span></td><td class="num">5 units</td><td class="num" style="color:var(--red)">$4,999</td></tr>
-            <tr class="alert-row"><td>LLC 9</td><td><span class="badge badge-red">50%</span></td><td class="num">2 units</td><td class="num" style="color:var(--red)">$2,800</td></tr>
-            <tr class="alert-row"><td>YAI</td><td><span class="badge badge-red">0%</span></td><td class="num">5 units</td><td class="num" style="color:var(--muted)">—</td></tr>
-          </tbody>
-        </table></div>
-      </div>
+      </table>
     </div>
   </div>
+  
+
+  <!-- ── YTD Financial Table ────────────────────────────────────────────── -->
   <div class="section">
-    <div class="section-title">💰 YTD Financial Performance (Jan–Mar 2026)</div>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Entity</th><th class="num">YTD Income</th><th class="num">YTD Expense</th><th class="num">YTD NOI</th><th class="num">NOI Margin</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>Memphis RE LLC 7</td><td class="num">$80,403</td><td class="num">$35,723</td><td class="num pos"><strong>$44,681</strong></td><td class="num">56%</td><td><span class="badge badge-green">Strong</span></td></tr>
-        <tr><td>Memphis RE LLC 1</td><td class="num">$57,974</td><td class="num">$21,981</td><td class="num pos"><strong>$35,993</strong></td><td class="num">62%</td><td><span class="badge badge-green">Strong</span></td></tr>
-        <tr><td>Memphis RE LLC 3</td><td class="num">$57,875</td><td class="num">$25,845</td><td class="num pos"><strong>$32,030</strong></td><td class="num">55%</td><td><span class="badge badge-green">Strong</span></td></tr>
-        <tr><td>Memphis RE LLC 5</td><td class="num">$40,847</td><td class="num">$10,482</td><td class="num pos"><strong>$30,364</strong></td><td class="num">74%</td><td><span class="badge badge-green">Strong</span></td></tr>
-        <tr><td>Memphis RE LLC 4</td><td class="num">$44,325</td><td class="num">$20,387</td><td class="num pos"><strong>$23,939</strong></td><td class="num">54%</td><td><span class="badge badge-green">Good</span></td></tr>
-        <tr><td>Memphis RE LLC 2</td><td class="num">$25,966</td><td class="num">$9,675</td><td class="num pos"><strong>$16,291</strong></td><td class="num">63%</td><td><span class="badge badge-green">Good</span></td></tr>
-        <tr><td>Memphis RE LLC 10</td><td class="num">$7,790</td><td class="num">$2,864</td><td class="num pos"><strong>$4,926</strong></td><td class="num">63%</td><td><span class="badge badge-green">Good</span></td></tr>
-        <tr><td>Memphis RE LLC 8</td><td class="num">$21,092</td><td class="num">$17,075</td><td class="num pos"><strong>$4,017</strong></td><td class="num">19%</td><td><span class="badge badge-yellow">Watch</span></td></tr>
-        <tr><td>Memphis RE LLC 6</td><td class="num">$20,955</td><td class="num">$17,378</td><td class="num pos"><strong>$3,576</strong></td><td class="num">17%</td><td><span class="badge badge-red">At Risk</span></td></tr>
-        <tr><td>Memphis RE LLC 9</td><td class="num">$5,473</td><td class="num">$6,818</td><td class="num neg"><strong>($1,345)</strong></td><td class="num neg">-25%</td><td><span class="badge badge-red">Negative NOI</span></td></tr>
-        <tr><td>YAI</td><td class="num" style="color:var(--muted)">—</td><td class="num" style="color:var(--muted)">—</td><td class="num" style="color:var(--muted)">—</td><td class="num" style="color:var(--muted)">—</td><td><span class="badge badge-blue">Holding</span></td></tr>
-        <tr style="background:var(--surface2);font-weight:700"><td>TOTAL</td><td class="num">$362,700</td><td class="num">$168,228</td><td class="num pos">$194,472</td><td class="num">54%</td><td></td></tr>
-      </tbody>
-    </table></div>
+    <div class="section-title">📊 YTD Financial Performance</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th class="num">YTD Income</th>
+            <th class="num">YTD Expense</th>
+            <th class="num">YTD NOI</th>
+            <th class="num">NOI Margin</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 3</strong></td>
+            <td class="num">$22,611</td>
+            <td class="num">$6,593</td>
+            <td class="num pos">$16,018</td>
+            <td class="num">71%</td>
+            <td><span class="badge badge-green">On Track</span></td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 7</strong></td>
+            <td class="num">$26,606</td>
+            <td class="num">$12,256</td>
+            <td class="num pos">$14,350</td>
+            <td class="num">54%</td>
+            <td><span class="badge badge-green">On Track</span></td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC.</strong></td>
+            <td class="num">$21,697</td>
+            <td class="num">$7,649</td>
+            <td class="num pos">$14,048</td>
+            <td class="num">65%</td>
+            <td><span class="badge badge-green">On Track</span></td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 5</strong></td>
+            <td class="num">$14,839</td>
+            <td class="num">$3,614</td>
+            <td class="num pos">$11,225</td>
+            <td class="num">76%</td>
+            <td><span class="badge badge-green">On Track</span></td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 4</strong></td>
+            <td class="num">$13,966</td>
+            <td class="num">$4,970</td>
+            <td class="num pos">$8,997</td>
+            <td class="num">64%</td>
+            <td><span class="badge badge-green">On Track</span></td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC2</strong></td>
+            <td class="num">$8,357</td>
+            <td class="num">$3,113</td>
+            <td class="num pos">$5,244</td>
+            <td class="num">63%</td>
+            <td><span class="badge badge-green">On Track</span></td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 10</strong></td>
+            <td class="num">$1,800</td>
+            <td class="num">$450</td>
+            <td class="num pos">$1,350</td>
+            <td class="num">75%</td>
+            <td><span class="badge badge-green">On Track</span></td>
+          </tr>
+          
+          <tr>
+            <td><strong>YAI</strong></td>
+            <td class="num">—</td>
+            <td class="num">—</td>
+            <td class="num pos">—</td>
+            <td class="num">—</td>
+            <td><span class="badge badge-yellow">Low Margin</span></td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 8</strong></td>
+            <td class="num">$7,653</td>
+            <td class="num">$8,023</td>
+            <td class="num neg">($370)</td>
+            <td class="num">-5%</td>
+            <td><span class="badge badge-red">Negative NOI</span></td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 6</strong></td>
+            <td class="num">$6,350</td>
+            <td class="num">$6,760</td>
+            <td class="num neg">($410)</td>
+            <td class="num">-6%</td>
+            <td><span class="badge badge-red">Negative NOI</span></td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 9</strong></td>
+            <td class="num">$896</td>
+            <td class="num">$2,367</td>
+            <td class="num neg">($1,470)</td>
+            <td class="num">-164%</td>
+            <td><span class="badge badge-red">Negative NOI</span></td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
   </div>
+
+  <!-- ── Priority Actions ───────────────────────────────────────────────── -->
   <div class="section">
-    <div class="section-title">🎯 This Week's Priority Actions</div>
-    <div class="table-wrap"><table>
-      <thead><tr><th>#</th><th>Priority</th><th>Entity</th><th>Action Required</th><th>Financial Impact</th></tr></thead>
-      <tbody>
-        <tr class="alert-row"><td>1</td><td><span class="badge badge-red">URGENT</span></td><td>LLC 6</td><td>Initiate eviction/collections on 590 Blackhawk ($6,977) + 3288 Madewell ($4,636). LLC 6 at 53% occupancy AND $15,861 in delinquency — most at-risk entity.</td><td style="color:var(--red)">$11,613 at risk</td></tr>
-        <tr class="alert-row"><td>2</td><td><span class="badge badge-red">URGENT</span></td><td>LLC 1</td><td>573 Boston St on expired lease for 1,013 days (since June 2023). Renew or begin eviction immediately.</td><td style="color:var(--red)">Legal exposure</td></tr>
-        <tr class="alert-row"><td>3</td><td><span class="badge badge-red">URGENT</span></td><td>LLC 7</td><td>Send demand letters for 2568 SunnyHill ($4,233). LLC 7 has 3 expired leases + 6 vacancies costing $7,398/mo.</td><td style="color:var(--red)">$7,398/mo loss</td></tr>
-        <tr class="warn-row"><td>4</td><td><span class="badge badge-orange">HIGH</span></td><td>LLC 8 + LLC 9</td><td>LLC 8 at 58% ($4,999/mo loss), LLC 9 at 50% with negative NOI ($1,345 YTD). Push leasing on all vacant units.</td><td style="color:var(--orange)">$7,799/mo loss</td></tr>
-        <tr class="warn-row"><td>5</td><td><span class="badge badge-orange">HIGH</span></td><td>LLC 2</td><td>3 expired leases (1132/1134 Atlantic, 5014 Elton Cove, Highland/Wilshire) — all also delinquent. Determine renewal vs. eviction for each.</td><td style="color:var(--orange)">$4,630 delinquent</td></tr>
-        <tr class="warn-row"><td>6</td><td><span class="badge badge-yellow">MEDIUM</span></td><td>LLC 1 + LLC 3</td><td>LLC 1 lease at 573 Boston area expires Apr 30 — 32 days away. Contact tenant about renewal now.</td><td style="color:var(--yellow)">Prevent turnover</td></tr>
-        <tr><td>7</td><td><span class="badge badge-blue">MONITOR</span></td><td>YAI</td><td>5 units at 0% occupancy, no income reported. Confirm lease-up status or begin immediate leasing push.</td><td style="color:var(--muted)">TBD</td></tr>
-      </tbody>
-    </table></div>
+    <div class="section-title">⚡ Priority Actions (Top 7)</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:90px">Priority</th>
+            <th>Entity</th>
+            <th>Action Item</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr class="alert-row">
+            <td><span class="badge badge-red">URGENT</span></td>
+            <td>Memphis RE LLC 6</td>
+            <td>LLC 6 — Collections: 590 Blackhawk ($6,977)</td>
+            <td style="color:var(--muted); font-size:12px">Tenant: Ford, J. | Balance: $6,977</td>
+          </tr>
+          
+          <tr class="alert-row">
+            <td><span class="badge badge-red">URGENT</span></td>
+            <td>Memphis RE LLC 8</td>
+            <td>Memphis RE LLC 8 — Fill 5 vacant unit(s) (58% occupied, $4,999/mo loss)</td>
+            <td style="color:var(--muted); font-size:12px">5 vacant of 12 total units</td>
+          </tr>
+          
+          <tr class="alert-row">
+            <td><span class="badge badge-red">URGENT</span></td>
+            <td>Memphis RE LLC 6</td>
+            <td>Memphis RE LLC 6 — Fill 8 vacant unit(s) (53% occupied, $8,044/mo loss)</td>
+            <td style="color:var(--muted); font-size:12px">8 vacant of 17 total units</td>
+          </tr>
+          
+          <tr class="alert-row">
+            <td><span class="badge badge-red">URGENT</span></td>
+            <td>Memphis RE LLC 9</td>
+            <td>Memphis RE LLC 9 — Fill 2 vacant unit(s) (50% occupied, $2,800/mo loss)</td>
+            <td style="color:var(--muted); font-size:12px">2 vacant of 4 total units</td>
+          </tr>
+          
+          <tr class="alert-row">
+            <td><span class="badge badge-red">URGENT</span></td>
+            <td>YAI</td>
+            <td>YAI — Fill 5 vacant unit(s) (0% occupied, —/mo loss)</td>
+            <td style="color:var(--muted); font-size:12px">5 vacant of 5 total units</td>
+          </tr>
+          
+          <tr class="alert-row">
+            <td><span class="badge badge-red">URGENT</span></td>
+            <td>Memphis RE LLC 6</td>
+            <td>Memphis RE LLC 6 — Renew/handle expired lease: 3947 Chippewa Rd (119d overdue)</td>
+            <td style="color:var(--muted); font-size:12px">Tenant: Williams, S. | Expired: 2025-11-30</td>
+          </tr>
+          
+          <tr class="alert-row">
+            <td><span class="badge badge-red">URGENT</span></td>
+            <td>Memphis RE LLC2</td>
+            <td>Memphis RE LLC2 — Renew/handle expired lease: 666/664 East Waldorf Avenue (575d overdue)</td>
+            <td style="color:var(--muted); font-size:12px">Tenant: Bonds, A. | Expired: 2024-08-31</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+
+</div><!-- /container -->
+
 <div class="footer">
-  Generated by YAI/VM Group Weekly Monitor · Data from Propertyware (Lubin Property Management) · March 29, 2026<br>
-  All figures YTD 2026 unless noted. Rent Roll figures reflect current market rents.
+  Generated by YAI/VM Group Weekly Monitor &nbsp;·&nbsp;
+  Data from Propertyware (Lubin Property Management) &nbsp;·&nbsp;
+  March 29, 2026
 </div>
-</body></html>
+
+</body>
+</html>
