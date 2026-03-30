@@ -3,10 +3,14 @@
  *
  * If you reach this page, you're already authenticated (middleware checked).
  * This reads the dashboard.html file and serves it as the page content.
+ *
+ * The DashboardRenderer client component handles script execution —
+ * dangerouslySetInnerHTML alone does NOT run <script> tags.
  */
 
 import { promises as fs } from "fs";
 import path from "path";
+import DashboardRenderer from "./dashboard-renderer";
 
 export default async function DashboardPage() {
   // Read the dashboard HTML that the pipeline pushes
@@ -34,10 +38,5 @@ export default async function DashboardPage() {
   const styles = styleMatch ? styleMatch.join("\n") : "";
   const body = bodyMatch ? bodyMatch[1] : html;
 
-  return (
-    <>
-      <div dangerouslySetInnerHTML={{ __html: styles }} />
-      <div dangerouslySetInnerHTML={{ __html: body }} />
-    </>
-  );
+  return <DashboardRenderer styles={styles} body={body} />;
 }
