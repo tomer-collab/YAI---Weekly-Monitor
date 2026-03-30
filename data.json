@@ -1,0 +1,285 @@
+{
+  "generated_at": "2026-03-30",
+  "funds": [
+    {
+      "entity": "YAI",
+      "slug": "yai",
+      "kpis": {
+        "total_units": 5,
+        "occupied_units": 0,
+        "occupancy_pct": 0.0,
+        "monthly_rent": 0.0,
+        "vacant_loss": 0.0,
+        "total_delinquency": 0.0,
+        "ytd_income": 0.0,
+        "ytd_expense": 0.0,
+        "ytd_noi": 0.0
+      },
+      "units": [
+        {
+          "address": "1498 Merlin Avenue",
+          "slug": "1498-merlin-avenue",
+          "market_rent": 0.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "258 Modder Ave,",
+          "slug": "258-modder-ave",
+          "market_rent": 0.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "1336 Kentucky Street",
+          "slug": "1336-kentucky-street",
+          "market_rent": 0.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "3394 BUCHANAN",
+          "slug": "3394-buchanan",
+          "market_rent": 0.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "3473 S COOK",
+          "slug": "3473-s-cook",
+          "market_rent": 0.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        }
+      ],
+      "delinquencies": [],
+      "expired_leases": [],
+      "expiring_soon": [],
+      "monthly_financials": []
+    },
+    {
+      "entity": "Memphis RE LLC 9",
+      "slug": "memphis-re-llc-9",
+      "kpis": {
+        "total_units": 4,
+        "occupied_units": 2,
+        "occupancy_pct": 50.0,
+        "monthly_rent": 2500.0,
+        "vacant_loss": 2800.0,
+        "total_delinquency": 0.0,
+        "ytd_income": 896.5,
+        "ytd_expense": 2366.66,
+        "ytd_noi": -1470.16
+      },
+      "units": [
+        {
+          "address": "3170 Harvester Ln,",
+          "slug": "3170-harvester-ln",
+          "market_rent": 1450.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "351 Damone",
+          "slug": "351-damone",
+          "market_rent": 1000.0,
+          "status": "Occupied",
+          "tenant": "Hoyle, D.",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "1546 Marjorie St",
+          "slug": "1546-marjorie-st",
+          "market_rent": 1500.0,
+          "status": "Occupied",
+          "tenant": "Shelton - Martin",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "3413 Mountain Terrace",
+          "slug": "3413-mountain-terrace",
+          "market_rent": 1350.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        }
+      ],
+      "delinquencies": [],
+      "expired_leases": [],
+      "expiring_soon": [],
+      "monthly_financials": [
+        {
+          "month": "2026-01",
+          "month_label": "Jan",
+          "income": 896.5,
+          "expense": 2366.66,
+          "noi": -1470.16
+        },
+        {
+          "month": "2026-02",
+          "month_label": "Feb",
+          "income": 2315.0,
+          "expense": 3155.46,
+          "noi": -840.46
+        },
+        {
+          "month": "2026-03",
+          "month_label": "Mar",
+          "income": 2261.43,
+          "expense": 1296.04,
+          "noi": 965.39
+        }
+      ]
+    },
+    {
+      "entity": "Memphis RE LLC 10",
+      "slug": "memphis-re-llc-10",
+      "kpis": {
+        "total_units": 5,
+        "occupied_units": 4,
+        "occupancy_pct": 80.0,
+        "monthly_rent": 3100.0,
+        "vacant_loss": 1550.0,
+        "total_delinquency": 0.0,
+        "ytd_income": 1800.0,
+        "ytd_expense": 450.27,
+        "ytd_noi": 1349.73
+      },
+      "units": [
+        {
+          "address": "4752 Lofts Rd",
+          "slug": "4752-lofts-rd",
+          "market_rent": 1000.0,
+          "status": "Occupied",
+          "tenant": "Roberts, D.",
+          "balance": 0.0,
+          "lease_end": "2025-12-31",
+          "days_remaining": -89,
+          "alert_flags": [
+            "expired_lease"
+          ]
+        },
+        {
+          "address": "376 Clarice",
+          "slug": "376-clarice",
+          "market_rent": 1550.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "1463 Ragan",
+          "slug": "1463-ragan",
+          "market_rent": 800.0,
+          "status": "Occupied",
+          "tenant": "Alexander, D.",
+          "balance": 0.0,
+          "lease_end": "2025-12-31",
+          "days_remaining": -89,
+          "alert_flags": [
+            "expired_lease"
+          ]
+        },
+        {
+          "address": "45 Builders",
+          "slug": "45-builders",
+          "market_rent": 1300.0,
+          "status": "Occupied",
+          "tenant": "Dill - Banks",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "873 Norfleet",
+          "slug": "873-norfleet",
+          "market_rent": 0.0,
+          "status": "Occupied",
+          "tenant": "Ferby Jr. - Ferby",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        }
+      ],
+      "delinquencies": [],
+      "expired_leases": [
+        {
+          "address": "4752 Lofts Rd",
+          "slug": "4752-lofts-rd",
+          "tenant": "Roberts, D.",
+          "lease_end": "2025-12-31",
+          "days_remaining": -89
+        },
+        {
+          "address": "1463 Ragan",
+          "slug": "1463-ragan",
+          "tenant": "Alexander, D.",
+          "lease_end": "2025-12-31",
+          "days_remaining": -89
+        }
+      ],
+      "expiring_soon": [],
+      "monthly_financials": [
+        {
+          "month": "2026-01",
+          "month_label": "Jan",
+          "income": 1800.0,
+          "expense": 450.27,
+          "noi": 1349.73
+        },
+        {
+          "month": "2026-02",
+          "month_label": "Feb",
+          "income": 1800.0,
+          "expense": 974.41,
+          "noi": 825.59
+        },
+        {
+          "month": "2026-03",
+          "month_label": "Mar",
+          "income": 4190.0,
+          "expense": 1439.37,
+          "noi": 2750.63
+        }
+      ]
+    }
+  ]
+}
