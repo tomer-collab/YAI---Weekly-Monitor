@@ -1,0 +1,29 @@
+{
+  "name": "yai-monitor-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomer-collab/YAI---Weekly-Monitor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/tomer-collab/YAI---Weekly-Monitor/issues"
+  },
+  "homepage": "https://github.com/tomer-collab/YAI---Weekly-Monitor#readme",
+  "dependencies": {
+    "next": "^16.2.1",
+    "next-auth": "^4.24.13",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  }
+}
