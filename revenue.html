@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YAI / VM Group — Revenue Dashboard</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #222636;
+    --border: #2e3349;
+    --accent: #4f7cff;
+    --accent2: #7c5cff;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --orange: #f97316;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 14px; line-height: 1.5; }
+
+  /* Layout */
+  .header { background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; }
+  .header-left h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+  .header-left h1 span { background: linear-gradient(90deg, #4f7cff, #7c5cff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header-left .subtitle { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .header-right { text-align: right; }
+  .header-right .date { font-size: 13px; color: var(--muted); }
+  .header-right .period { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .container { padding: 28px 32px; max-width: 1400px; margin: 0 auto; }
+
+  /* KPI cards */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+  .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 16px; }
+  .kpi .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 8px; }
+  .kpi .value { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
+  .kpi .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .kpi.green .value { color: var(--green); }
+  .kpi.red .value { color: var(--red); }
+  .kpi.blue .value { color: var(--accent); }
+  .kpi.yellow .value { color: var(--yellow); }
+
+  /* Section */
+  .section { margin-bottom: 28px; }
+  .section-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* Tables */
+  .table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  th { background: var(--surface2); padding: 10px 14px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 13px; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface2); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .pos { color: var(--green); }
+  .neg { color: var(--red); }
+
+  /* Badges */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .badge-green  { background: rgba(34,197,94,0.15);  color: var(--green); }
+  .badge-red    { background: rgba(239,68,68,0.15);  color: var(--red); }
+  .badge-yellow { background: rgba(245,158,11,0.15); color: var(--yellow); }
+
+  /* Sortable headers */
+  th.sortable { cursor: pointer; user-select: none; position: relative; padding-right: 20px; }
+  th.sortable:hover { color: var(--accent); }
+  th.sortable::after { content: '\2195'; position: absolute; right: 4px; opacity: 0.3; font-size: 10px; }
+  th.sortable.asc::after { content: '\25B2'; opacity: 0.8; color: var(--accent); }
+  th.sortable.desc::after { content: '\25BC'; opacity: 0.8; color: var(--accent); }
+
+  /* Filter input */
+  .filter-bar { margin-bottom: 12px; display: flex; gap: 10px; align-items: center; }
+  .filter-bar input {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    padding: 8px 14px; color: var(--text); font-size: 13px; font-family: var(--font);
+    width: 280px; outline: none; transition: border-color 0.2s;
+  }
+  .filter-bar input:focus { border-color: var(--accent); }
+  .filter-bar input::placeholder { color: var(--muted); }
+  .filter-bar label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; }
+
+  /* Tab bar */
+  .tab-bar { display: flex; gap: 4px; margin-top: 12px; }
+  .tab-bar a {
+    display: inline-block; padding: 8px 20px; border-radius: 6px 6px 0 0;
+    font-size: 13px; font-weight: 600; text-decoration: none; color: var(--muted);
+    background: transparent; border: 1px solid transparent; border-bottom: none;
+    transition: all 0.2s;
+  }
+  .tab-bar a:hover { color: var(--text); background: var(--surface); }
+  .tab-bar a.active {
+    color: var(--accent); background: var(--surface);
+    border-color: var(--border);
+  }
+
+  /* Footer */
+  .footer { text-align: center; color: var(--muted); font-size: 12px; padding: 24px; border-top: 1px solid var(--border); margin-top: 8px; }
+
+  @media print {
+    body { background: white; color: #111; }
+    .kpi, .table-wrap { border: 1px solid #ddd; }
+    .header { background: #f8f9fa; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1><span>YAI / VM Group</span> — Revenue Dashboard</h1>
+    <div class="subtitle">Income Analysis · Per Fund · Per Property · Per Month</div>
+    <div class="tab-bar">
+      <a href="/">Operations</a>
+      <a href="/revenue" class="active">Revenue</a>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="date">Week of March 30, 2026</div>
+    <div class="period">YTD Period: Jan 1 – Mar 30, 2026</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ── Revenue KPIs ──────────────────────────────────────────────────── -->
+  <div class="section-title">Revenue Snapshot</div>
+  <div class="kpi-grid">
+    <div class="kpi green">
+      <div class="label">YTD Total Income</div>
+      <div class="value">$124,775</div>
+      <div class="sub">Across all entities</div>
+    </div>
+    <div class="kpi red">
+      <div class="label">YTD Total Expense</div>
+      <div class="value">$55,794</div>
+      <div class="sub">Operating expenses</div>
+    </div>
+    <div class="kpi green">
+      <div class="label">YTD NOI</div>
+      <div class="value">$68,981</div>
+      <div class="sub">Net operating income</div>
+    </div>
+    <div class="kpi blue">
+      <div class="label">Monthly Rent Potential</div>
+      <div class="value">$5,600</div>
+      <div class="sub">14 units (43% occupied)</div>
+    </div>
+  </div>
+
+  
+
+  
+  <!-- ── YTD Income by Entity (fallback when monthly data not available) ── -->
+  <div class="section">
+    <div class="section-title">YTD Income by Entity</div>
+    <div class="table-wrap">
+      <table id="ytd-income-table">
+        <thead>
+          <tr>
+            <th class="sortable">Entity</th>
+            <th class="num sortable">YTD Income</th>
+            <th class="num sortable">YTD Expense</th>
+            <th class="num sortable">YTD NOI</th>
+            <th class="num sortable">NOI Margin</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 7</strong></td>
+            <td class="num" data-sort-value="26606.14">$26,606</td>
+            <td class="num" data-sort-value="12256.21">$12,256</td>
+            <td class="num pos" data-sort-value="14349.93">$14,350</td>
+            <td class="num" data-sort-value="53.93465568474044">54%</td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 3</strong></td>
+            <td class="num" data-sort-value="22610.98">$22,611</td>
+            <td class="num" data-sort-value="6593.28">$6,593</td>
+            <td class="num pos" data-sort-value="16017.7">$16,018</td>
+            <td class="num" data-sort-value="70.84036162961534">71%</td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC.</strong></td>
+            <td class="num" data-sort-value="21696.54">$21,697</td>
+            <td class="num" data-sort-value="7648.88">$7,649</td>
+            <td class="num pos" data-sort-value="14047.66">$14,048</td>
+            <td class="num" data-sort-value="64.7460839378076">65%</td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 5</strong></td>
+            <td class="num" data-sort-value="14838.64">$14,839</td>
+            <td class="num" data-sort-value="3613.63">$3,614</td>
+            <td class="num pos" data-sort-value="11225.01">$11,225</td>
+            <td class="num" data-sort-value="75.64716173449858">76%</td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 4</strong></td>
+            <td class="num" data-sort-value="13966.05">$13,966</td>
+            <td class="num" data-sort-value="4969.53">$4,970</td>
+            <td class="num pos" data-sort-value="8996.52">$8,997</td>
+            <td class="num" data-sort-value="64.41706853405222">64%</td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC2</strong></td>
+            <td class="num" data-sort-value="8356.52">$8,357</td>
+            <td class="num" data-sort-value="3112.6">$3,113</td>
+            <td class="num pos" data-sort-value="5243.92">$5,244</td>
+            <td class="num" data-sort-value="62.75243761757286">63%</td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 8</strong></td>
+            <td class="num" data-sort-value="7653.28">$7,653</td>
+            <td class="num" data-sort-value="8023.15">$8,023</td>
+            <td class="num neg" data-sort-value="-369.87">($370)</td>
+            <td class="num" data-sort-value="-4.83282984550415">-5%</td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 6</strong></td>
+            <td class="num" data-sort-value="6350.25">$6,350</td>
+            <td class="num" data-sort-value="6759.89">$6,760</td>
+            <td class="num neg" data-sort-value="-409.64">($410)</td>
+            <td class="num" data-sort-value="-6.450769654738003">-6%</td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 10</strong></td>
+            <td class="num" data-sort-value="1800.0">$1,800</td>
+            <td class="num" data-sort-value="450.27">$450</td>
+            <td class="num pos" data-sort-value="1349.73">$1,350</td>
+            <td class="num" data-sort-value="74.985">75%</td>
+          </tr>
+          
+          <tr>
+            <td><strong>Memphis RE LLC 9</strong></td>
+            <td class="num" data-sort-value="896.5">$896</td>
+            <td class="num" data-sort-value="2366.66">$2,367</td>
+            <td class="num neg" data-sort-value="-1470.16">($1,470)</td>
+            <td class="num" data-sort-value="-163.9888455103179">-164%</td>
+          </tr>
+          
+          <tr>
+            <td><strong>YAI</strong></td>
+            <td class="num" data-sort-value="0.0">—</td>
+            <td class="num" data-sort-value="0.0">—</td>
+            <td class="num pos" data-sort-value="0.0">—</td>
+            <td class="num" data-sort-value="0">—</td>
+          </tr>
+          
+          <tr data-pin="bottom" style="background: var(--surface2); font-weight: 700;">
+            <td>PORTFOLIO TOTAL</td>
+            <td class="num">$124,775</td>
+            <td class="num">$55,794</td>
+            <td class="num pos">$68,981</td>
+            <td class="num">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+  <!-- ── Per-Property Revenue ────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">Per-Property Monthly Rent Potential</div>
+    <div class="filter-bar">
+      <label>Filter</label>
+      <input type="text" id="property-filter" placeholder="Search by entity or address...">
+    </div>
+    <div class="table-wrap">
+      <table id="property-table">
+        <thead>
+          <tr>
+            <th class="sortable">Entity</th>
+            <th class="sortable">Address</th>
+            <th class="num sortable">Market Rent</th>
+            <th class="sortable">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>Memphis RE LLC 10</td>
+            <td>4752 Lofts Rd</td>
+            <td class="num" data-sort-value="1000.0">$1,000</td>
+            <td>
+              <span class="badge badge-green">Occupied</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Memphis RE LLC 10</td>
+            <td>376 Clarice</td>
+            <td class="num" data-sort-value="1550.0">$1,550</td>
+            <td>
+              <span class="badge badge-red">Vacant</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Memphis RE LLC 10</td>
+            <td>1463 Ragan</td>
+            <td class="num" data-sort-value="800.0">$800</td>
+            <td>
+              <span class="badge badge-green">Occupied</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Memphis RE LLC 10</td>
+            <td>45 Builders</td>
+            <td class="num" data-sort-value="1300.0">$1,300</td>
+            <td>
+              <span class="badge badge-green">Occupied</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Memphis RE LLC 10</td>
+            <td>873 Norfleet</td>
+            <td class="num" data-sort-value="0.0">—</td>
+            <td>
+              <span class="badge badge-green">Occupied</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Memphis RE LLC 9</td>
+            <td>3170 Harvester Ln,</td>
+            <td class="num" data-sort-value="1450.0">$1,450</td>
+            <td>
+              <span class="badge badge-red">Vacant</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Memphis RE LLC 9</td>
+            <td>351 Damone</td>
+            <td class="num" data-sort-value="1000.0">$1,000</td>
+            <td>
+              <span class="badge badge-green">Occupied</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Memphis RE LLC 9</td>
+            <td>1546 Marjorie St</td>
+            <td class="num" data-sort-value="1500.0">$1,500</td>
+            <td>
+              <span class="badge badge-green">Occupied</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Memphis RE LLC 9</td>
+            <td>3413 Mountain Terrace</td>
+            <td class="num" data-sort-value="1350.0">$1,350</td>
+            <td>
+              <span class="badge badge-red">Vacant</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>YAI</td>
+            <td>1498 Merlin Avenue</td>
+            <td class="num" data-sort-value="0.0">—</td>
+            <td>
+              <span class="badge badge-red">Vacant</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>YAI</td>
+            <td>258 Modder Ave,</td>
+            <td class="num" data-sort-value="0.0">—</td>
+            <td>
+              <span class="badge badge-red">Vacant</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>YAI</td>
+            <td>1336 Kentucky Street</td>
+            <td class="num" data-sort-value="0.0">—</td>
+            <td>
+              <span class="badge badge-red">Vacant</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>YAI</td>
+            <td>3394 BUCHANAN</td>
+            <td class="num" data-sort-value="0.0">—</td>
+            <td>
+              <span class="badge badge-red">Vacant</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>YAI</td>
+            <td>3473 S COOK</td>
+            <td class="num" data-sort-value="0.0">—</td>
+            <td>
+              <span class="badge badge-red">Vacant</span>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Revenue Trend Chart ─────────────────────────────────────────────── -->
+  
+
+  <!-- ── NOI by Entity Chart ─────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">NOI by Entity</div>
+    <div class="table-wrap" style="padding: 24px; display: flex; justify-content: center;">
+      <div style="width: 100%; max-width: 600px; height: 400px; position: relative;">
+        <canvas id="noi-pie-chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  Generated by YAI/VM Group Weekly Monitor &nbsp;&middot;&nbsp;
+  Data from Propertyware (Lubin Property Management) &nbsp;&middot;&nbsp;
+  March 30, 2026
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script>
+(function() {
+  /* ── NOI Doughnut Chart ────────────────────────────────────────── */
+  var noiData = [{"entity": "Memphis RE LLC 3", "noi": 16017.7}, {"entity": "Memphis RE LLC 7", "noi": 14349.93}, {"entity": "Memphis RE LLC.", "noi": 14047.66}, {"entity": "Memphis RE LLC 5", "noi": 11225.01}, {"entity": "Memphis RE LLC 4", "noi": 8996.52}, {"entity": "Memphis RE LLC2", "noi": 5243.92}, {"entity": "Memphis RE LLC 10", "noi": 1349.73}, {"entity": "YAI", "noi": 0.0}, {"entity": "Memphis RE LLC 8", "noi": -369.87}, {"entity": "Memphis RE LLC 6", "noi": -409.64}, {"entity": "Memphis RE LLC 9", "noi": -1470.16}];
+  var canvas = document.getElementById('noi-pie-chart');
+  if (canvas && typeof Chart !== 'undefined') {
+    var palette = [
+      '#4f7cff','#7c5cff','#22c55e','#f59e0b','#06b6d4',
+      '#ec4899','#8b5cf6','#14b8a6','#f97316','#6366f1','#84cc16'
+    ];
+    var labels = [];
+    var values = [];
+    var colors = [];
+    noiData.forEach(function(d, i) {
+      labels.push(d.entity.replace('Memphis RE LLC', 'LLC'));
+      values.push(d.noi);
+      colors.push(d.noi < 0 ? '#ef4444' : palette[i % palette.length]);
+    });
+    new Chart(canvas, {
+      type: 'doughnut',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: values.map(function(v) { return Math.abs(v); }),
+          backgroundColor: colors,
+          borderColor: '#1a1d27',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'right',
+            labels: { color: '#e2e8f0', font: { size: 12 }, padding: 12 }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                var raw = noiData[ctx.dataIndex].noi;
+                var sign = raw < 0 ? '-' : '';
+                return ctx.label + ': ' + sign + '$' + Math.abs(raw).toLocaleString(undefined, {maximumFractionDigits: 0});
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  
+
+  /* ── Table Sorting ─────────────────────────────────────────────── */
+  document.querySelectorAll('th.sortable').forEach(function(th) {
+    th.addEventListener('click', function() {
+      var table = th.closest('table');
+      var tbody = table.querySelector('tbody');
+      var colIdx = Array.from(th.parentNode.children).indexOf(th);
+      var rows = Array.from(tbody.querySelectorAll('tr:not([data-pin])'));
+      var asc = !th.classList.contains('asc');
+      th.parentNode.querySelectorAll('th.sortable').forEach(function(h) {
+        h.classList.remove('asc', 'desc');
+      });
+      th.classList.add(asc ? 'asc' : 'desc');
+      rows.sort(function(a, b) {
+        var cellA = a.children[colIdx];
+        var cellB = b.children[colIdx];
+        var valA = cellA ? (cellA.getAttribute('data-sort-value') || cellA.textContent.trim()) : '';
+        var valB = cellB ? (cellB.getAttribute('data-sort-value') || cellB.textContent.trim()) : '';
+        var numA = parseFloat(valA);
+        var numB = parseFloat(valB);
+        var cmp;
+        if (!isNaN(numA) && !isNaN(numB)) {
+          cmp = numA - numB;
+        } else {
+          cmp = valA.localeCompare(valB, undefined, { numeric: true });
+        }
+        return asc ? cmp : -cmp;
+      });
+      rows.forEach(function(row) { tbody.appendChild(row); });
+    });
+  });
+
+  /* ── Table Filtering ───────────────────────────────────────────── */
+  function setupFilter(inputId, tableId) {
+    var input = document.getElementById(inputId);
+    var table = document.getElementById(tableId);
+    if (!input || !table) return;
+    input.addEventListener('input', function() {
+      var query = input.value.toLowerCase();
+      var rows = table.querySelectorAll('tbody tr:not([data-pin])');
+      rows.forEach(function(row) {
+        var text = '';
+        for (var i = 0; i < Math.min(row.children.length, 2); i++) {
+          text += ' ' + (row.children[i] ? row.children[i].textContent.toLowerCase() : '');
+        }
+        row.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  }
+  setupFilter('property-filter', 'property-table');
+})();
+</script>
+</body>
+</html>
