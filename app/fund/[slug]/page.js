@@ -62,8 +62,9 @@ export default async function FundPage({ params }) {
         .section-header { padding: 16px 20px; border-bottom: 1px solid #2d3748; font-weight: 600; font-size: 15px; }
         .section-body { padding: 20px; }
         table { width: 100%; border-collapse: collapse; font-size: 14px; }
-        th { text-align: left; padding: 10px 12px; color: #8892a4; font-weight: 600; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid #2d3748; }
-        td { padding: 10px 12px; border-bottom: 1px solid #1e2533; }
+        th { text-align: left; padding: 10px 12px; color: #8892a4; font-weight: 600; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid #2d3748; white-space: nowrap; }
+        td { padding: 10px 12px; border-bottom: 1px solid #1e2533; white-space: nowrap; }
+        .table-scroll { overflow-x: auto; }
         tr:last-child td { border-bottom: none; }
         tr:hover td { background: rgba(255,255,255,0.02); }
         .num { text-align: right; }
@@ -80,6 +81,14 @@ export default async function FundPage({ params }) {
         .tab { padding: 7px 18px; border-radius: 7px; font-size: 13px; font-weight: 500; text-decoration: none; color: #8892a4; transition: all .15s; }
         .tab.active { background: #2d3748; color: #e2e8f0; }
         .tab:hover:not(.active) { color: #e2e8f0; }
+        @media (max-width: 640px) {
+          .page { padding: 16px; }
+          h1 { font-size: 20px; }
+          .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+          .kpi-val { font-size: 18px; }
+          .section-header { padding: 12px 16px; font-size: 14px; }
+          .section-body { padding: 0; }
+        }
       `}</style>
 
       <div className="page">
@@ -157,7 +166,7 @@ export default async function FundPage({ params }) {
           {fund.units.length === 0 ? (
             <div className="empty">No unit data available.</div>
           ) : (
-            <table>
+            <div className="table-scroll"><table>
               <thead>
                 <tr>
                   <th>Address</th>
@@ -198,7 +207,7 @@ export default async function FundPage({ params }) {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table></div>
           )}
         </div>
 
@@ -206,7 +215,7 @@ export default async function FundPage({ params }) {
         {fund.delinquencies.length > 0 && (
           <div className="section">
             <div className="section-header">Delinquent Tenants ({fund.delinquencies.length})</div>
-            <table>
+            <div className="table-scroll"><table>
               <thead>
                 <tr>
                   <th>Address</th>
@@ -223,7 +232,7 @@ export default async function FundPage({ params }) {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table></div>
           </div>
         )}
 
@@ -231,7 +240,7 @@ export default async function FundPage({ params }) {
         {fund.expired_leases.length > 0 && (
           <div className="section">
             <div className="section-header">Expired Leases ({fund.expired_leases.length})</div>
-            <table>
+            <div className="table-scroll"><table>
               <thead>
                 <tr>
                   <th>Address</th>
@@ -250,7 +259,7 @@ export default async function FundPage({ params }) {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table></div>
           </div>
         )}
 
@@ -258,7 +267,7 @@ export default async function FundPage({ params }) {
         {fund.expiring_soon.length > 0 && (
           <div className="section">
             <div className="section-header">Expiring Soon ({fund.expiring_soon.length})</div>
-            <table>
+            <div className="table-scroll"><table>
               <thead>
                 <tr>
                   <th>Address</th>
@@ -277,7 +286,7 @@ export default async function FundPage({ params }) {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table></div>
           </div>
         )}
       </div>
