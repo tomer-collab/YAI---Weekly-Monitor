@@ -90,7 +90,15 @@ export default async function PropertyPage({ params }) {
         .tab { padding: 7px 18px; border-radius: 7px; font-size: 13px; font-weight: 500; text-decoration: none; color: #8892a4; transition: all .15s; }
         .tab.active { background: #2d3748; color: #e2e8f0; }
         .tab:hover:not(.active) { color: #e2e8f0; }
-        @media (max-width: 500px) { .detail-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) {
+          .page { padding: 16px; }
+          h1 { font-size: 18px; }
+          .cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+          .card-val { font-size: 17px; }
+          .detail-grid { grid-template-columns: 1fr; padding: 16px; }
+          .section-header { padding: 12px 16px; }
+          .breadcrumb { font-size: 12px; }
+        }
       `}</style>
 
       <div className="page">
