@@ -20,6 +20,10 @@ const allowedEmails = (process.env.ALLOWED_EMAILS || "")
   .filter(Boolean);
 
 const handler = NextAuth({
+  session: {
+    maxAge: 3 * 60 * 60, // 3 hours in seconds → forces re-login after 3 hours
+  },
+
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
