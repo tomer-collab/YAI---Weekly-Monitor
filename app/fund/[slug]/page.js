@@ -89,6 +89,7 @@ export default async function FundPage({ params }) {
           .section-header { padding: 12px 16px; font-size: 14px; }
           .section-body { padding: 0; }
           .table-scroll table { width: max-content; min-width: 100%; }
+          .section { overflow: visible; }
         }
       `}</style>
 
