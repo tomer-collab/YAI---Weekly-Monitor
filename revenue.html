@@ -105,6 +105,7 @@
 
   @media (max-width: 640px) {
     .header { padding: 16px; flex-wrap: wrap; gap: 12px; }
+    .header-left h1 { font-size: 17px; }
     .header-right { text-align: left; }
     .container { padding: 16px; }
     .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -113,6 +114,16 @@
     .filter-bar input { width: 100%; }
     .tab-bar a { padding: 6px 14px; }
     .table-wrap table { width: max-content; min-width: 100%; }
+
+    /* Sticky first column */
+    .table-wrap th:first-child,
+    .table-wrap td:first-child { position: sticky; left: 0; z-index: 2; }
+    .table-wrap th:first-child { background: var(--surface2); }
+    .table-wrap td:first-child { background: var(--surface); }
+    .table-wrap tr:hover td:first-child { background: var(--surface2); }
+
+    /* Hide non-essential columns */
+    .hide-mobile { display: none; }
   }
 
   @media print {
@@ -134,8 +145,8 @@
     </div>
   </div>
   <div class="header-right">
-    <div class="date">Week of April 01, 2026</div>
-    <div class="period">YTD Period: Jan 1 – Apr 01, 2026</div>
+    <div class="date">Week of April 04, 2026</div>
+    <div class="period">YTD Period: Jan 1 – Apr 04, 2026</div>
   </div>
 </div>
 
@@ -161,8 +172,8 @@
     </div>
     <div class="kpi blue">
       <div class="label">Monthly Rent Potential</div>
-      <div class="value">$80,224</div>
-      <div class="sub">149 units (74% occupied)</div>
+      <div class="value">$77,859</div>
+      <div class="sub">149 units (72% occupied)</div>
     </div>
   </div>
 
@@ -198,7 +209,7 @@
             
             <td class="num" data-sort-value="30028.87">$30,029</td>
             
-            <td class="num" data-sort-value="4984.35">$4,984</td>
+            <td class="num" data-sort-value="10632.55">$10,633</td>
             
             <td class="num" data-sort-value="26606.14" style="font-weight:600">$26,606</td>
           </tr>
@@ -212,7 +223,7 @@
             
             <td class="num" data-sort-value="20326.0">$20,326</td>
             
-            <td class="num" data-sort-value="472.76">$473</td>
+            <td class="num" data-sort-value="3742.19">$3,742</td>
             
             <td class="num" data-sort-value="22610.98" style="font-weight:600">$22,611</td>
           </tr>
@@ -226,7 +237,7 @@
             
             <td class="num" data-sort-value="19061.0">$19,061</td>
             
-            <td class="num" data-sort-value="1602.05">$1,602</td>
+            <td class="num" data-sort-value="2602.05">$2,602</td>
             
             <td class="num" data-sort-value="21696.54" style="font-weight:600">$21,697</td>
           </tr>
@@ -254,7 +265,7 @@
             
             <td class="num" data-sort-value="16803.71">$16,804</td>
             
-            <td class="num" data-sort-value="1920.73">$1,921</td>
+            <td class="num" data-sort-value="6585.48">$6,585</td>
             
             <td class="num" data-sort-value="13966.05" style="font-weight:600">$13,966</td>
           </tr>
@@ -268,7 +279,7 @@
             
             <td class="num" data-sort-value="8382.0">$8,382</td>
             
-            <td class="num" data-sort-value="447.48">$447</td>
+            <td class="num" data-sort-value="-302.52">$303</td>
             
             <td class="num" data-sort-value="8356.52" style="font-weight:600">$8,357</td>
           </tr>
@@ -282,7 +293,7 @@
             
             <td class="num" data-sort-value="9389.39">$9,389</td>
             
-            <td class="num" data-sort-value="911.33">$911</td>
+            <td class="num" data-sort-value="2990.72">$2,991</td>
             
             <td class="num" data-sort-value="7653.28" style="font-weight:600">$7,653</td>
           </tr>
@@ -296,7 +307,7 @@
             
             <td class="num" data-sort-value="6853.0">$6,853</td>
             
-            <td class="num" data-sort-value="221.77">$222</td>
+            <td class="num" data-sort-value="3070.77">$3,071</td>
             
             <td class="num" data-sort-value="6350.25" style="font-weight:600">$6,350</td>
           </tr>
@@ -310,7 +321,7 @@
             
             <td class="num" data-sort-value="4190.0">$4,190</td>
             
-            <td class="num" data-sort-value="800.0">$800</td>
+            <td class="num" data-sort-value="3095.0">$3,095</td>
             
             <td class="num" data-sort-value="1800.0" style="font-weight:600">$1,800</td>
           </tr>
@@ -324,7 +335,7 @@
             
             <td class="num" data-sort-value="2261.43">$2,261</td>
             
-            <td class="num" data-sort-value="554.57">$555</td>
+            <td class="num" data-sort-value="2315.0">$2,315</td>
             
             <td class="num" data-sort-value="896.5" style="font-weight:600">$896</td>
           </tr>
@@ -352,7 +363,7 @@
             
             <td class="num" data-sort-value="131600.4">$131,600</td>
             
-            <td class="num" data-sort-value="14023.039999999999">$14,023</td>
+            <td class="num" data-sort-value="36839.240000000005">$36,839</td>
             
             <td class="num" data-sort-value="124774.9">$124,775</td>
           </tr>
@@ -523,7 +534,7 @@
             <td><a href="/fund/memphis-re-llc-3/property/1741-gregory-ave" style="color:var(--text);text-decoration:none;">1741 GREGORY AVE</a></td>
             <td class="num" data-sort-value="1350.0">$1,350</td>
             <td>
-              <span class="badge badge-green">Occupied</span>
+              <span class="badge badge-red">Vacant</span>
             </td>
           </tr>
           
@@ -1603,7 +1614,7 @@
             <td><a href="/fund/memphis-re-llc2/property/1132-1134-atlantic" style="color:var(--text);text-decoration:none;">1132/1134 Atlantic</a></td>
             <td class="num" data-sort-value="1015.0">$1,015</td>
             <td>
-              <span class="badge badge-green">Occupied</span>
+              <span class="badge badge-red">Vacant</span>
             </td>
           </tr>
           
@@ -1756,7 +1767,7 @@
 <div class="footer">
   Generated by YAI/VM Group Weekly Monitor &nbsp;&middot;&nbsp;
   Data from Propertyware (Lubin Property Management) &nbsp;&middot;&nbsp;
-  April 01, 2026
+  April 04, 2026
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
@@ -1813,7 +1824,7 @@
 
   
   /* ── Monthly Revenue Trend Chart ───────────────────────────────── */
-  var trendData = {"labels": ["Jan", "Feb", "Mar", "Apr"], "income": [124774.90000000001, 110262.76999999999, 131600.4, 14023.039999999999], "expense": [55794.09999999999, 54885.939999999995, 64888.93000000001, 1140.0399999999997], "noi": [68980.8, 55376.83, 66711.47, 12883.000000000002]};
+  var trendData = {"labels": ["Jan", "Feb", "Mar", "Apr"], "income": [124774.90000000001, 110262.76999999999, 131600.4, 36839.240000000005], "expense": [55794.09999999999, 54885.939999999995, 64888.93000000001, 5209.7], "noi": [68980.8, 55376.83, 66711.47, 31629.54]};
   var trendCanvas = document.getElementById('revenue-chart');
   if (trendCanvas && typeof Chart !== 'undefined') {
     new Chart(trendCanvas, {
