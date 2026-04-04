@@ -90,6 +90,13 @@ export default async function FundPage({ params }) {
           .section-body { padding: 0; }
           .table-scroll table { width: max-content; min-width: 100%; }
           .section { overflow: visible; }
+          /* Sticky first column */
+          .table-scroll th:first-child,
+          .table-scroll td:first-child { position: sticky; left: 0; z-index: 2; }
+          .table-scroll th:first-child { background: #2d3748; }
+          .table-scroll td:first-child { background: #1a1f2e; }
+          /* Hide secondary columns */
+          .hide-mobile { display: none; }
         }
       `}</style>
 
@@ -172,11 +179,11 @@ export default async function FundPage({ params }) {
               <thead>
                 <tr>
                   <th>Address</th>
-                  <th>Tenant</th>
+                  <th className="hide-mobile">Tenant</th>
                   <th>Status</th>
                   <th className="num">Market Rent</th>
                   <th className="num">Balance Due</th>
-                  <th>Lease End</th>
+                  <th className="hide-mobile">Lease End</th>
                   <th>Alerts</th>
                 </tr>
               </thead>
@@ -186,7 +193,7 @@ export default async function FundPage({ params }) {
                     <td>
                       <a href={`/fund/${fund.slug}/property/${u.slug}`}>{u.address}</a>
                     </td>
-                    <td>{u.tenant || <span style={{color:"#4a5568"}}>—</span>}</td>
+                    <td className="hide-mobile">{u.tenant || <span style={{color:"#4a5568"}}>—</span>}</td>
                     <td>
                       <span className={`badge ${u.status === "Occupied" ? "badge-green" : "badge-red"}`}>
                         {u.status}
@@ -196,7 +203,7 @@ export default async function FundPage({ params }) {
                     <td className="num" style={{color: u.balance > 0 ? "#fc8181" : "inherit"}}>
                       {u.balance > 0 ? fmt(u.balance) : <span style={{color:"#4a5568"}}>—</span>}
                     </td>
-                    <td style={{color: u.days_remaining != null && u.days_remaining < 0 ? "#fc8181" : u.days_remaining != null && u.days_remaining <= 60 ? "#f6e05e" : "inherit"}}>
+                    <td className="hide-mobile" style={{color: u.days_remaining != null && u.days_remaining < 0 ? "#fc8181" : u.days_remaining != null && u.days_remaining <= 60 ? "#f6e05e" : "inherit"}}>
                       {u.lease_end ?? <span style={{color:"#4a5568"}}>—</span>}
                     </td>
                     <td>
