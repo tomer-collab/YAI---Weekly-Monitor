@@ -21,7 +21,7 @@ const allowedEmails = (process.env.ALLOWED_EMAILS || "")
 
 const handler = NextAuth({
   session: {
-    maxAge: 3 * 60 * 60, // 3 hours in seconds → forces re-login after 3 hours
+    maxAge: 4 * 60 * 60, // 4 hours in seconds → forces re-login after 4 hours
   },
 
   providers: [
