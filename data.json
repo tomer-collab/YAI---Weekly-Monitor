@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-01",
+  "generated_at": "2026-04-04",
   "funds": [
     {
       "entity": "Memphis RE LLC 8",
@@ -10,7 +10,7 @@
         "occupancy_pct": 58.3,
         "monthly_rent": 6949.0,
         "vacant_loss": 4999.0,
-        "total_delinquency": 7180.42,
+        "total_delinquency": 5351.03,
         "ytd_income": 7653.28,
         "ytd_expense": 8023.15,
         "ytd_noi": -369.87
@@ -81,7 +81,7 @@
           "market_rent": 900.0,
           "status": "Occupied",
           "tenant": "Brown, S.",
-          "balance": 890.39,
+          "balance": 1.0,
           "lease_end": null,
           "days_remaining": null,
           "alert_flags": [
@@ -94,7 +94,7 @@
           "market_rent": 900.0,
           "status": "Occupied",
           "tenant": "Pink, T.",
-          "balance": 890.39,
+          "balance": 1.0,
           "lease_end": null,
           "days_remaining": null,
           "alert_flags": [
@@ -144,11 +144,10 @@
           "market_rent": 0.0,
           "status": "Occupied",
           "tenant": "Foster, J.",
-          "balance": 940.0,
+          "balance": 0.0,
           "lease_end": "2026-05-07",
-          "days_remaining": 36,
+          "days_remaining": 33,
           "alert_flags": [
-            "delinquent",
             "expiring_soon"
           ]
         },
@@ -190,16 +189,10 @@
           "balance": 1097.28
         },
         {
-          "address": "5003 Deneen Dr, Memphis",
-          "slug": "5003-deneen-dr-memphis",
-          "tenant": "Foster, J.",
-          "balance": 940.0
-        },
-        {
           "address": "Crump Duples",
           "slug": "crump-duples",
-          "tenant": "Pink, T.",
-          "balance": 890.39
+          "tenant": "Brown, S.",
+          "balance": 1.0
         }
       ],
       "expired_leases": [],
@@ -209,7 +202,7 @@
           "slug": "5003-deneen-dr-memphis",
           "tenant": "Foster, J.",
           "lease_end": "2026-05-07",
-          "days_remaining": 36
+          "days_remaining": 33
         }
       ],
       "monthly_financials": [
@@ -237,9 +230,9 @@
         {
           "month": "2026-04",
           "month_label": "Apr",
-          "income": 911.33,
-          "expense": 91.1,
-          "noi": 820.23
+          "income": 2990.72,
+          "expense": 282.24,
+          "noi": 2708.48
         }
       ]
     },
@@ -401,7 +394,7 @@
           "tenant": "Chambers, H.",
           "balance": 1150.4,
           "lease_end": "2026-05-31",
-          "days_remaining": 60,
+          "days_remaining": 57,
           "alert_flags": [
             "delinquent",
             "expiring_soon"
@@ -476,7 +469,7 @@
           "slug": "1040-alaska",
           "tenant": "Chambers, H.",
           "lease_end": "2026-05-31",
-          "days_remaining": 60
+          "days_remaining": 57
         }
       ],
       "monthly_financials": [
@@ -515,11 +508,11 @@
       "slug": "memphis-re-llc2",
       "kpis": {
         "total_units": 10,
-        "occupied_units": 9,
-        "occupancy_pct": 90.0,
-        "monthly_rent": 4794.0,
-        "vacant_loss": 1350.0,
-        "total_delinquency": 12918.12,
+        "occupied_units": 8,
+        "occupancy_pct": 80.0,
+        "monthly_rent": 3779.0,
+        "vacant_loss": 2365.0,
+        "total_delinquency": 11903.12,
         "ytd_income": 8356.52,
         "ytd_expense": 3112.6,
         "ytd_noi": 5243.92
@@ -531,7 +524,7 @@
           "market_rent": 0.0,
           "status": "Occupied",
           "tenant": "Howse, A.",
-          "balance": 1015.0,
+          "balance": 2423.7,
           "lease_end": null,
           "days_remaining": null,
           "alert_flags": [
@@ -542,9 +535,9 @@
           "address": "1132/1134 Atlantic",
           "slug": "1132-1134-atlantic",
           "market_rent": 1015.0,
-          "status": "Occupied",
-          "tenant": "Guzman, J.",
-          "balance": 1015.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 2423.7,
           "lease_end": null,
           "days_remaining": null,
           "alert_flags": [
@@ -583,7 +576,7 @@
           "tenant": "Crawford, S.",
           "balance": 571.52,
           "lease_end": "2025-08-31",
-          "days_remaining": -213,
+          "days_remaining": -216,
           "alert_flags": [
             "delinquent",
             "expired_lease"
@@ -597,7 +590,7 @@
           "tenant": "Polard, F.",
           "balance": 571.52,
           "lease_end": "2025-08-31",
-          "days_remaining": -213,
+          "days_remaining": -216,
           "alert_flags": [
             "delinquent",
             "expired_lease"
@@ -611,7 +604,7 @@
           "tenant": "Roberts, C.",
           "balance": 900.0,
           "lease_end": "2025-02-28",
-          "days_remaining": -397,
+          "days_remaining": -400,
           "alert_flags": [
             "delinquent",
             "expired_lease"
@@ -625,7 +618,7 @@
           "tenant": "Bonds, A.",
           "balance": 900.0,
           "lease_end": "2025-02-28",
-          "days_remaining": -397,
+          "days_remaining": -400,
           "alert_flags": [
             "delinquent",
             "expired_lease"
@@ -684,12 +677,6 @@
           "balance": 1030.0
         },
         {
-          "address": "1132/1134 Atlantic",
-          "slug": "1132-1134-atlantic",
-          "tenant": "Guzman, J.",
-          "balance": 1015.0
-        },
-        {
           "address": "666/664 East Waldorf Avenue",
           "slug": "666-664-east-waldorf-avenue",
           "tenant": "Bonds, A.",
@@ -720,21 +707,21 @@
           "slug": "666-664-east-waldorf-avenue",
           "tenant": "Bonds, A.",
           "lease_end": "2024-08-31",
-          "days_remaining": -578
+          "days_remaining": -581
         },
         {
           "address": "666/664 East Waldorf Avenue",
           "slug": "666-664-east-waldorf-avenue",
           "tenant": "Roberts, C.",
           "lease_end": "2025-02-28",
-          "days_remaining": -397
+          "days_remaining": -400
         },
         {
           "address": "3825/ 3827 Ajanders Dr",
           "slug": "3825-3827-ajanders-dr",
           "tenant": "Crawford, S.",
           "lease_end": "2025-08-31",
-          "days_remaining": -213
+          "days_remaining": -216
         }
       ],
       "expiring_soon": [],
@@ -763,9 +750,9 @@
         {
           "month": "2026-04",
           "month_label": "Apr",
-          "income": 447.48,
-          "expense": 35.8,
-          "noi": 411.68
+          "income": -302.52,
+          "expense": 252.8,
+          "noi": -555.32
         }
       ]
     },
@@ -774,11 +761,11 @@
       "slug": "memphis-re-llc-3",
       "kpis": {
         "total_units": 18,
-        "occupied_units": 15,
-        "occupancy_pct": 83.3,
-        "monthly_rent": 11177.0,
-        "vacant_loss": 3849.0,
-        "total_delinquency": 19797.07,
+        "occupied_units": 14,
+        "occupancy_pct": 77.8,
+        "monthly_rent": 9827.0,
+        "vacant_loss": 5199.0,
+        "total_delinquency": 15463.64,
         "ytd_income": 22610.98,
         "ytd_expense": 6593.28,
         "ytd_noi": 16017.7
@@ -803,7 +790,7 @@
           "market_rent": 0.0,
           "status": "Occupied",
           "tenant": "Bacon, L.",
-          "balance": 1677.93,
+          "balance": 1577.93,
           "lease_end": null,
           "days_remaining": null,
           "alert_flags": [
@@ -818,7 +805,7 @@
           "tenant": "Anderson, D.",
           "balance": 1342.0,
           "lease_end": "2026-05-31",
-          "days_remaining": 60,
+          "days_remaining": 57,
           "alert_flags": [
             "delinquent",
             "expiring_soon"
@@ -856,12 +843,10 @@
           "market_rent": 0.0,
           "status": "Occupied",
           "tenant": "Paulker, M.",
-          "balance": 1099.45,
+          "balance": 0.0,
           "lease_end": null,
           "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
+          "alert_flags": []
         },
         {
           "address": "1252 Maywood Rd",
@@ -895,7 +880,7 @@
           "tenant": "Fifer, T.",
           "balance": 997.0,
           "lease_end": "2025-09-30",
-          "days_remaining": -183,
+          "days_remaining": -186,
           "alert_flags": [
             "delinquent",
             "expired_lease"
@@ -909,7 +894,7 @@
           "tenant": "Miller, K.",
           "balance": 997.0,
           "lease_end": "2025-09-30",
-          "days_remaining": -183,
+          "days_remaining": -186,
           "alert_flags": [
             "delinquent",
             "expired_lease"
@@ -919,15 +904,12 @@
           "address": "1741 GREGORY AVE",
           "slug": "1741-gregory-ave",
           "market_rent": 1350.0,
-          "status": "Occupied",
-          "tenant": "Dowell, K.",
-          "balance": 1334.25,
-          "lease_end": "2026-03-31",
-          "days_remaining": -1,
-          "alert_flags": [
-            "delinquent",
-            "expired_lease"
-          ]
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
         },
         {
           "address": "2286 Poe",
@@ -935,7 +917,7 @@
           "market_rent": 1099.0,
           "status": "Occupied",
           "tenant": "Walker, T.",
-          "balance": 1099.0,
+          "balance": 99.0,
           "lease_end": null,
           "days_remaining": null,
           "alert_flags": [
@@ -998,11 +980,10 @@
           "market_rent": 1500.0,
           "status": "Occupied",
           "tenant": "Richardson, V.",
-          "balance": 799.73,
+          "balance": 0.0,
           "lease_end": "2026-05-31",
-          "days_remaining": 60,
+          "days_remaining": 57,
           "alert_flags": [
-            "delinquent",
             "expiring_soon"
           ]
         },
@@ -1029,7 +1010,7 @@
           "address": "155 Silverage",
           "slug": "155-silverage",
           "tenant": "Bacon, L.",
-          "balance": 1677.93
+          "balance": 1577.93
         },
         {
           "address": "2322 Lowell Ave",
@@ -1050,12 +1031,6 @@
           "balance": 1337.0
         },
         {
-          "address": "1741 GREGORY AVE",
-          "slug": "1741-gregory-ave",
-          "tenant": "Dowell, K.",
-          "balance": 1334.25
-        },
-        {
           "address": "3696 Canary Cove",
           "slug": "3696-canary-cove",
           "tenant": "Benner, T.",
@@ -1072,18 +1047,6 @@
           "slug": "1319-glenn",
           "tenant": "Harris, L.",
           "balance": 1170.0
-        },
-        {
-          "address": "2595 Browning Ave",
-          "slug": "2595-browning-ave",
-          "tenant": "Paulker, M.",
-          "balance": 1099.45
-        },
-        {
-          "address": "2286 Poe",
-          "slug": "2286-poe",
-          "tenant": "Walker, T.",
-          "balance": 1099.0
         },
         {
           "address": "3643 Dumas",
@@ -1104,10 +1067,10 @@
           "balance": 800.0
         },
         {
-          "address": "274 Ingle",
-          "slug": "274-ingle",
-          "tenant": "Richardson, V.",
-          "balance": 799.73
+          "address": "2286 Poe",
+          "slug": "2286-poe",
+          "tenant": "Walker, T.",
+          "balance": 99.0
         }
       ],
       "expired_leases": [
@@ -1116,21 +1079,14 @@
           "slug": "1802-1804-edward",
           "tenant": "Miller, K.",
           "lease_end": "2025-06-30",
-          "days_remaining": -275
+          "days_remaining": -278
         },
         {
           "address": "1802/1804 Edward",
           "slug": "1802-1804-edward",
           "tenant": "Fifer, T.",
           "lease_end": "2025-09-30",
-          "days_remaining": -183
-        },
-        {
-          "address": "1741 GREGORY AVE",
-          "slug": "1741-gregory-ave",
-          "tenant": "Dowell, K.",
-          "lease_end": "2026-03-31",
-          "days_remaining": -1
+          "days_remaining": -186
         }
       ],
       "expiring_soon": [
@@ -1139,14 +1095,14 @@
           "slug": "3547-hallbrook-st",
           "tenant": "Anderson, D.",
           "lease_end": "2026-05-31",
-          "days_remaining": 60
+          "days_remaining": 57
         },
         {
           "address": "274 Ingle",
           "slug": "274-ingle",
           "tenant": "Richardson, V.",
           "lease_end": "2026-05-31",
-          "days_remaining": 60
+          "days_remaining": 57
         }
       ],
       "monthly_financials": [
@@ -1174,30 +1130,69 @@
         {
           "month": "2026-04",
           "month_label": "Apr",
-          "income": 472.76,
-          "expense": 37.82,
-          "noi": 434.94
+          "income": 3742.19,
+          "expense": 716.68,
+          "noi": 3025.51
         }
       ]
     },
     {
-      "entity": "YAI",
-      "slug": "yai",
+      "entity": "Memphis RE LLC 4",
+      "slug": "memphis-re-llc-4",
       "kpis": {
-        "total_units": 5,
-        "occupied_units": 0,
-        "occupancy_pct": 0.0,
-        "monthly_rent": 0.0,
-        "vacant_loss": 0.0,
-        "total_delinquency": 0.0,
-        "ytd_income": 0.0,
-        "ytd_expense": 0.0,
-        "ytd_noi": 0.0
+        "total_units": 16,
+        "occupied_units": 13,
+        "occupancy_pct": 81.2,
+        "monthly_rent": 9747.0,
+        "vacant_loss": 1749.0,
+        "total_delinquency": 8985.93,
+        "ytd_income": 13966.05,
+        "ytd_expense": 4969.53,
+        "ytd_noi": 8996.52
       },
       "units": [
         {
-          "address": "1498 Merlin Avenue",
-          "slug": "1498-merlin-avenue",
+          "address": "809 Alida Ave",
+          "slug": "809-alida-ave",
+          "market_rent": 1700.0,
+          "status": "Occupied",
+          "tenant": "Martin, F.",
+          "balance": 1040.39,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "825-827 Hilton",
+          "slug": "825-827-hilton",
+          "market_rent": 650.0,
+          "status": "Occupied",
+          "tenant": "Terrell, T.",
+          "balance": 642.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "825-827 Hilton",
+          "slug": "825-827-hilton",
+          "market_rent": 649.0,
+          "status": "Occupied",
+          "tenant": "Kirkwood, S.",
+          "balance": 642.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "3551 Lanette Rd",
+          "slug": "3551-lanette-rd",
           "market_rent": 0.0,
           "status": "Vacant",
           "tenant": "",
@@ -1207,9 +1202,9 @@
           "alert_flags": []
         },
         {
-          "address": "258 Modder Ave,",
-          "slug": "258-modder-ave",
-          "market_rent": 0.0,
+          "address": "706 Lester -2884 Faxon",
+          "slug": "706-lester-2884-faxon",
+          "market_rent": 650.0,
           "status": "Vacant",
           "tenant": "",
           "balance": 0.0,
@@ -1218,9 +1213,31 @@
           "alert_flags": []
         },
         {
-          "address": "1336 Kentucky Street",
-          "slug": "1336-kentucky-street",
+          "address": "706 Lester -2884 Faxon",
+          "slug": "706-lester-2884-faxon",
+          "market_rent": 599.0,
+          "status": "Occupied",
+          "tenant": "Mitchell, J.",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "165 E McKellar Ave",
+          "slug": "165-e-mckellar-ave",
           "market_rent": 0.0,
+          "status": "Occupied",
+          "tenant": "Bailey, C.",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "2358 Zannoe",
+          "slug": "2358-zannoe",
+          "market_rent": 1099.0,
           "status": "Vacant",
           "tenant": "",
           "balance": 0.0,
@@ -1229,32 +1246,608 @@
           "alert_flags": []
         },
         {
-          "address": "3394 BUCHANAN",
-          "slug": "3394-buchanan",
+          "address": "3203 Crump",
+          "slug": "3203-crump",
+          "market_rent": 1000.0,
+          "status": "Occupied",
+          "tenant": "Atkins, K.",
+          "balance": 249.97,
+          "lease_end": "2025-04-30",
+          "days_remaining": -339,
+          "alert_flags": [
+            "delinquent",
+            "expired_lease"
+          ]
+        },
+        {
+          "address": "3203 Crump",
+          "slug": "3203-crump",
           "market_rent": 0.0,
-          "status": "Vacant",
-          "tenant": "",
+          "status": "Occupied",
+          "tenant": "Bland, P.",
+          "balance": 249.97,
+          "lease_end": "2025-04-30",
+          "days_remaining": -339,
+          "alert_flags": [
+            "delinquent",
+            "expired_lease"
+          ]
+        },
+        {
+          "address": "32 W van Huesen Dr",
+          "slug": "32-w-van-huesen-dr",
+          "market_rent": 0.0,
+          "status": "Occupied",
+          "tenant": "Ivory, C.",
+          "balance": 1908.6,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "921 S. Willett",
+          "slug": "921-s-willett",
+          "market_rent": 0.0,
+          "status": "Occupied",
+          "tenant": "Bates, A.",
+          "balance": 16.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "1485 Menager",
+          "slug": "1485-menager",
+          "market_rent": 1350.0,
+          "status": "Occupied",
+          "tenant": "Burnett, N.",
           "balance": 0.0,
           "lease_end": null,
           "days_remaining": null,
           "alert_flags": []
         },
         {
-          "address": "3473 S COOK",
-          "slug": "3473-s-cook",
-          "market_rent": 0.0,
-          "status": "Vacant",
-          "tenant": "",
-          "balance": 0.0,
+          "address": "2304 Golden",
+          "slug": "2304-golden",
+          "market_rent": 1350.0,
+          "status": "Occupied",
+          "tenant": "Townsend - Housing Authority",
+          "balance": 1348.55,
           "lease_end": null,
           "days_remaining": null,
-          "alert_flags": []
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "1782 Marjorie",
+          "slug": "1782-marjorie",
+          "market_rent": 1099.0,
+          "status": "Occupied",
+          "tenant": "Macklin - Sullivan",
+          "balance": 1446.42,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "2552 Capewood Dr",
+          "slug": "2552-capewood-dr",
+          "market_rent": 1350.0,
+          "status": "Occupied",
+          "tenant": "Brown, S.",
+          "balance": 1378.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
         }
       ],
-      "delinquencies": [],
-      "expired_leases": [],
+      "delinquencies": [
+        {
+          "address": "32 W van Huesen Dr",
+          "slug": "32-w-van-huesen-dr",
+          "tenant": "Ivory, C.",
+          "balance": 1908.6
+        },
+        {
+          "address": "1782 Marjorie",
+          "slug": "1782-marjorie",
+          "tenant": "Macklin - Sullivan",
+          "balance": 1446.42
+        },
+        {
+          "address": "2552 Capewood Dr",
+          "slug": "2552-capewood-dr",
+          "tenant": "Brown, S.",
+          "balance": 1378.0
+        },
+        {
+          "address": "2304 Golden",
+          "slug": "2304-golden",
+          "tenant": "Townsend - Housing Authority",
+          "balance": 1348.55
+        },
+        {
+          "address": "809 Alida Ave",
+          "slug": "809-alida-ave",
+          "tenant": "Martin, F.",
+          "balance": 1040.39
+        },
+        {
+          "address": "3203 Crump",
+          "slug": "3203-crump",
+          "tenant": "Bland, P.",
+          "balance": 956.0
+        },
+        {
+          "address": "825-827 Hilton",
+          "slug": "825-827-hilton",
+          "tenant": "Terrell, T.",
+          "balance": 642.0
+        },
+        {
+          "address": "3203 Crump",
+          "slug": "3203-crump",
+          "tenant": "Atkins, K.",
+          "balance": 249.97
+        },
+        {
+          "address": "921 S. Willett",
+          "slug": "921-s-willett",
+          "tenant": "Bates, A.",
+          "balance": 16.0
+        }
+      ],
+      "expired_leases": [
+        {
+          "address": "3203 Crump",
+          "slug": "3203-crump",
+          "tenant": "Bland, P.",
+          "lease_end": "2025-04-30",
+          "days_remaining": -339
+        }
+      ],
       "expiring_soon": [],
-      "monthly_financials": []
+      "monthly_financials": [
+        {
+          "month": "2026-01",
+          "month_label": "Jan",
+          "income": 13966.05,
+          "expense": 4969.53,
+          "noi": 8996.52
+        },
+        {
+          "month": "2026-02",
+          "month_label": "Feb",
+          "income": 13555.7,
+          "expense": 6099.4,
+          "noi": 7456.3
+        },
+        {
+          "month": "2026-03",
+          "month_label": "Mar",
+          "income": 16803.71,
+          "expense": 9742.67,
+          "noi": 7061.04
+        },
+        {
+          "month": "2026-04",
+          "month_label": "Apr",
+          "income": 6585.48,
+          "expense": 402.87,
+          "noi": 6182.61
+        }
+      ]
+    },
+    {
+      "entity": "Memphis RE LLC.",
+      "slug": "memphis-re-llc",
+      "kpis": {
+        "total_units": 19,
+        "occupied_units": 16,
+        "occupancy_pct": 84.2,
+        "monthly_rent": 16888.0,
+        "vacant_loss": 3325.0,
+        "total_delinquency": 19004.239999999998,
+        "ytd_income": 21696.54,
+        "ytd_expense": 7648.88,
+        "ytd_noi": 14047.66
+      },
+      "units": [
+        {
+          "address": "2202 Cassie Ave",
+          "slug": "2202-cassie-ave",
+          "market_rent": 1350.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "1890 Nantucket Dr.",
+          "slug": "1890-nantucket-dr",
+          "market_rent": 1300.0,
+          "status": "Occupied",
+          "tenant": "Smith, R.",
+          "balance": 1300.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "3858 Shallowood",
+          "slug": "3858-shallowood",
+          "market_rent": 1500.0,
+          "status": "Occupied",
+          "tenant": "Walker, E.",
+          "balance": 2071.99,
+          "lease_end": "2026-05-31",
+          "days_remaining": 57,
+          "alert_flags": [
+            "delinquent",
+            "expiring_soon"
+          ]
+        },
+        {
+          "address": "197 Ivan Rd",
+          "slug": "197-ivan-rd",
+          "market_rent": 925.0,
+          "status": "Occupied",
+          "tenant": "Mitchell, R.",
+          "balance": 1275.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "4285 Coventry Dr",
+          "slug": "4285-coventry-dr",
+          "market_rent": 1099.0,
+          "status": "Occupied",
+          "tenant": "Tate - Fulton",
+          "balance": 1098.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "5261 Beaverton Dr",
+          "slug": "5261-beaverton-dr",
+          "market_rent": 1275.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "1957 Alta Vista Ave",
+          "slug": "1957-alta-vista-ave",
+          "market_rent": 1075.0,
+          "status": "Occupied",
+          "tenant": "Holmes, P.",
+          "balance": 1348.95,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "4430 Chuck Ave",
+          "slug": "4430-chuck-ave",
+          "market_rent": 1100.0,
+          "status": "Occupied",
+          "tenant": "Becton - Becton",
+          "balance": 2560.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "5096 Southington Ave",
+          "slug": "5096-southington-ave",
+          "market_rent": 1250.0,
+          "status": "Occupied",
+          "tenant": "Campbell, W.",
+          "balance": 1300.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "5704 Winter Tree Dr",
+          "slug": "5704-winter-tree-dr",
+          "market_rent": 1373.0,
+          "status": "Occupied",
+          "tenant": "Jenkins, N.",
+          "balance": 1875.3,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "3290 Spring Vally Cv",
+          "slug": "3290-spring-vally-cv",
+          "market_rent": 1600.0,
+          "status": "Occupied",
+          "tenant": "Hopson, T.",
+          "balance": 1700.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "3501 Venable Rd",
+          "slug": "3501-venable-rd",
+          "market_rent": 1250.0,
+          "status": "Occupied",
+          "tenant": "Jackson, M.",
+          "balance": 1444.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        },
+        {
+          "address": "755-757 Hilton",
+          "slug": "755-757-hilton",
+          "market_rent": 650.0,
+          "status": "Occupied",
+          "tenant": "-, J.",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "755-757 Hilton",
+          "slug": "755-757-hilton",
+          "market_rent": 750.0,
+          "status": "Occupied",
+          "tenant": "Oates, E.",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "571 - 573 Boston St",
+          "slug": "571-573-boston-st",
+          "market_rent": 675.0,
+          "status": "Occupied",
+          "tenant": "Torbert, V.",
+          "balance": 387.5,
+          "lease_end": "2023-06-20",
+          "days_remaining": -1019,
+          "alert_flags": [
+            "delinquent",
+            "expired_lease"
+          ]
+        },
+        {
+          "address": "571 - 573 Boston St",
+          "slug": "571-573-boston-st",
+          "market_rent": 841.0,
+          "status": "Occupied",
+          "tenant": "Danner, J.",
+          "balance": 387.5,
+          "lease_end": "2023-06-20",
+          "days_remaining": -1019,
+          "alert_flags": [
+            "delinquent",
+            "expired_lease"
+          ]
+        },
+        {
+          "address": "1575 - 1577 Cella St",
+          "slug": "1575-1577-cella-st",
+          "market_rent": 700.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 850.0,
+          "lease_end": "2026-04-30",
+          "days_remaining": 26,
+          "alert_flags": [
+            "delinquent",
+            "expiring_soon"
+          ]
+        },
+        {
+          "address": "1575 - 1577 Cella St",
+          "slug": "1575-1577-cella-st",
+          "market_rent": 0.0,
+          "status": "Occupied",
+          "tenant": "Foster, D.",
+          "balance": 850.0,
+          "lease_end": "2026-04-30",
+          "days_remaining": 26,
+          "alert_flags": [
+            "delinquent",
+            "expiring_soon"
+          ]
+        },
+        {
+          "address": "1484 Lockhaven",
+          "slug": "1484-lockhaven",
+          "market_rent": 1500.0,
+          "status": "Occupied",
+          "tenant": "Mitchell, M.",
+          "balance": 952.5,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": [
+            "delinquent"
+          ]
+        }
+      ],
+      "delinquencies": [
+        {
+          "address": "4430 Chuck Ave",
+          "slug": "4430-chuck-ave",
+          "tenant": "Becton - Becton",
+          "balance": 2560.0
+        },
+        {
+          "address": "3858 Shallowood",
+          "slug": "3858-shallowood",
+          "tenant": "Walker, E.",
+          "balance": 2071.99
+        },
+        {
+          "address": "5704 Winter Tree Dr",
+          "slug": "5704-winter-tree-dr",
+          "tenant": "Jenkins, N.",
+          "balance": 1875.3
+        },
+        {
+          "address": "3290 Spring Vally Cv",
+          "slug": "3290-spring-vally-cv",
+          "tenant": "Hopson, T.",
+          "balance": 1700.0
+        },
+        {
+          "address": "3501 Venable Rd",
+          "slug": "3501-venable-rd",
+          "tenant": "Jackson, M.",
+          "balance": 1444.0
+        },
+        {
+          "address": "1957 Alta Vista Ave",
+          "slug": "1957-alta-vista-ave",
+          "tenant": "Holmes, P.",
+          "balance": 1348.95
+        },
+        {
+          "address": "1890 Nantucket Dr.",
+          "slug": "1890-nantucket-dr",
+          "tenant": "Smith, R.",
+          "balance": 1300.0
+        },
+        {
+          "address": "5096 Southington Ave",
+          "slug": "5096-southington-ave",
+          "tenant": "Campbell, W.",
+          "balance": 1300.0
+        },
+        {
+          "address": "197 Ivan Rd",
+          "slug": "197-ivan-rd",
+          "tenant": "Mitchell, R.",
+          "balance": 1275.0
+        },
+        {
+          "address": "4285 Coventry Dr",
+          "slug": "4285-coventry-dr",
+          "tenant": "Tate - Fulton",
+          "balance": 1098.0
+        },
+        {
+          "address": "1484 Lockhaven",
+          "slug": "1484-lockhaven",
+          "tenant": "Mitchell, M.",
+          "balance": 952.5
+        },
+        {
+          "address": "1575 - 1577 Cella St",
+          "slug": "1575-1577-cella-st",
+          "tenant": "Foster, D.",
+          "balance": 850.0
+        },
+        {
+          "address": "571 - 573 Boston St",
+          "slug": "571-573-boston-st",
+          "tenant": "Danner, J.",
+          "balance": 841.0
+        },
+        {
+          "address": "571 - 573 Boston St",
+          "slug": "571-573-boston-st",
+          "tenant": "Torbert, V.",
+          "balance": 387.5
+        }
+      ],
+      "expired_leases": [
+        {
+          "address": "571 - 573 Boston St",
+          "slug": "571-573-boston-st",
+          "tenant": "Danner, J.",
+          "lease_end": "2023-06-20",
+          "days_remaining": -1019
+        }
+      ],
+      "expiring_soon": [
+        {
+          "address": "1575 - 1577 Cella St",
+          "slug": "1575-1577-cella-st",
+          "tenant": "Foster, D.",
+          "lease_end": "2026-04-30",
+          "days_remaining": 26
+        },
+        {
+          "address": "3858 Shallowood",
+          "slug": "3858-shallowood",
+          "tenant": "Walker, E.",
+          "lease_end": "2026-05-31",
+          "days_remaining": 57
+        }
+      ],
+      "monthly_financials": [
+        {
+          "month": "2026-01",
+          "month_label": "Jan",
+          "income": 21696.54,
+          "expense": 7648.88,
+          "noi": 14047.66
+        },
+        {
+          "month": "2026-02",
+          "month_label": "Feb",
+          "income": 17756.18,
+          "expense": 6827.45,
+          "noi": 10928.73
+        },
+        {
+          "month": "2026-03",
+          "month_label": "Mar",
+          "income": 19061.0,
+          "expense": 7888.09,
+          "noi": 11172.91
+        },
+        {
+          "month": "2026-04",
+          "month_label": "Apr",
+          "income": 2602.05,
+          "expense": 1085.16,
+          "noi": 1516.89
+        }
+      ]
     },
     {
       "entity": "Memphis RE LLC 6",
@@ -1265,7 +1858,7 @@
         "occupancy_pct": 58.8,
         "monthly_rent": 5498.0,
         "vacant_loss": 7245.0,
-        "total_delinquency": 25262.420000000002,
+        "total_delinquency": 23212.420000000002,
         "ytd_income": 6350.25,
         "ytd_expense": 6759.89,
         "ytd_noi": -409.64
@@ -1288,12 +1881,10 @@
           "market_rent": 1200.0,
           "status": "Occupied",
           "tenant": "Winston, M.",
-          "balance": 950.0,
+          "balance": 0.0,
           "lease_end": null,
           "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
+          "alert_flags": []
         },
         {
           "address": "3808 Overton Crossing",
@@ -1316,7 +1907,7 @@
           "tenant": "Ford, J.",
           "balance": 8327.2,
           "lease_end": "2026-03-31",
-          "days_remaining": -1,
+          "days_remaining": -4,
           "alert_flags": [
             "delinquent",
             "expired_lease"
@@ -1343,7 +1934,7 @@
           "tenant": "Henderson, B.",
           "balance": 2020.0,
           "lease_end": "2026-05-31",
-          "days_remaining": 60,
+          "days_remaining": 57,
           "alert_flags": [
             "delinquent",
             "expiring_soon"
@@ -1470,11 +2061,10 @@
           "market_rent": 1350.0,
           "status": "Occupied",
           "tenant": "Williams, S.",
-          "balance": 1100.0,
+          "balance": 0.0,
           "lease_end": "2025-11-30",
-          "days_remaining": -122,
+          "days_remaining": -125,
           "alert_flags": [
-            "delinquent",
             "expired_lease"
           ]
         },
@@ -1516,22 +2106,10 @@
           "balance": 2020.0
         },
         {
-          "address": "3947 Chippewa Rd",
-          "slug": "3947-chippewa-rd",
-          "tenant": "Williams, S.",
-          "balance": 1100.0
-        },
-        {
           "address": "3808 Overton Crossing",
           "slug": "3808-overton-crossing",
           "tenant": "Evans, T.",
           "balance": 1055.0
-        },
-        {
-          "address": "1104 W Lexington Cir",
-          "slug": "1104-w-lexington-cir",
-          "tenant": "Winston, M.",
-          "balance": 950.0
         },
         {
           "address": "1383 Quinby",
@@ -1552,14 +2130,14 @@
           "slug": "3947-chippewa-rd",
           "tenant": "Williams, S.",
           "lease_end": "2025-11-30",
-          "days_remaining": -122
+          "days_remaining": -125
         },
         {
           "address": "590 Blackhawk",
           "slug": "590-blackhawk",
           "tenant": "Ford, J.",
           "lease_end": "2026-03-31",
-          "days_remaining": -1
+          "days_remaining": -4
         }
       ],
       "expiring_soon": [
@@ -1568,7 +2146,7 @@
           "slug": "1384-grand-opera",
           "tenant": "Henderson, B.",
           "lease_end": "2026-05-31",
-          "days_remaining": 60
+          "days_remaining": 57
         }
       ],
       "monthly_financials": [
@@ -1596,1039 +2174,9 @@
         {
           "month": "2026-04",
           "month_label": "Apr",
-          "income": 221.77,
-          "expense": 17.74,
-          "noi": 204.03
-        }
-      ]
-    },
-    {
-      "entity": "Memphis RE LLC.",
-      "slug": "memphis-re-llc",
-      "kpis": {
-        "total_units": 19,
-        "occupied_units": 16,
-        "occupancy_pct": 84.2,
-        "monthly_rent": 16888.0,
-        "vacant_loss": 3325.0,
-        "total_delinquency": 19754.239999999998,
-        "ytd_income": 21696.54,
-        "ytd_expense": 7648.88,
-        "ytd_noi": 14047.66
-      },
-      "units": [
-        {
-          "address": "2202 Cassie Ave",
-          "slug": "2202-cassie-ave",
-          "market_rent": 1350.0,
-          "status": "Vacant",
-          "tenant": "",
-          "balance": 0.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": []
-        },
-        {
-          "address": "1890 Nantucket Dr.",
-          "slug": "1890-nantucket-dr",
-          "market_rent": 1300.0,
-          "status": "Occupied",
-          "tenant": "Smith, R.",
-          "balance": 1300.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "3858 Shallowood",
-          "slug": "3858-shallowood",
-          "market_rent": 1500.0,
-          "status": "Occupied",
-          "tenant": "Walker, E.",
-          "balance": 2271.99,
-          "lease_end": "2026-05-31",
-          "days_remaining": 60,
-          "alert_flags": [
-            "delinquent",
-            "expiring_soon"
-          ]
-        },
-        {
-          "address": "197 Ivan Rd",
-          "slug": "197-ivan-rd",
-          "market_rent": 925.0,
-          "status": "Occupied",
-          "tenant": "Mitchell, R.",
-          "balance": 1275.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "4285 Coventry Dr",
-          "slug": "4285-coventry-dr",
-          "market_rent": 1099.0,
-          "status": "Occupied",
-          "tenant": "Tate - Fulton",
-          "balance": 1098.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "5261 Beaverton Dr",
-          "slug": "5261-beaverton-dr",
-          "market_rent": 1275.0,
-          "status": "Vacant",
-          "tenant": "",
-          "balance": 0.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": []
-        },
-        {
-          "address": "1957 Alta Vista Ave",
-          "slug": "1957-alta-vista-ave",
-          "market_rent": 1075.0,
-          "status": "Occupied",
-          "tenant": "Holmes, P.",
-          "balance": 1348.95,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "4430 Chuck Ave",
-          "slug": "4430-chuck-ave",
-          "market_rent": 1100.0,
-          "status": "Occupied",
-          "tenant": "Becton - Becton",
-          "balance": 2310.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "5096 Southington Ave",
-          "slug": "5096-southington-ave",
-          "market_rent": 1250.0,
-          "status": "Occupied",
-          "tenant": "Campbell, W.",
-          "balance": 1300.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "5704 Winter Tree Dr",
-          "slug": "5704-winter-tree-dr",
-          "market_rent": 1373.0,
-          "status": "Occupied",
-          "tenant": "Jenkins, N.",
-          "balance": 1875.3,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "3290 Spring Vally Cv",
-          "slug": "3290-spring-vally-cv",
-          "market_rent": 1600.0,
-          "status": "Occupied",
-          "tenant": "Hopson, T.",
-          "balance": 1700.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "3501 Venable Rd",
-          "slug": "3501-venable-rd",
-          "market_rent": 1250.0,
-          "status": "Occupied",
-          "tenant": "Jackson, M.",
-          "balance": 1444.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "755-757 Hilton",
-          "slug": "755-757-hilton",
-          "market_rent": 650.0,
-          "status": "Occupied",
-          "tenant": "-, J.",
-          "balance": 800.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "755-757 Hilton",
-          "slug": "755-757-hilton",
-          "market_rent": 750.0,
-          "status": "Occupied",
-          "tenant": "Oates, E.",
-          "balance": 800.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "571 - 573 Boston St",
-          "slug": "571-573-boston-st",
-          "market_rent": 675.0,
-          "status": "Occupied",
-          "tenant": "Torbert, V.",
-          "balance": 387.5,
-          "lease_end": "2023-06-20",
-          "days_remaining": -1016,
-          "alert_flags": [
-            "delinquent",
-            "expired_lease"
-          ]
-        },
-        {
-          "address": "571 - 573 Boston St",
-          "slug": "571-573-boston-st",
-          "market_rent": 841.0,
-          "status": "Occupied",
-          "tenant": "Danner, J.",
-          "balance": 387.5,
-          "lease_end": "2023-06-20",
-          "days_remaining": -1016,
-          "alert_flags": [
-            "delinquent",
-            "expired_lease"
-          ]
-        },
-        {
-          "address": "1575 - 1577 Cella St",
-          "slug": "1575-1577-cella-st",
-          "market_rent": 700.0,
-          "status": "Vacant",
-          "tenant": "",
-          "balance": 850.0,
-          "lease_end": "2026-04-30",
-          "days_remaining": 29,
-          "alert_flags": [
-            "delinquent",
-            "expiring_soon"
-          ]
-        },
-        {
-          "address": "1575 - 1577 Cella St",
-          "slug": "1575-1577-cella-st",
-          "market_rent": 0.0,
-          "status": "Occupied",
-          "tenant": "Foster, D.",
-          "balance": 850.0,
-          "lease_end": "2026-04-30",
-          "days_remaining": 29,
-          "alert_flags": [
-            "delinquent",
-            "expiring_soon"
-          ]
-        },
-        {
-          "address": "1484 Lockhaven",
-          "slug": "1484-lockhaven",
-          "market_rent": 1500.0,
-          "status": "Occupied",
-          "tenant": "Mitchell, M.",
-          "balance": 952.5,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        }
-      ],
-      "delinquencies": [
-        {
-          "address": "4430 Chuck Ave",
-          "slug": "4430-chuck-ave",
-          "tenant": "Becton - Becton",
-          "balance": 2310.0
-        },
-        {
-          "address": "3858 Shallowood",
-          "slug": "3858-shallowood",
-          "tenant": "Walker, E.",
-          "balance": 2271.99
-        },
-        {
-          "address": "5704 Winter Tree Dr",
-          "slug": "5704-winter-tree-dr",
-          "tenant": "Jenkins, N.",
-          "balance": 1875.3
-        },
-        {
-          "address": "3290 Spring Vally Cv",
-          "slug": "3290-spring-vally-cv",
-          "tenant": "Hopson, T.",
-          "balance": 1700.0
-        },
-        {
-          "address": "3501 Venable Rd",
-          "slug": "3501-venable-rd",
-          "tenant": "Jackson, M.",
-          "balance": 1444.0
-        },
-        {
-          "address": "1957 Alta Vista Ave",
-          "slug": "1957-alta-vista-ave",
-          "tenant": "Holmes, P.",
-          "balance": 1348.95
-        },
-        {
-          "address": "1890 Nantucket Dr.",
-          "slug": "1890-nantucket-dr",
-          "tenant": "Smith, R.",
-          "balance": 1300.0
-        },
-        {
-          "address": "5096 Southington Ave",
-          "slug": "5096-southington-ave",
-          "tenant": "Campbell, W.",
-          "balance": 1300.0
-        },
-        {
-          "address": "197 Ivan Rd",
-          "slug": "197-ivan-rd",
-          "tenant": "Mitchell, R.",
-          "balance": 1275.0
-        },
-        {
-          "address": "4285 Coventry Dr",
-          "slug": "4285-coventry-dr",
-          "tenant": "Tate - Fulton",
-          "balance": 1098.0
-        },
-        {
-          "address": "1484 Lockhaven",
-          "slug": "1484-lockhaven",
-          "tenant": "Mitchell, M.",
-          "balance": 952.5
-        },
-        {
-          "address": "1575 - 1577 Cella St",
-          "slug": "1575-1577-cella-st",
-          "tenant": "Foster, D.",
-          "balance": 850.0
-        },
-        {
-          "address": "571 - 573 Boston St",
-          "slug": "571-573-boston-st",
-          "tenant": "Danner, J.",
-          "balance": 841.0
-        },
-        {
-          "address": "755-757 Hilton",
-          "slug": "755-757-hilton",
-          "tenant": "Oates, E.",
-          "balance": 800.0
-        },
-        {
-          "address": "571 - 573 Boston St",
-          "slug": "571-573-boston-st",
-          "tenant": "Torbert, V.",
-          "balance": 387.5
-        }
-      ],
-      "expired_leases": [
-        {
-          "address": "571 - 573 Boston St",
-          "slug": "571-573-boston-st",
-          "tenant": "Danner, J.",
-          "lease_end": "2023-06-20",
-          "days_remaining": -1016
-        }
-      ],
-      "expiring_soon": [
-        {
-          "address": "1575 - 1577 Cella St",
-          "slug": "1575-1577-cella-st",
-          "tenant": "Foster, D.",
-          "lease_end": "2026-04-30",
-          "days_remaining": 29
-        },
-        {
-          "address": "3858 Shallowood",
-          "slug": "3858-shallowood",
-          "tenant": "Walker, E.",
-          "lease_end": "2026-05-31",
-          "days_remaining": 60
-        }
-      ],
-      "monthly_financials": [
-        {
-          "month": "2026-01",
-          "month_label": "Jan",
-          "income": 21696.54,
-          "expense": 7648.88,
-          "noi": 14047.66
-        },
-        {
-          "month": "2026-02",
-          "month_label": "Feb",
-          "income": 17756.18,
-          "expense": 6827.45,
-          "noi": 10928.73
-        },
-        {
-          "month": "2026-03",
-          "month_label": "Mar",
-          "income": 19061.0,
-          "expense": 7888.09,
-          "noi": 11172.91
-        },
-        {
-          "month": "2026-04",
-          "month_label": "Apr",
-          "income": 1602.05,
-          "expense": 128.16,
-          "noi": 1473.89
-        }
-      ]
-    },
-    {
-      "entity": "Memphis RE LLC 4",
-      "slug": "memphis-re-llc-4",
-      "kpis": {
-        "total_units": 16,
-        "occupied_units": 13,
-        "occupancy_pct": 81.2,
-        "monthly_rent": 9747.0,
-        "vacant_loss": 1749.0,
-        "total_delinquency": 13900.65,
-        "ytd_income": 13966.05,
-        "ytd_expense": 4969.53,
-        "ytd_noi": 8996.52
-      },
-      "units": [
-        {
-          "address": "809 Alida Ave",
-          "slug": "809-alida-ave",
-          "market_rent": 1700.0,
-          "status": "Occupied",
-          "tenant": "Martin, F.",
-          "balance": 1640.39,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "825-827 Hilton",
-          "slug": "825-827-hilton",
-          "market_rent": 650.0,
-          "status": "Occupied",
-          "tenant": "Terrell, T.",
-          "balance": 700.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "825-827 Hilton",
-          "slug": "825-827-hilton",
-          "market_rent": 649.0,
-          "status": "Occupied",
-          "tenant": "Kirkwood, S.",
-          "balance": 700.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "3551 Lanette Rd",
-          "slug": "3551-lanette-rd",
-          "market_rent": 0.0,
-          "status": "Vacant",
-          "tenant": "",
-          "balance": 0.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": []
-        },
-        {
-          "address": "706 Lester -2884 Faxon",
-          "slug": "706-lester-2884-faxon",
-          "market_rent": 650.0,
-          "status": "Vacant",
-          "tenant": "",
-          "balance": 502.39,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "706 Lester -2884 Faxon",
-          "slug": "706-lester-2884-faxon",
-          "market_rent": 599.0,
-          "status": "Occupied",
-          "tenant": "Mitchell, J.",
-          "balance": 502.39,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "165 E McKellar Ave",
-          "slug": "165-e-mckellar-ave",
-          "market_rent": 0.0,
-          "status": "Occupied",
-          "tenant": "Bailey, C.",
-          "balance": 0.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": []
-        },
-        {
-          "address": "2358 Zannoe",
-          "slug": "2358-zannoe",
-          "market_rent": 1099.0,
-          "status": "Vacant",
-          "tenant": "",
-          "balance": 0.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": []
-        },
-        {
-          "address": "3203 Crump",
-          "slug": "3203-crump",
-          "market_rent": 1000.0,
-          "status": "Occupied",
-          "tenant": "Atkins, K.",
-          "balance": 550.3,
-          "lease_end": "2025-04-30",
-          "days_remaining": -336,
-          "alert_flags": [
-            "delinquent",
-            "expired_lease"
-          ]
-        },
-        {
-          "address": "3203 Crump",
-          "slug": "3203-crump",
-          "market_rent": 0.0,
-          "status": "Occupied",
-          "tenant": "Bland, P.",
-          "balance": 550.3,
-          "lease_end": "2025-04-30",
-          "days_remaining": -336,
-          "alert_flags": [
-            "delinquent",
-            "expired_lease"
-          ]
-        },
-        {
-          "address": "32 W van Huesen Dr",
-          "slug": "32-w-van-huesen-dr",
-          "market_rent": 0.0,
-          "status": "Occupied",
-          "tenant": "Ivory, C.",
-          "balance": 1908.6,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "921 S. Willett",
-          "slug": "921-s-willett",
-          "market_rent": 0.0,
-          "status": "Occupied",
-          "tenant": "Bates, A.",
-          "balance": 1316.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "1485 Menager",
-          "slug": "1485-menager",
-          "market_rent": 1350.0,
-          "status": "Occupied",
-          "tenant": "Burnett, N.",
-          "balance": 1350.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "2304 Golden",
-          "slug": "2304-golden",
-          "market_rent": 1350.0,
-          "status": "Occupied",
-          "tenant": "Townsend - Housing Authority",
-          "balance": 1348.55,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "1782 Marjorie",
-          "slug": "1782-marjorie",
-          "market_rent": 1099.0,
-          "status": "Occupied",
-          "tenant": "Macklin - Sullivan",
-          "balance": 1446.42,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "2552 Capewood Dr",
-          "slug": "2552-capewood-dr",
-          "market_rent": 1350.0,
-          "status": "Occupied",
-          "tenant": "Brown, S.",
-          "balance": 1378.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        }
-      ],
-      "delinquencies": [
-        {
-          "address": "32 W van Huesen Dr",
-          "slug": "32-w-van-huesen-dr",
-          "tenant": "Ivory, C.",
-          "balance": 1908.6
-        },
-        {
-          "address": "809 Alida Ave",
-          "slug": "809-alida-ave",
-          "tenant": "Martin, F.",
-          "balance": 1640.39
-        },
-        {
-          "address": "1782 Marjorie",
-          "slug": "1782-marjorie",
-          "tenant": "Macklin - Sullivan",
-          "balance": 1446.42
-        },
-        {
-          "address": "2552 Capewood Dr",
-          "slug": "2552-capewood-dr",
-          "tenant": "Brown, S.",
-          "balance": 1378.0
-        },
-        {
-          "address": "1485 Menager",
-          "slug": "1485-menager",
-          "tenant": "Burnett, N.",
-          "balance": 1350.0
-        },
-        {
-          "address": "2304 Golden",
-          "slug": "2304-golden",
-          "tenant": "Townsend - Housing Authority",
-          "balance": 1348.55
-        },
-        {
-          "address": "921 S. Willett",
-          "slug": "921-s-willett",
-          "tenant": "Bates, A.",
-          "balance": 1316.0
-        },
-        {
-          "address": "3203 Crump",
-          "slug": "3203-crump",
-          "tenant": "Bland, P.",
-          "balance": 1021.0
-        },
-        {
-          "address": "825-827 Hilton",
-          "slug": "825-827-hilton",
-          "tenant": "Terrell, T.",
-          "balance": 739.0
-        },
-        {
-          "address": "825-827 Hilton",
-          "slug": "825-827-hilton",
-          "tenant": "Kirkwood, S.",
-          "balance": 700.0
-        },
-        {
-          "address": "3203 Crump",
-          "slug": "3203-crump",
-          "tenant": "Atkins, K.",
-          "balance": 550.3
-        },
-        {
-          "address": "706 Lester -2884 Faxon",
-          "slug": "706-lester-2884-faxon",
-          "tenant": "Mitchell, J.",
-          "balance": 502.39
-        }
-      ],
-      "expired_leases": [
-        {
-          "address": "3203 Crump",
-          "slug": "3203-crump",
-          "tenant": "Bland, P.",
-          "lease_end": "2025-04-30",
-          "days_remaining": -336
-        }
-      ],
-      "expiring_soon": [],
-      "monthly_financials": [
-        {
-          "month": "2026-01",
-          "month_label": "Jan",
-          "income": 13966.05,
-          "expense": 4969.53,
-          "noi": 8996.52
-        },
-        {
-          "month": "2026-02",
-          "month_label": "Feb",
-          "income": 13555.7,
-          "expense": 6099.4,
-          "noi": 7456.3
-        },
-        {
-          "month": "2026-03",
-          "month_label": "Mar",
-          "income": 16803.71,
-          "expense": 9742.67,
-          "noi": 7061.04
-        },
-        {
-          "month": "2026-04",
-          "month_label": "Apr",
-          "income": 1920.73,
-          "expense": 153.66,
-          "noi": 1767.07
-        }
-      ]
-    },
-    {
-      "entity": "Memphis RE LLC 10",
-      "slug": "memphis-re-llc-10",
-      "kpis": {
-        "total_units": 5,
-        "occupied_units": 4,
-        "occupancy_pct": 80.0,
-        "monthly_rent": 3100.0,
-        "vacant_loss": 1550.0,
-        "total_delinquency": 3590.0,
-        "ytd_income": 1800.0,
-        "ytd_expense": 450.27,
-        "ytd_noi": 1349.73
-      },
-      "units": [
-        {
-          "address": "4752 Lofts Rd",
-          "slug": "4752-lofts-rd",
-          "market_rent": 1000.0,
-          "status": "Occupied",
-          "tenant": "Roberts, D.",
-          "balance": 1100.0,
-          "lease_end": "2025-12-31",
-          "days_remaining": -91,
-          "alert_flags": [
-            "delinquent",
-            "expired_lease"
-          ]
-        },
-        {
-          "address": "376 Clarice",
-          "slug": "376-clarice",
-          "market_rent": 1550.0,
-          "status": "Vacant",
-          "tenant": "",
-          "balance": 0.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": []
-        },
-        {
-          "address": "1463 Ragan",
-          "slug": "1463-ragan",
-          "market_rent": 800.0,
-          "status": "Occupied",
-          "tenant": "Alexander, D.",
-          "balance": 100.0,
-          "lease_end": "2025-12-31",
-          "days_remaining": -91,
-          "alert_flags": [
-            "delinquent",
-            "expired_lease"
-          ]
-        },
-        {
-          "address": "45 Builders",
-          "slug": "45-builders",
-          "market_rent": 1300.0,
-          "status": "Occupied",
-          "tenant": "Dill - Banks",
-          "balance": 1195.0,
-          "lease_end": "2026-05-31",
-          "days_remaining": 60,
-          "alert_flags": [
-            "delinquent",
-            "expiring_soon"
-          ]
-        },
-        {
-          "address": "873 Norfleet",
-          "slug": "873-norfleet",
-          "market_rent": 0.0,
-          "status": "Occupied",
-          "tenant": "Ferby Jr. - Ferby",
-          "balance": 1195.0,
-          "lease_end": "2026-05-31",
-          "days_remaining": 60,
-          "alert_flags": [
-            "delinquent",
-            "expiring_soon"
-          ]
-        }
-      ],
-      "delinquencies": [
-        {
-          "address": "45 Builders",
-          "slug": "45-builders",
-          "tenant": "Dill - Banks",
-          "balance": 1195.0
-        },
-        {
-          "address": "873 Norfleet",
-          "slug": "873-norfleet",
-          "tenant": "Ferby Jr. - Ferby",
-          "balance": 1195.0
-        },
-        {
-          "address": "4752 Lofts Rd",
-          "slug": "4752-lofts-rd",
-          "tenant": "Roberts, D.",
-          "balance": 1100.0
-        },
-        {
-          "address": "1463 Ragan",
-          "slug": "1463-ragan",
-          "tenant": "Alexander, D.",
-          "balance": 100.0
-        }
-      ],
-      "expired_leases": [
-        {
-          "address": "4752 Lofts Rd",
-          "slug": "4752-lofts-rd",
-          "tenant": "Roberts, D.",
-          "lease_end": "2025-12-31",
-          "days_remaining": -91
-        },
-        {
-          "address": "1463 Ragan",
-          "slug": "1463-ragan",
-          "tenant": "Alexander, D.",
-          "lease_end": "2025-12-31",
-          "days_remaining": -91
-        }
-      ],
-      "expiring_soon": [
-        {
-          "address": "45 Builders",
-          "slug": "45-builders",
-          "tenant": "Dill - Banks",
-          "lease_end": "2026-05-31",
-          "days_remaining": 60
-        },
-        {
-          "address": "873 Norfleet",
-          "slug": "873-norfleet",
-          "tenant": "Ferby Jr. - Ferby",
-          "lease_end": "2026-05-31",
-          "days_remaining": 60
-        }
-      ],
-      "monthly_financials": [
-        {
-          "month": "2026-01",
-          "month_label": "Jan",
-          "income": 1800.0,
-          "expense": 450.27,
-          "noi": 1349.73
-        },
-        {
-          "month": "2026-02",
-          "month_label": "Feb",
-          "income": 1800.0,
-          "expense": 974.41,
-          "noi": 825.59
-        },
-        {
-          "month": "2026-03",
-          "month_label": "Mar",
-          "income": 4190.0,
-          "expense": 1439.37,
-          "noi": 2750.63
-        },
-        {
-          "month": "2026-04",
-          "month_label": "Apr",
-          "income": 800.0,
-          "expense": 64.0,
-          "noi": 736.0
-        }
-      ]
-    },
-    {
-      "entity": "Memphis RE LLC 9",
-      "slug": "memphis-re-llc-9",
-      "kpis": {
-        "total_units": 4,
-        "occupied_units": 2,
-        "occupancy_pct": 50.0,
-        "monthly_rent": 2500.0,
-        "vacant_loss": 2800.0,
-        "total_delinquency": 1760.4299999999998,
-        "ytd_income": 896.5,
-        "ytd_expense": 2366.66,
-        "ytd_noi": -1470.16
-      },
-      "units": [
-        {
-          "address": "3170 Harvester Ln,",
-          "slug": "3170-harvester-ln",
-          "market_rent": 1450.0,
-          "status": "Vacant",
-          "tenant": "",
-          "balance": 0.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": []
-        },
-        {
-          "address": "351 Damone",
-          "slug": "351-damone",
-          "market_rent": 1000.0,
-          "status": "Occupied",
-          "tenant": "Hoyle, D.",
-          "balance": 815.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "1546 Marjorie St",
-          "slug": "1546-marjorie-st",
-          "market_rent": 1500.0,
-          "status": "Occupied",
-          "tenant": "Shelton - Martin",
-          "balance": 945.43,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
-        },
-        {
-          "address": "3413 Mountain Terrace",
-          "slug": "3413-mountain-terrace",
-          "market_rent": 1350.0,
-          "status": "Vacant",
-          "tenant": "",
-          "balance": 0.0,
-          "lease_end": null,
-          "days_remaining": null,
-          "alert_flags": []
-        }
-      ],
-      "delinquencies": [
-        {
-          "address": "1546 Marjorie St",
-          "slug": "1546-marjorie-st",
-          "tenant": "Shelton - Martin",
-          "balance": 945.43
-        },
-        {
-          "address": "351 Damone",
-          "slug": "351-damone",
-          "tenant": "Hoyle, D.",
-          "balance": 815.0
-        }
-      ],
-      "expired_leases": [],
-      "expiring_soon": [],
-      "monthly_financials": [
-        {
-          "month": "2026-01",
-          "month_label": "Jan",
-          "income": 896.5,
-          "expense": 2366.66,
-          "noi": -1470.16
-        },
-        {
-          "month": "2026-02",
-          "month_label": "Feb",
-          "income": 2315.0,
-          "expense": 3155.46,
-          "noi": -840.46
-        },
-        {
-          "month": "2026-03",
-          "month_label": "Mar",
-          "income": 2261.43,
-          "expense": 1910.04,
-          "noi": 351.39
-        },
-        {
-          "month": "2026-04",
-          "month_label": "Apr",
-          "income": 554.57,
-          "expense": 44.37,
-          "noi": 510.2
+          "income": 3070.77,
+          "expense": 609.82,
+          "noi": 2460.95
         }
       ]
     },
@@ -2641,7 +2189,7 @@
         "occupancy_pct": 80.0,
         "monthly_rent": 15521.0,
         "vacant_loss": 7498.0,
-        "total_delinquency": 27359.149999999998,
+        "total_delinquency": 21710.949999999997,
         "ytd_income": 26606.14,
         "ytd_expense": 12256.21,
         "ytd_noi": 14349.93
@@ -2677,7 +2225,7 @@
           "market_rent": 1200.0,
           "status": "Occupied",
           "tenant": "Watts, D.",
-          "balance": 366.5,
+          "balance": 211.5,
           "lease_end": null,
           "days_remaining": null,
           "alert_flags": [
@@ -2690,12 +2238,10 @@
           "market_rent": 0.0,
           "status": "Occupied",
           "tenant": "Robinson, M.",
-          "balance": 1200.0,
+          "balance": 0.0,
           "lease_end": null,
           "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
+          "alert_flags": []
         },
         {
           "address": "1200 Pera",
@@ -2703,12 +2249,10 @@
           "market_rent": 1350.0,
           "status": "Occupied",
           "tenant": "Montevideo - Gil - Gonzalez",
-          "balance": 1336.2,
+          "balance": 0.0,
           "lease_end": null,
           "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
+          "alert_flags": []
         },
         {
           "address": "1361 Gaither Pkwy",
@@ -2740,12 +2284,10 @@
           "market_rent": 0.0,
           "status": "Occupied",
           "tenant": "Finley, V.",
-          "balance": 1000.0,
+          "balance": 0.0,
           "lease_end": null,
           "days_remaining": null,
-          "alert_flags": [
-            "delinquent"
-          ]
+          "alert_flags": []
         },
         {
           "address": "2568 SunnyHill",
@@ -2753,7 +2295,7 @@
           "market_rent": 0.0,
           "status": "Occupied",
           "tenant": "Burnett, D.",
-          "balance": 4832.5,
+          "balance": 4332.5,
           "lease_end": null,
           "days_remaining": null,
           "alert_flags": [
@@ -2768,7 +2310,7 @@
           "tenant": "Richardson, A.",
           "balance": 997.0,
           "lease_end": "2026-03-31",
-          "days_remaining": -1,
+          "days_remaining": -4,
           "alert_flags": [
             "delinquent",
             "expired_lease"
@@ -2815,7 +2357,7 @@
           "tenant": "Gray, M.",
           "balance": 1073.8,
           "lease_end": "2024-10-05",
-          "days_remaining": -543,
+          "days_remaining": -546,
           "alert_flags": [
             "delinquent",
             "expired_lease"
@@ -2925,7 +2467,7 @@
           "tenant": "Owens, J.",
           "balance": 1065.0,
           "lease_end": "2023-06-30",
-          "days_remaining": -1006,
+          "days_remaining": -1009,
           "alert_flags": [
             "delinquent",
             "expired_lease"
@@ -2963,9 +2505,9 @@
           "market_rent": 0.0,
           "status": "Occupied",
           "tenant": "Fleming, R.",
-          "balance": 663.0,
+          "balance": 517.0,
           "lease_end": "2026-05-31",
-          "days_remaining": 60,
+          "days_remaining": 57,
           "alert_flags": [
             "delinquent",
             "expiring_soon"
@@ -2977,9 +2519,9 @@
           "market_rent": 0.0,
           "status": "Occupied",
           "tenant": "McClure, G.",
-          "balance": 1820.0,
+          "balance": 1220.0,
           "lease_end": "2026-01-31",
-          "days_remaining": -60,
+          "days_remaining": -63,
           "alert_flags": [
             "delinquent",
             "expired_lease"
@@ -2991,7 +2533,7 @@
           "market_rent": 1700.0,
           "status": "Occupied",
           "tenant": "Cunningham, C.",
-          "balance": 1777.76,
+          "balance": 1066.76,
           "lease_end": null,
           "days_remaining": null,
           "alert_flags": [
@@ -3028,7 +2570,7 @@
           "address": "2568 SunnyHill",
           "slug": "2568-sunnyhill",
           "tenant": "Burnett, D.",
-          "balance": 4832.5
+          "balance": 4332.5
         },
         {
           "address": "3396 Pryor",
@@ -3043,24 +2585,6 @@
           "balance": 1850.0
         },
         {
-          "address": "819 Par",
-          "slug": "819-par",
-          "tenant": "McClure, G.",
-          "balance": 1820.0
-        },
-        {
-          "address": "827 Juliet Ave",
-          "slug": "827-juliet-ave",
-          "tenant": "Cunningham, C.",
-          "balance": 1777.76
-        },
-        {
-          "address": "1200 Pera",
-          "slug": "1200-pera",
-          "tenant": "Montevideo - Gil - Gonzalez",
-          "balance": 1336.2
-        },
-        {
           "address": "745 Marsh Ave",
           "slug": "745-marsh-ave",
           "tenant": "Murphy, L.",
@@ -3073,10 +2597,10 @@
           "balance": 1250.0
         },
         {
-          "address": "1191 Pera",
-          "slug": "1191-pera",
-          "tenant": "Robinson, M.",
-          "balance": 1200.0
+          "address": "819 Par",
+          "slug": "819-par",
+          "tenant": "McClure, G.",
+          "balance": 1220.0
         },
         {
           "address": "1362 Stage",
@@ -3091,16 +2615,16 @@
           "balance": 1073.8
         },
         {
+          "address": "827 Juliet Ave",
+          "slug": "827-juliet-ave",
+          "tenant": "Cunningham, C.",
+          "balance": 1066.76
+        },
+        {
           "address": "4432 Smith Ridge",
           "slug": "4432-smith-ridge",
           "tenant": "Owens, J.",
           "balance": 1065.0
-        },
-        {
-          "address": "2563 SunnyHill",
-          "slug": "2563-sunnyhill",
-          "tenant": "Finley, V.",
-          "balance": 1000.0
         },
         {
           "address": "1609 Oakwood",
@@ -3136,13 +2660,13 @@
           "address": "790 Buntyn",
           "slug": "790-buntyn",
           "tenant": "Fleming, R.",
-          "balance": 663.0
+          "balance": 517.0
         },
         {
           "address": "1006 Carrolton Rd",
           "slug": "1006-carrolton-rd",
           "tenant": "Watts, D.",
-          "balance": 366.5
+          "balance": 211.5
         }
       ],
       "expired_leases": [
@@ -3151,28 +2675,28 @@
           "slug": "4432-smith-ridge",
           "tenant": "Owens, J.",
           "lease_end": "2023-06-30",
-          "days_remaining": -1006
+          "days_remaining": -1009
         },
         {
           "address": "3278 Dawn",
           "slug": "3278-dawn",
           "tenant": "Gray, M.",
           "lease_end": "2024-10-05",
-          "days_remaining": -543
+          "days_remaining": -546
         },
         {
           "address": "819 Par",
           "slug": "819-par",
           "tenant": "McClure, G.",
           "lease_end": "2026-01-31",
-          "days_remaining": -60
+          "days_remaining": -63
         },
         {
           "address": "2579 Barron",
           "slug": "2579-barron",
           "tenant": "Richardson, A.",
           "lease_end": "2026-03-31",
-          "days_remaining": -1
+          "days_remaining": -4
         }
       ],
       "expiring_soon": [
@@ -3181,7 +2705,7 @@
           "slug": "790-buntyn",
           "tenant": "Fleming, R.",
           "lease_end": "2026-05-31",
-          "days_remaining": 60
+          "days_remaining": 57
         }
       ],
       "monthly_financials": [
@@ -3209,9 +2733,337 @@
         {
           "month": "2026-04",
           "month_label": "Apr",
-          "income": 4984.35,
-          "expense": 398.75,
-          "noi": 4585.6
+          "income": 10632.55,
+          "expense": 1214.76,
+          "noi": 9417.79
+        }
+      ]
+    },
+    {
+      "entity": "Memphis RE LLC 9",
+      "slug": "memphis-re-llc-9",
+      "kpis": {
+        "total_units": 4,
+        "occupied_units": 2,
+        "occupancy_pct": 50.0,
+        "monthly_rent": 2500.0,
+        "vacant_loss": 2800.0,
+        "total_delinquency": 0.0,
+        "ytd_income": 896.5,
+        "ytd_expense": 2366.66,
+        "ytd_noi": -1470.16
+      },
+      "units": [
+        {
+          "address": "3170 Harvester Ln,",
+          "slug": "3170-harvester-ln",
+          "market_rent": 1450.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "351 Damone",
+          "slug": "351-damone",
+          "market_rent": 1000.0,
+          "status": "Occupied",
+          "tenant": "Hoyle, D.",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "1546 Marjorie St",
+          "slug": "1546-marjorie-st",
+          "market_rent": 1500.0,
+          "status": "Occupied",
+          "tenant": "Shelton - Martin",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "3413 Mountain Terrace",
+          "slug": "3413-mountain-terrace",
+          "market_rent": 1350.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        }
+      ],
+      "delinquencies": [],
+      "expired_leases": [],
+      "expiring_soon": [],
+      "monthly_financials": [
+        {
+          "month": "2026-01",
+          "month_label": "Jan",
+          "income": 896.5,
+          "expense": 2366.66,
+          "noi": -1470.16
+        },
+        {
+          "month": "2026-02",
+          "month_label": "Feb",
+          "income": 2315.0,
+          "expense": 3155.46,
+          "noi": -840.46
+        },
+        {
+          "month": "2026-03",
+          "month_label": "Mar",
+          "income": 2261.43,
+          "expense": 1910.04,
+          "noi": 351.39
+        },
+        {
+          "month": "2026-04",
+          "month_label": "Apr",
+          "income": 2315.0,
+          "expense": 185.2,
+          "noi": 2129.8
+        }
+      ]
+    },
+    {
+      "entity": "YAI",
+      "slug": "yai",
+      "kpis": {
+        "total_units": 5,
+        "occupied_units": 0,
+        "occupancy_pct": 0.0,
+        "monthly_rent": 0.0,
+        "vacant_loss": 0.0,
+        "total_delinquency": 0.0,
+        "ytd_income": 0.0,
+        "ytd_expense": 0.0,
+        "ytd_noi": 0.0
+      },
+      "units": [
+        {
+          "address": "1498 Merlin Avenue",
+          "slug": "1498-merlin-avenue",
+          "market_rent": 0.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "258 Modder Ave,",
+          "slug": "258-modder-ave",
+          "market_rent": 0.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "1336 Kentucky Street",
+          "slug": "1336-kentucky-street",
+          "market_rent": 0.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "3394 BUCHANAN",
+          "slug": "3394-buchanan",
+          "market_rent": 0.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "3473 S COOK",
+          "slug": "3473-s-cook",
+          "market_rent": 0.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        }
+      ],
+      "delinquencies": [],
+      "expired_leases": [],
+      "expiring_soon": [],
+      "monthly_financials": []
+    },
+    {
+      "entity": "Memphis RE LLC 10",
+      "slug": "memphis-re-llc-10",
+      "kpis": {
+        "total_units": 5,
+        "occupied_units": 4,
+        "occupancy_pct": 80.0,
+        "monthly_rent": 3100.0,
+        "vacant_loss": 1550.0,
+        "total_delinquency": 1295.0,
+        "ytd_income": 1800.0,
+        "ytd_expense": 450.27,
+        "ytd_noi": 1349.73
+      },
+      "units": [
+        {
+          "address": "4752 Lofts Rd",
+          "slug": "4752-lofts-rd",
+          "market_rent": 1000.0,
+          "status": "Occupied",
+          "tenant": "Roberts, D.",
+          "balance": 0.0,
+          "lease_end": "2025-12-31",
+          "days_remaining": -94,
+          "alert_flags": [
+            "expired_lease"
+          ]
+        },
+        {
+          "address": "376 Clarice",
+          "slug": "376-clarice",
+          "market_rent": 1550.0,
+          "status": "Vacant",
+          "tenant": "",
+          "balance": 0.0,
+          "lease_end": null,
+          "days_remaining": null,
+          "alert_flags": []
+        },
+        {
+          "address": "1463 Ragan",
+          "slug": "1463-ragan",
+          "market_rent": 800.0,
+          "status": "Occupied",
+          "tenant": "Alexander, D.",
+          "balance": 100.0,
+          "lease_end": "2025-12-31",
+          "days_remaining": -94,
+          "alert_flags": [
+            "delinquent",
+            "expired_lease"
+          ]
+        },
+        {
+          "address": "45 Builders",
+          "slug": "45-builders",
+          "market_rent": 1300.0,
+          "status": "Occupied",
+          "tenant": "Dill - Banks",
+          "balance": 1195.0,
+          "lease_end": "2026-05-31",
+          "days_remaining": 57,
+          "alert_flags": [
+            "delinquent",
+            "expiring_soon"
+          ]
+        },
+        {
+          "address": "873 Norfleet",
+          "slug": "873-norfleet",
+          "market_rent": 0.0,
+          "status": "Occupied",
+          "tenant": "Ferby Jr. - Ferby",
+          "balance": 0.0,
+          "lease_end": "2026-05-31",
+          "days_remaining": 57,
+          "alert_flags": [
+            "expiring_soon"
+          ]
+        }
+      ],
+      "delinquencies": [
+        {
+          "address": "45 Builders",
+          "slug": "45-builders",
+          "tenant": "Dill - Banks",
+          "balance": 1195.0
+        },
+        {
+          "address": "1463 Ragan",
+          "slug": "1463-ragan",
+          "tenant": "Alexander, D.",
+          "balance": 100.0
+        }
+      ],
+      "expired_leases": [
+        {
+          "address": "4752 Lofts Rd",
+          "slug": "4752-lofts-rd",
+          "tenant": "Roberts, D.",
+          "lease_end": "2025-12-31",
+          "days_remaining": -94
+        },
+        {
+          "address": "1463 Ragan",
+          "slug": "1463-ragan",
+          "tenant": "Alexander, D.",
+          "lease_end": "2025-12-31",
+          "days_remaining": -94
+        }
+      ],
+      "expiring_soon": [
+        {
+          "address": "45 Builders",
+          "slug": "45-builders",
+          "tenant": "Dill - Banks",
+          "lease_end": "2026-05-31",
+          "days_remaining": 57
+        },
+        {
+          "address": "873 Norfleet",
+          "slug": "873-norfleet",
+          "tenant": "Ferby Jr. - Ferby",
+          "lease_end": "2026-05-31",
+          "days_remaining": 57
+        }
+      ],
+      "monthly_financials": [
+        {
+          "month": "2026-01",
+          "month_label": "Jan",
+          "income": 1800.0,
+          "expense": 450.27,
+          "noi": 1349.73
+        },
+        {
+          "month": "2026-02",
+          "month_label": "Feb",
+          "income": 1800.0,
+          "expense": 974.41,
+          "noi": 825.59
+        },
+        {
+          "month": "2026-03",
+          "month_label": "Mar",
+          "income": 4190.0,
+          "expense": 1439.37,
+          "noi": 2750.63
+        },
+        {
+          "month": "2026-04",
+          "month_label": "Apr",
+          "income": 3095.0,
+          "expense": 291.53,
+          "noi": 2803.47
         }
       ]
     }
