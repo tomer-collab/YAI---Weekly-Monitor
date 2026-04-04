@@ -126,6 +126,7 @@
 
   @media (max-width: 640px) {
     .header { padding: 16px; flex-wrap: wrap; gap: 12px; }
+    .header-left h1 { font-size: 17px; }
     .header-right { text-align: left; }
     .container { padding: 16px; }
     .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -136,6 +137,21 @@
     .filter-bar input { width: 100%; }
     .tab-bar a { padding: 6px 14px; }
     .table-wrap table { width: max-content; min-width: 100%; }
+
+    /* Sticky first column so entity name stays visible while scrolling */
+    .table-wrap th:first-child,
+    .table-wrap td:first-child { position: sticky; left: 0; z-index: 2; }
+    .table-wrap th:first-child { background: var(--surface2); }
+    .table-wrap td:first-child { background: var(--surface); }
+    .table-wrap tr:hover td:first-child { background: var(--surface2); }
+    .table-wrap tr[data-pin="bottom"] td:first-child { background: var(--surface2); }
+
+    /* Hide non-essential columns */
+    .hide-mobile { display: none; }
+
+    /* Priority actions: let action text wrap, hide detail */
+    .priority-detail { display: none; }
+    td.priority-action { white-space: normal; }
   }
 
   @media print {
@@ -157,8 +173,8 @@
     </div>
   </div>
   <div class="header-right">
-    <div class="date">📅 Week of April 01, 2026</div>
-    <div class="period">YTD Period: Jan 1 – Apr 01, 2026</div>
+    <div class="date">📅 Week of April 04, 2026</div>
+    <div class="period">YTD Period: Jan 1 – Apr 04, 2026</div>
   </div>
 </div>
 
@@ -174,23 +190,23 @@
     </div>
     <div class="kpi yellow">
       <div class="label">Occupancy</div>
-      <div class="value">74%</div>
-      <div class="sub">110 / 149 occupied</div>
+      <div class="value">72%</div>
+      <div class="sub">108 / 149 occupied</div>
     </div>
     <div class="kpi green">
       <div class="label">Monthly Rent Roll</div>
-      <div class="value">$80,224</div>
-      <div class="sub">$80,224 collected</div>
+      <div class="value">$77,859</div>
+      <div class="sub">$77,859 collected</div>
     </div>
     <div class="kpi red">
       <div class="label">Vacant Loss / Mo</div>
-      <div class="value">$38,014</div>
-      <div class="sub">$38,014 lost to vacancy</div>
+      <div class="value">$40,379</div>
+      <div class="sub">$40,379 lost to vacancy</div>
     </div>
     <div class="kpi orange">
       <div class="label">Total Delinquency</div>
-      <div class="value">$141,683</div>
-      <div class="sub">$141,683 past due</div>
+      <div class="value">$117,087</div>
+      <div class="sub">$117,087 past due</div>
     </div>
     <div class="kpi green">
       <div class="label">YTD NOI</div>
@@ -211,23 +227,23 @@
         <thead>
           <tr>
             <th class="sortable">Entity</th>
-            <th class="num sortable">Units</th>
+            <th class="num sortable hide-mobile">Units</th>
             <th class="sortable">Occupancy</th>
             <th class="num sortable">Monthly Rent</th>
-            <th class="num sortable">Vacant Loss/Mo</th>
+            <th class="num sortable hide-mobile">Vacant Loss/Mo</th>
             <th class="num sortable">Delinquency</th>
-            <th class="num sortable">YTD Income</th>
-            <th class="num sortable">YTD Expense</th>
+            <th class="num sortable hide-mobile">YTD Income</th>
+            <th class="num sortable hide-mobile">YTD Expense</th>
             <th class="num sortable">YTD NOI</th>
-            <th class="num sortable">Expired Leases</th>
-            <th class="num sortable">Expiring ≤60d</th>
+            <th class="num sortable hide-mobile">Expired Leases</th>
+            <th class="num sortable hide-mobile">Expiring ≤60d</th>
           </tr>
         </thead>
         <tbody>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-10" style="color:var(--text);text-decoration:none;">Memphis RE LLC 10</a></strong></td>
-            <td class="num" data-sort-value="5">5</td>
+            <td class="num hide-mobile" data-sort-value="5">5</td>
             <td data-sort-value="80.0">
               
               <div class="occ-bar">
@@ -239,17 +255,17 @@
               
             </td>
             <td class="num" data-sort-value="3100.0">$3,100</td>
-            <td class="num" data-sort-value="1550.0" style="color:var(--red)">$1,550</td>
-            <td class="num" data-sort-value="3590.0" style="color:var(--orange)">$3,590</td>
-            <td class="num" data-sort-value="1800.0">$1,800</td>
-            <td class="num" data-sort-value="450.27">$450</td>
+            <td class="num hide-mobile" data-sort-value="1550.0" style="color:var(--red)">$1,550</td>
+            <td class="num" data-sort-value="1295.0" style="color:var(--orange)">$1,295</td>
+            <td class="num hide-mobile" data-sort-value="1800.0">$1,800</td>
+            <td class="num hide-mobile" data-sort-value="450.27">$450</td>
             <td class="num pos" data-sort-value="1349.73">$1,350</td>
-            <td class="num" data-sort-value="2">
+            <td class="num hide-mobile" data-sort-value="2">
               
                 <span class="badge badge-yellow">2</span>
               
             </td>
-            <td class="num" data-sort-value="2">
+            <td class="num hide-mobile" data-sort-value="2">
               
                 <span class="badge badge-yellow">2</span>
               
@@ -258,29 +274,29 @@
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-3" style="color:var(--text);text-decoration:none;">Memphis RE LLC 3</a></strong></td>
-            <td class="num" data-sort-value="18">18</td>
-            <td data-sort-value="83.3">
+            <td class="num hide-mobile" data-sort-value="18">18</td>
+            <td data-sort-value="77.8">
               
               <div class="occ-bar">
                 <div class="bar-bg">
-                  <div class="bar-fill med" style="width:83.3%"></div>
+                  <div class="bar-fill med" style="width:77.8%"></div>
                 </div>
-                <span class="bar-pct ">83.3%</span>
+                <span class="bar-pct ">77.8%</span>
               </div>
               
             </td>
-            <td class="num" data-sort-value="11177.0">$11,177</td>
-            <td class="num" data-sort-value="3849.0" style="color:var(--red)">$3,849</td>
-            <td class="num" data-sort-value="19797.07" style="color:var(--orange)">$19,797</td>
-            <td class="num" data-sort-value="22610.98">$22,611</td>
-            <td class="num" data-sort-value="6593.28">$6,593</td>
+            <td class="num" data-sort-value="9827.0">$9,827</td>
+            <td class="num hide-mobile" data-sort-value="5199.0" style="color:var(--red)">$5,199</td>
+            <td class="num" data-sort-value="15463.64" style="color:var(--orange)">$15,464</td>
+            <td class="num hide-mobile" data-sort-value="22610.98">$22,611</td>
+            <td class="num hide-mobile" data-sort-value="6593.28">$6,593</td>
             <td class="num pos" data-sort-value="16017.7">$16,018</td>
-            <td class="num" data-sort-value="3">
+            <td class="num hide-mobile" data-sort-value="2">
               
-                <span class="badge badge-red">3</span>
+                <span class="badge badge-yellow">2</span>
               
             </td>
-            <td class="num" data-sort-value="2">
+            <td class="num hide-mobile" data-sort-value="2">
               
                 <span class="badge badge-yellow">2</span>
               
@@ -289,7 +305,7 @@
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-4" style="color:var(--text);text-decoration:none;">Memphis RE LLC 4</a></strong></td>
-            <td class="num" data-sort-value="16">16</td>
+            <td class="num hide-mobile" data-sort-value="16">16</td>
             <td data-sort-value="81.2">
               
               <div class="occ-bar">
@@ -301,24 +317,24 @@
               
             </td>
             <td class="num" data-sort-value="9747.0">$9,747</td>
-            <td class="num" data-sort-value="1749.0" style="color:var(--red)">$1,749</td>
-            <td class="num" data-sort-value="13900.65" style="color:var(--orange)">$13,901</td>
-            <td class="num" data-sort-value="13966.05">$13,966</td>
-            <td class="num" data-sort-value="4969.53">$4,970</td>
+            <td class="num hide-mobile" data-sort-value="1749.0" style="color:var(--red)">$1,749</td>
+            <td class="num" data-sort-value="8985.93" style="color:var(--orange)">$8,986</td>
+            <td class="num hide-mobile" data-sort-value="13966.05">$13,966</td>
+            <td class="num hide-mobile" data-sort-value="4969.53">$4,970</td>
             <td class="num pos" data-sort-value="8996.52">$8,997</td>
-            <td class="num" data-sort-value="1">
+            <td class="num hide-mobile" data-sort-value="1">
               
                 <span class="badge badge-yellow">1</span>
               
             </td>
-            <td class="num" data-sort-value="0">
+            <td class="num hide-mobile" data-sort-value="0">
               —
             </td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-5" style="color:var(--text);text-decoration:none;">Memphis RE LLC 5</a></strong></td>
-            <td class="num" data-sort-value="13">13</td>
+            <td class="num hide-mobile" data-sort-value="13">13</td>
             <td data-sort-value="76.9">
               
               <div class="occ-bar">
@@ -330,15 +346,15 @@
               
             </td>
             <td class="num" data-sort-value="4050.0">$4,050</td>
-            <td class="num" data-sort-value="3649.0" style="color:var(--red)">$3,649</td>
+            <td class="num hide-mobile" data-sort-value="3649.0" style="color:var(--red)">$3,649</td>
             <td class="num" data-sort-value="10160.4" style="color:var(--orange)">$10,160</td>
-            <td class="num" data-sort-value="14838.64">$14,839</td>
-            <td class="num" data-sort-value="3613.63">$3,614</td>
+            <td class="num hide-mobile" data-sort-value="14838.64">$14,839</td>
+            <td class="num hide-mobile" data-sort-value="3613.63">$3,614</td>
             <td class="num pos" data-sort-value="11225.01">$11,225</td>
-            <td class="num" data-sort-value="0">
+            <td class="num hide-mobile" data-sort-value="0">
               —
             </td>
-            <td class="num" data-sort-value="1">
+            <td class="num hide-mobile" data-sort-value="1">
               
                 <span class="badge badge-yellow">1</span>
               
@@ -347,7 +363,7 @@
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-6" style="color:var(--text);text-decoration:none;">Memphis RE LLC 6</a></strong></td>
-            <td class="num" data-sort-value="17">17</td>
+            <td class="num hide-mobile" data-sort-value="17">17</td>
             <td data-sort-value="58.8">
               
               <div class="occ-bar">
@@ -359,17 +375,17 @@
               
             </td>
             <td class="num" data-sort-value="5498.0">$5,498</td>
-            <td class="num" data-sort-value="7245.0" style="color:var(--red)">$7,245</td>
-            <td class="num" data-sort-value="25262.420000000002" style="color:var(--orange)">$25,262</td>
-            <td class="num" data-sort-value="6350.25">$6,350</td>
-            <td class="num" data-sort-value="6759.89">$6,760</td>
+            <td class="num hide-mobile" data-sort-value="7245.0" style="color:var(--red)">$7,245</td>
+            <td class="num" data-sort-value="23212.420000000002" style="color:var(--orange)">$23,212</td>
+            <td class="num hide-mobile" data-sort-value="6350.25">$6,350</td>
+            <td class="num hide-mobile" data-sort-value="6759.89">$6,760</td>
             <td class="num neg" data-sort-value="-409.64">($410)</td>
-            <td class="num" data-sort-value="2">
+            <td class="num hide-mobile" data-sort-value="2">
               
                 <span class="badge badge-yellow">2</span>
               
             </td>
-            <td class="num" data-sort-value="1">
+            <td class="num hide-mobile" data-sort-value="1">
               
                 <span class="badge badge-yellow">1</span>
               
@@ -378,7 +394,7 @@
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-7" style="color:var(--text);text-decoration:none;">Memphis RE LLC 7</a></strong></td>
-            <td class="num" data-sort-value="30">30</td>
+            <td class="num hide-mobile" data-sort-value="30">30</td>
             <td data-sort-value="80.0">
               
               <div class="occ-bar">
@@ -390,17 +406,17 @@
               
             </td>
             <td class="num" data-sort-value="15521.0">$15,521</td>
-            <td class="num" data-sort-value="7498.0" style="color:var(--red)">$7,498</td>
-            <td class="num" data-sort-value="27359.149999999998" style="color:var(--orange)">$27,359</td>
-            <td class="num" data-sort-value="26606.14">$26,606</td>
-            <td class="num" data-sort-value="12256.21">$12,256</td>
+            <td class="num hide-mobile" data-sort-value="7498.0" style="color:var(--red)">$7,498</td>
+            <td class="num" data-sort-value="21710.949999999997" style="color:var(--orange)">$21,711</td>
+            <td class="num hide-mobile" data-sort-value="26606.14">$26,606</td>
+            <td class="num hide-mobile" data-sort-value="12256.21">$12,256</td>
             <td class="num pos" data-sort-value="14349.93">$14,350</td>
-            <td class="num" data-sort-value="4">
+            <td class="num hide-mobile" data-sort-value="4">
               
                 <span class="badge badge-red">4</span>
               
             </td>
-            <td class="num" data-sort-value="1">
+            <td class="num hide-mobile" data-sort-value="1">
               
                 <span class="badge badge-yellow">1</span>
               
@@ -409,7 +425,7 @@
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-8" style="color:var(--text);text-decoration:none;">Memphis RE LLC 8</a></strong></td>
-            <td class="num" data-sort-value="12">12</td>
+            <td class="num hide-mobile" data-sort-value="12">12</td>
             <td data-sort-value="58.3">
               
               <div class="occ-bar">
@@ -421,15 +437,15 @@
               
             </td>
             <td class="num" data-sort-value="6949.0">$6,949</td>
-            <td class="num" data-sort-value="4999.0" style="color:var(--red)">$4,999</td>
-            <td class="num" data-sort-value="7180.42" style="color:var(--orange)">$7,180</td>
-            <td class="num" data-sort-value="7653.28">$7,653</td>
-            <td class="num" data-sort-value="8023.15">$8,023</td>
+            <td class="num hide-mobile" data-sort-value="4999.0" style="color:var(--red)">$4,999</td>
+            <td class="num" data-sort-value="5351.03" style="color:var(--orange)">$5,351</td>
+            <td class="num hide-mobile" data-sort-value="7653.28">$7,653</td>
+            <td class="num hide-mobile" data-sort-value="8023.15">$8,023</td>
             <td class="num neg" data-sort-value="-369.87">($370)</td>
-            <td class="num" data-sort-value="0">
+            <td class="num hide-mobile" data-sort-value="0">
               —
             </td>
-            <td class="num" data-sort-value="1">
+            <td class="num hide-mobile" data-sort-value="1">
               
                 <span class="badge badge-yellow">1</span>
               
@@ -438,7 +454,7 @@
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-9" style="color:var(--text);text-decoration:none;">Memphis RE LLC 9</a></strong></td>
-            <td class="num" data-sort-value="4">4</td>
+            <td class="num hide-mobile" data-sort-value="4">4</td>
             <td data-sort-value="50.0">
               
               <div class="occ-bar">
@@ -450,22 +466,22 @@
               
             </td>
             <td class="num" data-sort-value="2500.0">$2,500</td>
-            <td class="num" data-sort-value="2800.0" style="color:var(--red)">$2,800</td>
-            <td class="num" data-sort-value="1760.4299999999998" style="color:var(--orange)">$1,760</td>
-            <td class="num" data-sort-value="896.5">$896</td>
-            <td class="num" data-sort-value="2366.66">$2,367</td>
+            <td class="num hide-mobile" data-sort-value="2800.0" style="color:var(--red)">$2,800</td>
+            <td class="num" data-sort-value="0.0" >—</td>
+            <td class="num hide-mobile" data-sort-value="896.5">$896</td>
+            <td class="num hide-mobile" data-sort-value="2366.66">$2,367</td>
             <td class="num neg" data-sort-value="-1470.16">($1,470)</td>
-            <td class="num" data-sort-value="0">
+            <td class="num hide-mobile" data-sort-value="0">
               —
             </td>
-            <td class="num" data-sort-value="0">
+            <td class="num hide-mobile" data-sort-value="0">
               —
             </td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc" style="color:var(--text);text-decoration:none;">Memphis RE LLC.</a></strong></td>
-            <td class="num" data-sort-value="19">19</td>
+            <td class="num hide-mobile" data-sort-value="19">19</td>
             <td data-sort-value="84.2">
               
               <div class="occ-bar">
@@ -477,17 +493,17 @@
               
             </td>
             <td class="num" data-sort-value="16888.0">$16,888</td>
-            <td class="num" data-sort-value="3325.0" style="color:var(--red)">$3,325</td>
-            <td class="num" data-sort-value="19754.239999999998" style="color:var(--orange)">$19,754</td>
-            <td class="num" data-sort-value="21696.54">$21,697</td>
-            <td class="num" data-sort-value="7648.88">$7,649</td>
+            <td class="num hide-mobile" data-sort-value="3325.0" style="color:var(--red)">$3,325</td>
+            <td class="num" data-sort-value="19004.239999999998" style="color:var(--orange)">$19,004</td>
+            <td class="num hide-mobile" data-sort-value="21696.54">$21,697</td>
+            <td class="num hide-mobile" data-sort-value="7648.88">$7,649</td>
             <td class="num pos" data-sort-value="14047.66">$14,048</td>
-            <td class="num" data-sort-value="1">
+            <td class="num hide-mobile" data-sort-value="1">
               
                 <span class="badge badge-yellow">1</span>
               
             </td>
-            <td class="num" data-sort-value="2">
+            <td class="num hide-mobile" data-sort-value="2">
               
                 <span class="badge badge-yellow">2</span>
               
@@ -496,36 +512,36 @@
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc2" style="color:var(--text);text-decoration:none;">Memphis RE LLC2</a></strong></td>
-            <td class="num" data-sort-value="10">10</td>
-            <td data-sort-value="90.0">
+            <td class="num hide-mobile" data-sort-value="10">10</td>
+            <td data-sort-value="80.0">
               
               <div class="occ-bar">
                 <div class="bar-bg">
-                  <div class="bar-fill high" style="width:90.0%"></div>
+                  <div class="bar-fill med" style="width:80.0%"></div>
                 </div>
-                <span class="bar-pct ">90.0%</span>
+                <span class="bar-pct ">80.0%</span>
               </div>
               
             </td>
-            <td class="num" data-sort-value="4794.0">$4,794</td>
-            <td class="num" data-sort-value="1350.0" style="color:var(--red)">$1,350</td>
-            <td class="num" data-sort-value="12918.12" style="color:var(--orange)">$12,918</td>
-            <td class="num" data-sort-value="8356.52">$8,357</td>
-            <td class="num" data-sort-value="3112.6">$3,113</td>
+            <td class="num" data-sort-value="3779.0">$3,779</td>
+            <td class="num hide-mobile" data-sort-value="2365.0" style="color:var(--red)">$2,365</td>
+            <td class="num" data-sort-value="11903.12" style="color:var(--orange)">$11,903</td>
+            <td class="num hide-mobile" data-sort-value="8356.52">$8,357</td>
+            <td class="num hide-mobile" data-sort-value="3112.6">$3,113</td>
             <td class="num pos" data-sort-value="5243.92">$5,244</td>
-            <td class="num" data-sort-value="3">
+            <td class="num hide-mobile" data-sort-value="3">
               
                 <span class="badge badge-red">3</span>
               
             </td>
-            <td class="num" data-sort-value="0">
+            <td class="num hide-mobile" data-sort-value="0">
               —
             </td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/yai" style="color:var(--text);text-decoration:none;">YAI</a></strong></td>
-            <td class="num" data-sort-value="5">5</td>
+            <td class="num hide-mobile" data-sort-value="5">5</td>
             <td data-sort-value="0.0">
               
               <div class="occ-bar">
@@ -537,15 +553,15 @@
               
             </td>
             <td class="num" data-sort-value="0.0">—</td>
-            <td class="num" data-sort-value="0.0" style="color:var(--red)">—</td>
+            <td class="num hide-mobile" data-sort-value="0.0" style="color:var(--red)">—</td>
             <td class="num" data-sort-value="0.0" >—</td>
-            <td class="num" data-sort-value="0.0">—</td>
-            <td class="num" data-sort-value="0.0">—</td>
+            <td class="num hide-mobile" data-sort-value="0.0">—</td>
+            <td class="num hide-mobile" data-sort-value="0.0">—</td>
             <td class="num pos" data-sort-value="0.0">—</td>
-            <td class="num" data-sort-value="0">
+            <td class="num hide-mobile" data-sort-value="0">
               —
             </td>
-            <td class="num" data-sort-value="0">
+            <td class="num hide-mobile" data-sort-value="0">
               —
             </td>
           </tr>
@@ -553,23 +569,23 @@
           <!-- Portfolio total row (pinned — excluded from sorting) -->
           <tr data-pin="bottom" style="background: var(--surface2); font-weight: 700;">
             <td>PORTFOLIO TOTAL</td>
-            <td class="num">149</td>
+            <td class="num hide-mobile">149</td>
             <td>
               <div class="occ-bar">
                 <div class="bar-bg">
-                  <div class="bar-fill med" style="width:74%"></div>
+                  <div class="bar-fill med" style="width:72%"></div>
                 </div>
-                <span class="bar-pct '' %}" style="color:var(--yellow)">74%</span>
+                <span class="bar-pct '' %}" style="color:var(--yellow)">72%</span>
               </div>
             </td>
-            <td class="num">$80,224</td>
-            <td class="num" style="color:var(--red)">$38,014</td>
-            <td class="num" style="color:var(--orange)">$141,683</td>
-            <td class="num">$124,775</td>
-            <td class="num">$55,794</td>
+            <td class="num">$77,859</td>
+            <td class="num hide-mobile" style="color:var(--red)">$40,379</td>
+            <td class="num" style="color:var(--orange)">$117,087</td>
+            <td class="num hide-mobile">$124,775</td>
+            <td class="num hide-mobile">$55,794</td>
             <td class="num pos">$68,981</td>
-            <td class="num"><span class="badge badge-red">16</span></td>
-            <td class="num"><span class="badge badge-yellow">10</span></td>
+            <td class="num hide-mobile"><span class="badge badge-red">15</span></td>
+            <td class="num hide-mobile"><span class="badge badge-yellow">10</span></td>
           </tr>
         </tbody>
       </table>
@@ -606,15 +622,15 @@
             </tr>
             
             <tr class="alert-row">
-              <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
-              <td><a href="/fund/memphis-re-llc-7/property/2568-sunnyhill" style="color:var(--text);text-decoration:none;">2568 SunnyHill</a></td>
-              <td class="num" data-sort-value="4832.5" style="color:var(--red)"><strong>$4,832</strong></td>
-            </tr>
-            
-            <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-6" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 6</a></td>
               <td><a href="/fund/memphis-re-llc-6/property/2045-townsend-ave" style="color:var(--text);text-decoration:none;">2045 Townsend Ave</a></td>
               <td class="num" data-sort-value="4427.5" style="color:var(--red)"><strong>$4,428</strong></td>
+            </tr>
+            
+            <tr class="alert-row">
+              <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
+              <td><a href="/fund/memphis-re-llc-7/property/2568-sunnyhill" style="color:var(--text);text-decoration:none;">2568 SunnyHill</a></td>
+              <td class="num" data-sort-value="4332.5" style="color:var(--red)"><strong>$4,332</strong></td>
             </tr>
             
             <tr class="alert-row">
@@ -630,6 +646,12 @@
             </tr>
             
             <tr class="warn-row">
+              <td><a href="/fund/memphis-re-llc" style="color:var(--muted);text-decoration:none;">Memphis RE LLC.</a></td>
+              <td><a href="/fund/memphis-re-llc/property/4430-chuck-ave" style="color:var(--text);text-decoration:none;">4430 Chuck Ave</a></td>
+              <td class="num" data-sort-value="2560.0" style="color:var(--orange)"><strong>$2,560</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc2" style="color:var(--muted);text-decoration:none;">Memphis RE LLC2</a></td>
               <td><a href="/fund/memphis-re-llc2/property/1132-1134-atlantic" style="color:var(--text);text-decoration:none;">1132/1134 Atlantic</a></td>
               <td class="num" data-sort-value="2423.7" style="color:var(--orange)"><strong>$2,424</strong></td>
@@ -637,14 +659,8 @@
             
             <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc" style="color:var(--muted);text-decoration:none;">Memphis RE LLC.</a></td>
-              <td><a href="/fund/memphis-re-llc/property/4430-chuck-ave" style="color:var(--text);text-decoration:none;">4430 Chuck Ave</a></td>
-              <td class="num" data-sort-value="2310.0" style="color:var(--orange)"><strong>$2,310</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc" style="color:var(--muted);text-decoration:none;">Memphis RE LLC.</a></td>
               <td><a href="/fund/memphis-re-llc/property/3858-shallowood" style="color:var(--text);text-decoration:none;">3858 Shallowood</a></td>
-              <td class="num" data-sort-value="2271.99" style="color:var(--orange)"><strong>$2,272</strong></td>
+              <td class="num" data-sort-value="2071.99" style="color:var(--orange)"><strong>$2,072</strong></td>
             </tr>
             
             <tr class="warn-row">
@@ -678,27 +694,9 @@
             </tr>
             
             <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
-              <td><a href="/fund/memphis-re-llc-7/property/819-par" style="color:var(--text);text-decoration:none;">819 Par</a></td>
-              <td class="num" data-sort-value="1820.0" style="color:var(--orange)"><strong>$1,820</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
-              <td><a href="/fund/memphis-re-llc-7/property/827-juliet-ave" style="color:var(--text);text-decoration:none;">827 Juliet Ave</a></td>
-              <td class="num" data-sort-value="1777.76" style="color:var(--orange)"><strong>$1,778</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc" style="color:var(--muted);text-decoration:none;">Memphis RE LLC.</a></td>
               <td><a href="/fund/memphis-re-llc/property/3290-spring-vally-cv" style="color:var(--text);text-decoration:none;">3290 Spring Vally Cv</a></td>
               <td class="num" data-sort-value="1700.0" style="color:var(--orange)"><strong>$1,700</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
-              <td><a href="/fund/memphis-re-llc-3/property/155-silverage" style="color:var(--text);text-decoration:none;">155 Silverage</a></td>
-              <td class="num" data-sort-value="1677.93" style="color:var(--orange)"><strong>$1,678</strong></td>
             </tr>
             
             <tr class="warn-row">
@@ -708,9 +706,9 @@
             </tr>
             
             <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
-              <td><a href="/fund/memphis-re-llc-4/property/809-alida-ave" style="color:var(--text);text-decoration:none;">809 Alida Ave</a></td>
-              <td class="num" data-sort-value="1640.39" style="color:var(--orange)"><strong>$1,640</strong></td>
+              <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
+              <td><a href="/fund/memphis-re-llc-3/property/155-silverage" style="color:var(--text);text-decoration:none;">155 Silverage</a></td>
+              <td class="num" data-sort-value="1577.93" style="color:var(--orange)"><strong>$1,578</strong></td>
             </tr>
             
             <tr class="warn-row">
@@ -756,12 +754,6 @@
             </tr>
             
             <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
-              <td><a href="/fund/memphis-re-llc-4/property/1485-menager" style="color:var(--text);text-decoration:none;">1485 Menager</a></td>
-              <td class="num" data-sort-value="1350.0" style="color:var(--orange)"><strong>$1,350</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc" style="color:var(--muted);text-decoration:none;">Memphis RE LLC.</a></td>
               <td><a href="/fund/memphis-re-llc/property/1957-alta-vista-ave" style="color:var(--text);text-decoration:none;">1957 Alta Vista Ave</a></td>
               <td class="num" data-sort-value="1348.95" style="color:var(--orange)"><strong>$1,349</strong></td>
@@ -795,24 +787,6 @@
               <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
               <td><a href="/fund/memphis-re-llc-3/property/3681-horn-lake-rd" style="color:var(--text);text-decoration:none;">3681 Horn Lake Rd</a></td>
               <td class="num" data-sort-value="1337.0" style="color:var(--orange)"><strong>$1,337</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
-              <td><a href="/fund/memphis-re-llc-7/property/1200-pera" style="color:var(--text);text-decoration:none;">1200 Pera</a></td>
-              <td class="num" data-sort-value="1336.2" style="color:var(--orange)"><strong>$1,336</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
-              <td><a href="/fund/memphis-re-llc-3/property/1741-gregory-ave" style="color:var(--text);text-decoration:none;">1741 GREGORY AVE</a></td>
-              <td class="num" data-sort-value="1334.25" style="color:var(--orange)"><strong>$1,334</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
-              <td><a href="/fund/memphis-re-llc-4/property/921-s-willett" style="color:var(--text);text-decoration:none;">921 S. Willett</a></td>
-              <td class="num" data-sort-value="1316.0" style="color:var(--orange)"><strong>$1,316</strong></td>
             </tr>
             
             <tr class="warn-row">
@@ -870,26 +844,20 @@
             </tr>
             
             <tr class="warn-row">
+              <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
+              <td><a href="/fund/memphis-re-llc-7/property/819-par" style="color:var(--text);text-decoration:none;">819 Par</a></td>
+              <td class="num" data-sort-value="1220.0" style="color:var(--orange)"><strong>$1,220</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-5" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 5</a></td>
               <td><a href="/fund/memphis-re-llc-5/property/2771-henley-dr" style="color:var(--text);text-decoration:none;">2771 Henley Dr</a></td>
               <td class="num" data-sort-value="1210.0" style="color:var(--orange)"><strong>$1,210</strong></td>
             </tr>
             
             <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
-              <td><a href="/fund/memphis-re-llc-7/property/1191-pera" style="color:var(--text);text-decoration:none;">1191 Pera</a></td>
-              <td class="num" data-sort-value="1200.0" style="color:var(--orange)"><strong>$1,200</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-10" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 10</a></td>
               <td><a href="/fund/memphis-re-llc-10/property/45-builders" style="color:var(--text);text-decoration:none;">45 Builders</a></td>
-              <td class="num" data-sort-value="1195.0" style="color:var(--orange)"><strong>$1,195</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-10" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 10</a></td>
-              <td><a href="/fund/memphis-re-llc-10/property/873-norfleet" style="color:var(--text);text-decoration:none;">873 Norfleet</a></td>
               <td class="num" data-sort-value="1195.0" style="color:var(--orange)"><strong>$1,195</strong></td>
             </tr>
             
@@ -909,30 +877,6 @@
               <td><a href="/fund/memphis-re-llc2" style="color:var(--muted);text-decoration:none;">Memphis RE LLC2</a></td>
               <td><a href="/fund/memphis-re-llc2/property/highland-wilshire" style="color:var(--text);text-decoration:none;">Highland/ Wilshire</a></td>
               <td class="num" data-sort-value="1105.2" style="color:var(--orange)"><strong>$1,105</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-6" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 6</a></td>
-              <td><a href="/fund/memphis-re-llc-6/property/3947-chippewa-rd" style="color:var(--text);text-decoration:none;">3947 Chippewa Rd</a></td>
-              <td class="num" data-sort-value="1100.0" style="color:var(--orange)"><strong>$1,100</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-10" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 10</a></td>
-              <td><a href="/fund/memphis-re-llc-10/property/4752-lofts-rd" style="color:var(--text);text-decoration:none;">4752 Lofts Rd</a></td>
-              <td class="num" data-sort-value="1100.0" style="color:var(--orange)"><strong>$1,100</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
-              <td><a href="/fund/memphis-re-llc-3/property/2595-browning-ave" style="color:var(--text);text-decoration:none;">2595 Browning Ave</a></td>
-              <td class="num" data-sort-value="1099.45" style="color:var(--orange)"><strong>$1,099</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
-              <td><a href="/fund/memphis-re-llc-3/property/2286-poe" style="color:var(--text);text-decoration:none;">2286 Poe</a></td>
-              <td class="num" data-sort-value="1099.0" style="color:var(--orange)"><strong>$1,099</strong></td>
             </tr>
             
             <tr class="warn-row">
@@ -967,6 +911,12 @@
             
             <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
+              <td><a href="/fund/memphis-re-llc-7/property/827-juliet-ave" style="color:var(--text);text-decoration:none;">827 Juliet Ave</a></td>
+              <td class="num" data-sort-value="1066.76" style="color:var(--orange)"><strong>$1,067</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
               <td><a href="/fund/memphis-re-llc-7/property/4432-smith-ridge" style="color:var(--text);text-decoration:none;">4432 Smith Ridge</a></td>
               <td class="num" data-sort-value="1065.0" style="color:var(--orange)"><strong>$1,065</strong></td>
             </tr>
@@ -978,27 +928,15 @@
             </tr>
             
             <tr class="warn-row">
+              <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
+              <td><a href="/fund/memphis-re-llc-4/property/809-alida-ave" style="color:var(--text);text-decoration:none;">809 Alida Ave</a></td>
+              <td class="num" data-sort-value="1040.39" style="color:var(--orange)"><strong>$1,040</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc2" style="color:var(--muted);text-decoration:none;">Memphis RE LLC2</a></td>
               <td><a href="/fund/memphis-re-llc2/property/3825-3827-ajanders-dr" style="color:var(--text);text-decoration:none;">3825/ 3827 Ajanders Dr</a></td>
               <td class="num" data-sort-value="1030.0" style="color:var(--orange)"><strong>$1,030</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
-              <td><a href="/fund/memphis-re-llc-4/property/3203-crump" style="color:var(--text);text-decoration:none;">3203 Crump</a></td>
-              <td class="num" data-sort-value="1021.0" style="color:var(--orange)"><strong>$1,021</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc2" style="color:var(--muted);text-decoration:none;">Memphis RE LLC2</a></td>
-              <td><a href="/fund/memphis-re-llc2/property/1132-1134-atlantic" style="color:var(--text);text-decoration:none;">1132/1134 Atlantic</a></td>
-              <td class="num" data-sort-value="1015.0" style="color:var(--orange)"><strong>$1,015</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
-              <td><a href="/fund/memphis-re-llc-7/property/2563-sunnyhill" style="color:var(--text);text-decoration:none;">2563 SunnyHill</a></td>
-              <td class="num" data-sort-value="1000.0" style="color:var(--orange)"><strong>$1,000</strong></td>
             </tr>
             
             <tr class="warn-row">
@@ -1026,33 +964,21 @@
             </tr>
             
             <tr class="warn-row">
+              <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
+              <td><a href="/fund/memphis-re-llc-4/property/3203-crump" style="color:var(--text);text-decoration:none;">3203 Crump</a></td>
+              <td class="num" data-sort-value="956.0" style="color:var(--orange)"><strong>$956</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc" style="color:var(--muted);text-decoration:none;">Memphis RE LLC.</a></td>
               <td><a href="/fund/memphis-re-llc/property/1484-lockhaven" style="color:var(--text);text-decoration:none;">1484 Lockhaven</a></td>
               <td class="num" data-sort-value="952.5" style="color:var(--orange)"><strong>$952</strong></td>
             </tr>
             
             <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-6" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 6</a></td>
-              <td><a href="/fund/memphis-re-llc-6/property/1104-w-lexington-cir" style="color:var(--text);text-decoration:none;">1104 W Lexington Cir</a></td>
-              <td class="num" data-sort-value="950.0" style="color:var(--orange)"><strong>$950</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
               <td><a href="/fund/memphis-re-llc-7/property/854-juliet" style="color:var(--text);text-decoration:none;">854 Juliet</a></td>
               <td class="num" data-sort-value="945.84" style="color:var(--orange)"><strong>$946</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-9" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 9</a></td>
-              <td><a href="/fund/memphis-re-llc-9/property/1546-marjorie-st" style="color:var(--text);text-decoration:none;">1546 Marjorie St</a></td>
-              <td class="num" data-sort-value="945.43" style="color:var(--orange)"><strong>$945</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-8" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 8</a></td>
-              <td><a href="/fund/memphis-re-llc-8/property/5003-deneen-dr-memphis" style="color:var(--text);text-decoration:none;">5003 Deneen Dr, Memphis</a></td>
-              <td class="num" data-sort-value="940.0" style="color:var(--orange)"><strong>$940</strong></td>
             </tr>
             
             <tr class="warn-row">
@@ -1080,12 +1006,6 @@
             </tr>
             
             <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-8" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 8</a></td>
-              <td><a href="/fund/memphis-re-llc-8/property/crump-duples" style="color:var(--text);text-decoration:none;">Crump Duples</a></td>
-              <td class="num" data-sort-value="890.39" style="color:var(--orange)"><strong>$890</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc2" style="color:var(--muted);text-decoration:none;">Memphis RE LLC2</a></td>
               <td><a href="/fund/memphis-re-llc2/property/highland-wilshire" style="color:var(--text);text-decoration:none;">Highland/ Wilshire</a></td>
               <td class="num" data-sort-value="884.0" style="color:var(--orange)"><strong>$884</strong></td>
@@ -1110,27 +1030,9 @@
             </tr>
             
             <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-9" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 9</a></td>
-              <td><a href="/fund/memphis-re-llc-9/property/351-damone" style="color:var(--text);text-decoration:none;">351 Damone</a></td>
-              <td class="num" data-sort-value="815.0" style="color:var(--orange)"><strong>$815</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
               <td><a href="/fund/memphis-re-llc-3/property/608-king-rd" style="color:var(--text);text-decoration:none;">608 King Rd</a></td>
               <td class="num" data-sort-value="800.0" style="color:var(--orange)"><strong>$800</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc" style="color:var(--muted);text-decoration:none;">Memphis RE LLC.</a></td>
-              <td><a href="/fund/memphis-re-llc/property/755-757-hilton" style="color:var(--text);text-decoration:none;">755-757 Hilton</a></td>
-              <td class="num" data-sort-value="800.0" style="color:var(--orange)"><strong>$800</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
-              <td><a href="/fund/memphis-re-llc-3/property/274-ingle" style="color:var(--text);text-decoration:none;">274 Ingle</a></td>
-              <td class="num" data-sort-value="799.73" style="color:var(--orange)"><strong>$800</strong></td>
             </tr>
             
             <tr class="warn-row">
@@ -1142,19 +1044,7 @@
             <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
               <td><a href="/fund/memphis-re-llc-4/property/825-827-hilton" style="color:var(--text);text-decoration:none;">825-827 Hilton</a></td>
-              <td class="num" data-sort-value="739.0" style="color:var(--orange)"><strong>$739</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
-              <td><a href="/fund/memphis-re-llc-4/property/825-827-hilton" style="color:var(--text);text-decoration:none;">825-827 Hilton</a></td>
-              <td class="num" data-sort-value="700.0" style="color:var(--orange)"><strong>$700</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
-              <td><a href="/fund/memphis-re-llc-7/property/790-buntyn" style="color:var(--text);text-decoration:none;">790 Buntyn</a></td>
-              <td class="num" data-sort-value="663.0" style="color:var(--orange)"><strong>$663</strong></td>
+              <td class="num" data-sort-value="642.0" style="color:var(--orange)"><strong>$642</strong></td>
             </tr>
             
             <tr class="warn-row">
@@ -1164,15 +1054,9 @@
             </tr>
             
             <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
-              <td><a href="/fund/memphis-re-llc-4/property/3203-crump" style="color:var(--text);text-decoration:none;">3203 Crump</a></td>
-              <td class="num" data-sort-value="550.3" style="color:var(--orange)"><strong>$550</strong></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
-              <td><a href="/fund/memphis-re-llc-4/property/706-lester-2884-faxon" style="color:var(--text);text-decoration:none;">706 Lester -2884 Faxon</a></td>
-              <td class="num" data-sort-value="502.39" style="color:var(--orange)"><strong>$502</strong></td>
+              <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
+              <td><a href="/fund/memphis-re-llc-7/property/790-buntyn" style="color:var(--text);text-decoration:none;">790 Buntyn</a></td>
+              <td class="num" data-sort-value="517.0" style="color:var(--orange)"><strong>$517</strong></td>
             </tr>
             
             <tr class="warn-row">
@@ -1182,15 +1066,39 @@
             </tr>
             
             <tr class="warn-row">
+              <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
+              <td><a href="/fund/memphis-re-llc-4/property/3203-crump" style="color:var(--text);text-decoration:none;">3203 Crump</a></td>
+              <td class="num" data-sort-value="249.97" style="color:var(--orange)"><strong>$250</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
               <td><a href="/fund/memphis-re-llc-7/property/1006-carrolton-rd" style="color:var(--text);text-decoration:none;">1006 Carrolton Rd</a></td>
-              <td class="num" data-sort-value="366.5" style="color:var(--orange)"><strong>$366</strong></td>
+              <td class="num" data-sort-value="211.5" style="color:var(--orange)"><strong>$212</strong></td>
             </tr>
             
             <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-10" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 10</a></td>
               <td><a href="/fund/memphis-re-llc-10/property/1463-ragan" style="color:var(--text);text-decoration:none;">1463 Ragan</a></td>
               <td class="num" data-sort-value="100.0" style="color:var(--orange)"><strong>$100</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
+              <td><a href="/fund/memphis-re-llc-3/property/2286-poe" style="color:var(--text);text-decoration:none;">2286 Poe</a></td>
+              <td class="num" data-sort-value="99.0" style="color:var(--orange)"><strong>$99</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
+              <td><a href="/fund/memphis-re-llc-4/property/921-s-willett" style="color:var(--text);text-decoration:none;">921 S. Willett</a></td>
+              <td class="num" data-sort-value="16.0" style="color:var(--orange)"><strong>$16</strong></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td><a href="/fund/memphis-re-llc-8" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 8</a></td>
+              <td><a href="/fund/memphis-re-llc-8/property/crump-duples" style="color:var(--text);text-decoration:none;">Crump Duples</a></td>
+              <td class="num" data-sort-value="1.0" style="color:var(--orange)"><strong>$1</strong></td>
             </tr>
             
           </tbody>
@@ -1215,97 +1123,91 @@
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc" style="color:var(--muted);text-decoration:none;">Memphis RE LLC.</a></td>
               <td><a href="/fund/memphis-re-llc/property/571-573-boston-st" style="color:var(--text);text-decoration:none;">571 - 573 Boston St</a></td>
-              <td class="num" data-sort-value="1016"><span class="badge badge-red">1016d</span></td>
+              <td class="num" data-sort-value="1019"><span class="badge badge-red">1019d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
               <td><a href="/fund/memphis-re-llc-7/property/4432-smith-ridge" style="color:var(--text);text-decoration:none;">4432 Smith Ridge</a></td>
-              <td class="num" data-sort-value="1006"><span class="badge badge-red">1006d</span></td>
+              <td class="num" data-sort-value="1009"><span class="badge badge-red">1009d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc2" style="color:var(--muted);text-decoration:none;">Memphis RE LLC2</a></td>
               <td><a href="/fund/memphis-re-llc2/property/666-664-east-waldorf-avenue" style="color:var(--text);text-decoration:none;">666/664 East Waldorf Avenue</a></td>
-              <td class="num" data-sort-value="578"><span class="badge badge-red">578d</span></td>
+              <td class="num" data-sort-value="581"><span class="badge badge-red">581d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
               <td><a href="/fund/memphis-re-llc-7/property/3278-dawn" style="color:var(--text);text-decoration:none;">3278 Dawn</a></td>
-              <td class="num" data-sort-value="543"><span class="badge badge-red">543d</span></td>
+              <td class="num" data-sort-value="546"><span class="badge badge-red">546d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc2" style="color:var(--muted);text-decoration:none;">Memphis RE LLC2</a></td>
               <td><a href="/fund/memphis-re-llc2/property/666-664-east-waldorf-avenue" style="color:var(--text);text-decoration:none;">666/664 East Waldorf Avenue</a></td>
-              <td class="num" data-sort-value="397"><span class="badge badge-red">397d</span></td>
+              <td class="num" data-sort-value="400"><span class="badge badge-red">400d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-4" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 4</a></td>
               <td><a href="/fund/memphis-re-llc-4/property/3203-crump" style="color:var(--text);text-decoration:none;">3203 Crump</a></td>
-              <td class="num" data-sort-value="336"><span class="badge badge-red">336d</span></td>
+              <td class="num" data-sort-value="339"><span class="badge badge-red">339d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
               <td><a href="/fund/memphis-re-llc-3/property/1802-1804-edward" style="color:var(--text);text-decoration:none;">1802/1804 Edward</a></td>
-              <td class="num" data-sort-value="275"><span class="badge badge-red">275d</span></td>
+              <td class="num" data-sort-value="278"><span class="badge badge-red">278d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc2" style="color:var(--muted);text-decoration:none;">Memphis RE LLC2</a></td>
               <td><a href="/fund/memphis-re-llc2/property/3825-3827-ajanders-dr" style="color:var(--text);text-decoration:none;">3825/ 3827 Ajanders Dr</a></td>
-              <td class="num" data-sort-value="213"><span class="badge badge-red">213d</span></td>
+              <td class="num" data-sort-value="216"><span class="badge badge-red">216d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
               <td><a href="/fund/memphis-re-llc-3/property/1802-1804-edward" style="color:var(--text);text-decoration:none;">1802/1804 Edward</a></td>
-              <td class="num" data-sort-value="183"><span class="badge badge-red">183d</span></td>
+              <td class="num" data-sort-value="186"><span class="badge badge-red">186d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-6" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 6</a></td>
               <td><a href="/fund/memphis-re-llc-6/property/3947-chippewa-rd" style="color:var(--text);text-decoration:none;">3947 Chippewa Rd</a></td>
-              <td class="num" data-sort-value="122"><span class="badge badge-red">122d</span></td>
+              <td class="num" data-sort-value="125"><span class="badge badge-red">125d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-10" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 10</a></td>
               <td><a href="/fund/memphis-re-llc-10/property/4752-lofts-rd" style="color:var(--text);text-decoration:none;">4752 Lofts Rd</a></td>
-              <td class="num" data-sort-value="91"><span class="badge badge-red">91d</span></td>
+              <td class="num" data-sort-value="94"><span class="badge badge-red">94d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-10" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 10</a></td>
               <td><a href="/fund/memphis-re-llc-10/property/1463-ragan" style="color:var(--text);text-decoration:none;">1463 Ragan</a></td>
-              <td class="num" data-sort-value="91"><span class="badge badge-red">91d</span></td>
+              <td class="num" data-sort-value="94"><span class="badge badge-red">94d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
               <td><a href="/fund/memphis-re-llc-7/property/819-par" style="color:var(--text);text-decoration:none;">819 Par</a></td>
-              <td class="num" data-sort-value="60"><span class="badge badge-red">60d</span></td>
-            </tr>
-            
-            <tr class="alert-row">
-              <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
-              <td><a href="/fund/memphis-re-llc-3/property/1741-gregory-ave" style="color:var(--text);text-decoration:none;">1741 GREGORY AVE</a></td>
-              <td class="num" data-sort-value="1"><span class="badge badge-red">1d</span></td>
+              <td class="num" data-sort-value="63"><span class="badge badge-red">63d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-6" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 6</a></td>
               <td><a href="/fund/memphis-re-llc-6/property/590-blackhawk" style="color:var(--text);text-decoration:none;">590 Blackhawk</a></td>
-              <td class="num" data-sort-value="1"><span class="badge badge-red">1d</span></td>
+              <td class="num" data-sort-value="4"><span class="badge badge-red">4d</span></td>
             </tr>
             
             <tr class="alert-row">
               <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
               <td><a href="/fund/memphis-re-llc-7/property/2579-barron" style="color:var(--text);text-decoration:none;">2579 Barron</a></td>
-              <td class="num" data-sort-value="1"><span class="badge badge-red">1d</span></td>
+              <td class="num" data-sort-value="4"><span class="badge badge-red">4d</span></td>
             </tr>
             
           </tbody>
@@ -1330,61 +1232,61 @@
             <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc" style="color:var(--muted);text-decoration:none;">Memphis RE LLC.</a></td>
               <td><a href="/fund/memphis-re-llc/property/1575-1577-cella-st" style="color:var(--text);text-decoration:none;">1575 - 1577 Cella St</a></td>
-              <td class="num" data-sort-value="29"><span class="badge badge-yellow">29d</span></td>
+              <td class="num" data-sort-value="26"><span class="badge badge-yellow">26d</span></td>
             </tr>
             
             <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-8" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 8</a></td>
               <td><a href="/fund/memphis-re-llc-8/property/5003-deneen-dr-memphis" style="color:var(--text);text-decoration:none;">5003 Deneen Dr, Memphis</a></td>
-              <td class="num" data-sort-value="36"><span class="badge badge-yellow">36d</span></td>
+              <td class="num" data-sort-value="33"><span class="badge badge-yellow">33d</span></td>
             </tr>
             
             <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-5" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 5</a></td>
               <td><a href="/fund/memphis-re-llc-5/property/1040-alaska" style="color:var(--text);text-decoration:none;">1040 Alaska</a></td>
-              <td class="num" data-sort-value="60"><span class="badge badge-yellow">60d</span></td>
+              <td class="num" data-sort-value="57"><span class="badge badge-yellow">57d</span></td>
             </tr>
             
             <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
               <td><a href="/fund/memphis-re-llc-3/property/3547-hallbrook-st" style="color:var(--text);text-decoration:none;">3547 Hallbrook St</a></td>
-              <td class="num" data-sort-value="60"><span class="badge badge-yellow">60d</span></td>
+              <td class="num" data-sort-value="57"><span class="badge badge-yellow">57d</span></td>
             </tr>
             
             <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-3" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 3</a></td>
               <td><a href="/fund/memphis-re-llc-3/property/274-ingle" style="color:var(--text);text-decoration:none;">274 Ingle</a></td>
-              <td class="num" data-sort-value="60"><span class="badge badge-yellow">60d</span></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-6" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 6</a></td>
-              <td><a href="/fund/memphis-re-llc-6/property/1384-grand-opera" style="color:var(--text);text-decoration:none;">1384 Grand Opera</a></td>
-              <td class="num" data-sort-value="60"><span class="badge badge-yellow">60d</span></td>
+              <td class="num" data-sort-value="57"><span class="badge badge-yellow">57d</span></td>
             </tr>
             
             <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc" style="color:var(--muted);text-decoration:none;">Memphis RE LLC.</a></td>
               <td><a href="/fund/memphis-re-llc/property/3858-shallowood" style="color:var(--text);text-decoration:none;">3858 Shallowood</a></td>
-              <td class="num" data-sort-value="60"><span class="badge badge-yellow">60d</span></td>
+              <td class="num" data-sort-value="57"><span class="badge badge-yellow">57d</span></td>
             </tr>
             
             <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-10" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 10</a></td>
-              <td><a href="/fund/memphis-re-llc-10/property/45-builders" style="color:var(--text);text-decoration:none;">45 Builders</a></td>
-              <td class="num" data-sort-value="60"><span class="badge badge-yellow">60d</span></td>
-            </tr>
-            
-            <tr class="warn-row">
-              <td><a href="/fund/memphis-re-llc-10" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 10</a></td>
-              <td><a href="/fund/memphis-re-llc-10/property/873-norfleet" style="color:var(--text);text-decoration:none;">873 Norfleet</a></td>
-              <td class="num" data-sort-value="60"><span class="badge badge-yellow">60d</span></td>
+              <td><a href="/fund/memphis-re-llc-6" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 6</a></td>
+              <td><a href="/fund/memphis-re-llc-6/property/1384-grand-opera" style="color:var(--text);text-decoration:none;">1384 Grand Opera</a></td>
+              <td class="num" data-sort-value="57"><span class="badge badge-yellow">57d</span></td>
             </tr>
             
             <tr class="warn-row">
               <td><a href="/fund/memphis-re-llc-7" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 7</a></td>
               <td><a href="/fund/memphis-re-llc-7/property/790-buntyn" style="color:var(--text);text-decoration:none;">790 Buntyn</a></td>
-              <td class="num" data-sort-value="60"><span class="badge badge-yellow">60d</span></td>
+              <td class="num" data-sort-value="57"><span class="badge badge-yellow">57d</span></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td><a href="/fund/memphis-re-llc-10" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 10</a></td>
+              <td><a href="/fund/memphis-re-llc-10/property/45-builders" style="color:var(--text);text-decoration:none;">45 Builders</a></td>
+              <td class="num" data-sort-value="57"><span class="badge badge-yellow">57d</span></td>
+            </tr>
+            
+            <tr class="warn-row">
+              <td><a href="/fund/memphis-re-llc-10" style="color:var(--muted);text-decoration:none;">Memphis RE LLC 10</a></td>
+              <td><a href="/fund/memphis-re-llc-10/property/873-norfleet" style="color:var(--text);text-decoration:none;">873 Norfleet</a></td>
+              <td class="num" data-sort-value="57"><span class="badge badge-yellow">57d</span></td>
             </tr>
             
           </tbody>
@@ -1423,18 +1325,6 @@
           </tr>
           
           <tr class="alert-row">
-            <td><strong>YAI</strong></td>
-            <td>
-              <div class="occ-bar">
-                <div class="bar-bg"><div class="bar-fill low" style="width:0.0%"></div></div>
-                <span class="bar-pct neg">0.0%</span>
-              </div>
-            </td>
-            <td class="num neg">5</td>
-            <td class="num neg">$0</td>
-          </tr>
-          
-          <tr class="alert-row">
             <td><strong>Memphis RE LLC 6</strong></td>
             <td>
               <div class="occ-bar">
@@ -1458,6 +1348,18 @@
             <td class="num neg">$2800</td>
           </tr>
           
+          <tr class="alert-row">
+            <td><strong>YAI</strong></td>
+            <td>
+              <div class="occ-bar">
+                <div class="bar-bg"><div class="bar-fill low" style="width:0.0%"></div></div>
+                <span class="bar-pct neg">0.0%</span>
+              </div>
+            </td>
+            <td class="num neg">5</td>
+            <td class="num neg">$0</td>
+          </tr>
+          
         </tbody>
       </table>
     </div>
@@ -1476,10 +1378,10 @@
         <thead>
           <tr>
             <th class="sortable">Entity</th>
-            <th class="num sortable">YTD Income</th>
-            <th class="num sortable">YTD Expense</th>
+            <th class="num sortable hide-mobile">YTD Income</th>
+            <th class="num sortable hide-mobile">YTD Expense</th>
             <th class="num sortable">YTD NOI</th>
-            <th class="num sortable">NOI Margin</th>
+            <th class="num sortable hide-mobile">NOI Margin</th>
             <th class="sortable">Status</th>
           </tr>
         </thead>
@@ -1487,100 +1389,100 @@
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-3" style="color:var(--text);text-decoration:none;">Memphis RE LLC 3</a></strong></td>
-            <td class="num" data-sort-value="22610.98">$22,611</td>
-            <td class="num" data-sort-value="6593.28">$6,593</td>
+            <td class="num hide-mobile" data-sort-value="22610.98">$22,611</td>
+            <td class="num hide-mobile" data-sort-value="6593.28">$6,593</td>
             <td class="num pos" data-sort-value="16017.7">$16,018</td>
-            <td class="num" data-sort-value="70.84036162961534">71%</td>
+            <td class="num hide-mobile" data-sort-value="70.84036162961534">71%</td>
             <td><span class="badge badge-green">On Track</span></td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-7" style="color:var(--text);text-decoration:none;">Memphis RE LLC 7</a></strong></td>
-            <td class="num" data-sort-value="26606.14">$26,606</td>
-            <td class="num" data-sort-value="12256.21">$12,256</td>
+            <td class="num hide-mobile" data-sort-value="26606.14">$26,606</td>
+            <td class="num hide-mobile" data-sort-value="12256.21">$12,256</td>
             <td class="num pos" data-sort-value="14349.93">$14,350</td>
-            <td class="num" data-sort-value="53.93465568474044">54%</td>
+            <td class="num hide-mobile" data-sort-value="53.93465568474044">54%</td>
             <td><span class="badge badge-green">On Track</span></td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc" style="color:var(--text);text-decoration:none;">Memphis RE LLC.</a></strong></td>
-            <td class="num" data-sort-value="21696.54">$21,697</td>
-            <td class="num" data-sort-value="7648.88">$7,649</td>
+            <td class="num hide-mobile" data-sort-value="21696.54">$21,697</td>
+            <td class="num hide-mobile" data-sort-value="7648.88">$7,649</td>
             <td class="num pos" data-sort-value="14047.66">$14,048</td>
-            <td class="num" data-sort-value="64.7460839378076">65%</td>
+            <td class="num hide-mobile" data-sort-value="64.7460839378076">65%</td>
             <td><span class="badge badge-green">On Track</span></td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-5" style="color:var(--text);text-decoration:none;">Memphis RE LLC 5</a></strong></td>
-            <td class="num" data-sort-value="14838.64">$14,839</td>
-            <td class="num" data-sort-value="3613.63">$3,614</td>
+            <td class="num hide-mobile" data-sort-value="14838.64">$14,839</td>
+            <td class="num hide-mobile" data-sort-value="3613.63">$3,614</td>
             <td class="num pos" data-sort-value="11225.01">$11,225</td>
-            <td class="num" data-sort-value="75.64716173449858">76%</td>
+            <td class="num hide-mobile" data-sort-value="75.64716173449858">76%</td>
             <td><span class="badge badge-green">On Track</span></td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-4" style="color:var(--text);text-decoration:none;">Memphis RE LLC 4</a></strong></td>
-            <td class="num" data-sort-value="13966.05">$13,966</td>
-            <td class="num" data-sort-value="4969.53">$4,970</td>
+            <td class="num hide-mobile" data-sort-value="13966.05">$13,966</td>
+            <td class="num hide-mobile" data-sort-value="4969.53">$4,970</td>
             <td class="num pos" data-sort-value="8996.52">$8,997</td>
-            <td class="num" data-sort-value="64.41706853405222">64%</td>
+            <td class="num hide-mobile" data-sort-value="64.41706853405222">64%</td>
             <td><span class="badge badge-green">On Track</span></td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc2" style="color:var(--text);text-decoration:none;">Memphis RE LLC2</a></strong></td>
-            <td class="num" data-sort-value="8356.52">$8,357</td>
-            <td class="num" data-sort-value="3112.6">$3,113</td>
+            <td class="num hide-mobile" data-sort-value="8356.52">$8,357</td>
+            <td class="num hide-mobile" data-sort-value="3112.6">$3,113</td>
             <td class="num pos" data-sort-value="5243.92">$5,244</td>
-            <td class="num" data-sort-value="62.75243761757286">63%</td>
+            <td class="num hide-mobile" data-sort-value="62.75243761757286">63%</td>
             <td><span class="badge badge-green">On Track</span></td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-10" style="color:var(--text);text-decoration:none;">Memphis RE LLC 10</a></strong></td>
-            <td class="num" data-sort-value="1800.0">$1,800</td>
-            <td class="num" data-sort-value="450.27">$450</td>
+            <td class="num hide-mobile" data-sort-value="1800.0">$1,800</td>
+            <td class="num hide-mobile" data-sort-value="450.27">$450</td>
             <td class="num pos" data-sort-value="1349.73">$1,350</td>
-            <td class="num" data-sort-value="74.985">75%</td>
+            <td class="num hide-mobile" data-sort-value="74.985">75%</td>
             <td><span class="badge badge-green">On Track</span></td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/yai" style="color:var(--text);text-decoration:none;">YAI</a></strong></td>
-            <td class="num" data-sort-value="0.0">—</td>
-            <td class="num" data-sort-value="0.0">—</td>
+            <td class="num hide-mobile" data-sort-value="0.0">—</td>
+            <td class="num hide-mobile" data-sort-value="0.0">—</td>
             <td class="num pos" data-sort-value="0.0">—</td>
-            <td class="num" data-sort-value="0">—</td>
+            <td class="num hide-mobile" data-sort-value="0">—</td>
             <td><span class="badge badge-yellow">Low Margin</span></td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-8" style="color:var(--text);text-decoration:none;">Memphis RE LLC 8</a></strong></td>
-            <td class="num" data-sort-value="7653.28">$7,653</td>
-            <td class="num" data-sort-value="8023.15">$8,023</td>
+            <td class="num hide-mobile" data-sort-value="7653.28">$7,653</td>
+            <td class="num hide-mobile" data-sort-value="8023.15">$8,023</td>
             <td class="num neg" data-sort-value="-369.87">($370)</td>
-            <td class="num" data-sort-value="-4.83282984550415">-5%</td>
+            <td class="num hide-mobile" data-sort-value="-4.83282984550415">-5%</td>
             <td><span class="badge badge-red">Negative NOI</span></td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-6" style="color:var(--text);text-decoration:none;">Memphis RE LLC 6</a></strong></td>
-            <td class="num" data-sort-value="6350.25">$6,350</td>
-            <td class="num" data-sort-value="6759.89">$6,760</td>
+            <td class="num hide-mobile" data-sort-value="6350.25">$6,350</td>
+            <td class="num hide-mobile" data-sort-value="6759.89">$6,760</td>
             <td class="num neg" data-sort-value="-409.64">($410)</td>
-            <td class="num" data-sort-value="-6.450769654738003">-6%</td>
+            <td class="num hide-mobile" data-sort-value="-6.450769654738003">-6%</td>
             <td><span class="badge badge-red">Negative NOI</span></td>
           </tr>
           
           <tr>
             <td><strong><a href="/fund/memphis-re-llc-9" style="color:var(--text);text-decoration:none;">Memphis RE LLC 9</a></strong></td>
-            <td class="num" data-sort-value="896.5">$896</td>
-            <td class="num" data-sort-value="2366.66">$2,367</td>
+            <td class="num hide-mobile" data-sort-value="896.5">$896</td>
+            <td class="num hide-mobile" data-sort-value="2366.66">$2,367</td>
             <td class="num neg" data-sort-value="-1470.16">($1,470)</td>
-            <td class="num" data-sort-value="-163.9888455103179">-164%</td>
+            <td class="num hide-mobile" data-sort-value="-163.9888455103179">-164%</td>
             <td><span class="badge badge-red">Negative NOI</span></td>
           </tr>
           
@@ -1606,61 +1508,61 @@
       <table>
         <thead>
           <tr>
-            <th style="width:90px">Priority</th>
-            <th>Entity</th>
+            <th>Priority</th>
+            <th class="hide-mobile">Entity</th>
             <th>Action Item</th>
-            <th>Detail</th>
+            <th class="priority-detail">Detail</th>
           </tr>
         </thead>
         <tbody>
           
           <tr class="alert-row">
             <td><span class="badge badge-red">URGENT</span></td>
-            <td>Memphis RE LLC 6</td>
-            <td>LLC 6 — Collections: 590 Blackhawk ($8,327)</td>
-            <td style="color:var(--muted); font-size:12px">Tenant: Ford, J. | Balance: $8,327</td>
+            <td class="hide-mobile">Memphis RE LLC 6</td>
+            <td class="priority-action">LLC 6 — Collections: 590 Blackhawk ($8,327)</td>
+            <td class="priority-detail" style="color:var(--muted); font-size:12px">Tenant: Ford, J. | Balance: $8,327</td>
           </tr>
           
           <tr class="alert-row">
             <td><span class="badge badge-red">URGENT</span></td>
-            <td>Memphis RE LLC 6</td>
-            <td>LLC 6 — Collections: 3288 Madewell ($5,736)</td>
-            <td style="color:var(--muted); font-size:12px">Tenant: Watkins, M. | Balance: $5,736</td>
+            <td class="hide-mobile">Memphis RE LLC 6</td>
+            <td class="priority-action">LLC 6 — Collections: 3288 Madewell ($5,736)</td>
+            <td class="priority-detail" style="color:var(--muted); font-size:12px">Tenant: Watkins, M. | Balance: $5,736</td>
           </tr>
           
           <tr class="alert-row">
             <td><span class="badge badge-red">URGENT</span></td>
-            <td>Memphis RE LLC 8</td>
-            <td>Memphis RE LLC 8 — Fill 5 vacant unit(s) (58% occupied, $4,999/mo loss)</td>
-            <td style="color:var(--muted); font-size:12px">5 vacant of 12 total units</td>
+            <td class="hide-mobile">Memphis RE LLC 8</td>
+            <td class="priority-action">Memphis RE LLC 8 — Fill 5 vacant unit(s) (58% occupied, $4,999/mo loss)</td>
+            <td class="priority-detail" style="color:var(--muted); font-size:12px">5 vacant of 12 total units</td>
           </tr>
           
           <tr class="alert-row">
             <td><span class="badge badge-red">URGENT</span></td>
-            <td>YAI</td>
-            <td>YAI — Fill 5 vacant unit(s) (0% occupied, —/mo loss)</td>
-            <td style="color:var(--muted); font-size:12px">5 vacant of 5 total units</td>
+            <td class="hide-mobile">Memphis RE LLC 6</td>
+            <td class="priority-action">Memphis RE LLC 6 — Fill 7 vacant unit(s) (59% occupied, $7,245/mo loss)</td>
+            <td class="priority-detail" style="color:var(--muted); font-size:12px">7 vacant of 17 total units</td>
           </tr>
           
           <tr class="alert-row">
             <td><span class="badge badge-red">URGENT</span></td>
-            <td>Memphis RE LLC 6</td>
-            <td>Memphis RE LLC 6 — Fill 7 vacant unit(s) (59% occupied, $7,245/mo loss)</td>
-            <td style="color:var(--muted); font-size:12px">7 vacant of 17 total units</td>
+            <td class="hide-mobile">Memphis RE LLC 9</td>
+            <td class="priority-action">Memphis RE LLC 9 — Fill 2 vacant unit(s) (50% occupied, $2,800/mo loss)</td>
+            <td class="priority-detail" style="color:var(--muted); font-size:12px">2 vacant of 4 total units</td>
           </tr>
           
           <tr class="alert-row">
             <td><span class="badge badge-red">URGENT</span></td>
-            <td>Memphis RE LLC 9</td>
-            <td>Memphis RE LLC 9 — Fill 2 vacant unit(s) (50% occupied, $2,800/mo loss)</td>
-            <td style="color:var(--muted); font-size:12px">2 vacant of 4 total units</td>
+            <td class="hide-mobile">YAI</td>
+            <td class="priority-action">YAI — Fill 5 vacant unit(s) (0% occupied, —/mo loss)</td>
+            <td class="priority-detail" style="color:var(--muted); font-size:12px">5 vacant of 5 total units</td>
           </tr>
           
           <tr class="alert-row">
             <td><span class="badge badge-red">URGENT</span></td>
-            <td>Memphis RE LLC2</td>
-            <td>Memphis RE LLC2 — Renew/handle expired lease: 666/664 East Waldorf Avenue (578d overdue)</td>
-            <td style="color:var(--muted); font-size:12px">Tenant: Bonds, A. | Expired: 2024-08-31</td>
+            <td class="hide-mobile">Memphis RE LLC2</td>
+            <td class="priority-action">Memphis RE LLC2 — Renew/handle expired lease: 666/664 East Waldorf Avenue (581d overdue)</td>
+            <td class="priority-detail" style="color:var(--muted); font-size:12px">Tenant: Bonds, A. | Expired: 2024-08-31</td>
           </tr>
           
         </tbody>
@@ -1673,7 +1575,7 @@
 <div class="footer">
   Generated by YAI/VM Group Weekly Monitor &nbsp;·&nbsp;
   Data from Propertyware (Lubin Property Management) &nbsp;·&nbsp;
-  April 01, 2026
+  April 04, 2026
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
